@@ -6,12 +6,13 @@ import Results from '../Results';
 type ExerciseEditorProps = {
   code: string;
   tests: string;
+  onSuccess?: () => void;
 };
 
 export default function ExerciseEditor(
   props: ExerciseEditorProps
 ): React.ReactElement {
-  const { code, tests } = props;
+  const { code, tests, onSuccess } = props;
 
   const [value, valueSet] = useState<string | undefined>(code);
   const [results, resultsSet] = useState<boolean[]>([]);
@@ -22,6 +23,7 @@ export default function ExerciseEditor(
 
   const onSubmit = useCallback(() => {
     if (isAllPassed) {
+      onSuccess?.();
     } else {
       const results = testsArr.map((test) => {
         try {
@@ -34,7 +36,7 @@ export default function ExerciseEditor(
 
       resultsSet(results);
     }
-  }, [isAllPassed, value, testsArr]);
+  }, [onSuccess, isAllPassed, value, testsArr]);
 
   const onEditorValueChange = (val: string) => {
     resultsSet([]);
