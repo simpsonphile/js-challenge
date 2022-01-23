@@ -1,12 +1,7 @@
-import type { NextPage } from 'next'
-import Editor from '../components/Editor'
+import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
-  return (
-    <div>
-      <Editor />
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default Home
+export default Home;

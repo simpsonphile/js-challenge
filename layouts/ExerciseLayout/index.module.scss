@@ -1,0 +1,9 @@
+.exercise-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+}
+
+.exercise-layout__header {
+  grid-column: 1 / span 2;
+}
