@@ -1,9 +1,10 @@
 import { GetStaticProps } from 'next';
 
 import { getPostBySlug, getAllPosts } from 'lib/getExercises';
-import ExerciseLayout from 'layouts/ExerciseLayout';
+import ExerciseView from 'views/ExerciseView';
 
 import { Post } from 'lib/getExercises';
+import DefaultLayout from 'layouts/DefaultLayout';
 
 type ExerciseProps = {
   posts: Post[];
@@ -14,14 +15,16 @@ export default function Exercise({ post, posts }: ExerciseProps) {
   const { title, code, description, content, slug } = post;
 
   return (
-    <ExerciseLayout
-      title={title}
-      code={code}
-      description={description}
-      content={content}
-      slug={slug}
-      posts={posts}
-    />
+    <DefaultLayout>
+      <ExerciseView
+        title={title}
+        code={code}
+        description={description}
+        content={content}
+        slug={slug}
+        posts={posts}
+      />
+    </DefaultLayout>
   );
 }
 

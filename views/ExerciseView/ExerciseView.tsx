@@ -8,10 +8,10 @@ import { Post } from 'lib/getExercises';
 
 import styles from './index.module.scss';
 
-type ExerciseProps = Post & { posts: Post[] };
+type ExerciseViewProps = Post & { posts: Post[] };
 
 export default function ExerciseLayout(
-  props: ExerciseProps
+  props: ExerciseViewProps
 ): React.ReactElement {
   const { title, code, description, content, slug, posts } = props;
 
@@ -28,9 +28,9 @@ export default function ExerciseLayout(
   }, [slug]);
 
   return (
-    <div className={styles['exercise-layout']}>
+    <div className={styles['exercise-view']}>
       {title && (
-        <header className={styles['exercise-layout__header']}>
+        <header className={styles['exercise-view__header']}>
           <h1>
             {title}
             {isPassed && '✅'}
