@@ -21,6 +21,7 @@ export default function ModalExerciseCompleted(
   return (
     <Modal onClose={onClose}>
       <div>
+        <h2>Congratulations!</h2>
         <button
           onClick={() => {
             goToNextExercise?.();
