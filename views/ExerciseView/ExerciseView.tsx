@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
-import { useRouter } from 'next/router';
+
 import ExerciseEditor from 'components/ExerciseEditor';
 import updateLocalStorageExercisesData, {
   checkExerciseStatus,
 } from 'lib/updateData';
-
 import { Post } from 'lib/getExercises';
+import useGoToNextExercise from 'hooks/useGoToNextExercise';
 
 import styles from './index.module.scss';
 
@@ -16,19 +16,9 @@ export default function ExerciseLayout(
 ): React.ReactElement {
   const { title, code, description, content, slug, posts } = props;
 
-  const router = useRouter();
-
   const isPassed = slug ? checkExerciseStatus(slug) : false;
 
-  const goToNextExercise = useCallback(() => {
-    const index = posts.findIndex((post) => post.slug === slug);
-
-    const nextSlug = posts?.[index + 1]?.slug;
-
-    if (nextSlug) {
-      router.push('/exercises/' + nextSlug);
-    }
-  }, [posts, router, slug]);
+  const goToNextExercise = useGoToNextExercise(posts, slug);
 
   const makeExerciseCompleted = useCallback(() => {
     if (slug) {
@@ -38,7 +28,7 @@ export default function ExerciseLayout(
 
   const onSuccess = () => {
     makeExerciseCompleted();
-    goToNextExercise();
+    goToNextExercise?.();
   };
 
   return (
