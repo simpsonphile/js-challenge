@@ -1,11 +1,11 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 import ExerciseEditor from 'components/ExerciseEditor';
+import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
 import updateLocalStorageExercisesData, {
   checkExerciseStatus,
 } from 'lib/updateData';
 import { Post } from 'lib/getExercises';
-import useGoToNextExercise from 'hooks/useGoToNextExercise';
 
 import styles from './index.module.scss';
 
@@ -16,9 +16,9 @@ export default function ExerciseLayout(
 ): React.ReactElement {
   const { title, code, description, content, slug, posts } = props;
 
-  const isPassed = slug ? checkExerciseStatus(slug) : false;
+  const [showModal, showModalSet] = useState(false);
 
-  const goToNextExercise = useGoToNextExercise(posts, slug);
+  const isPassed = slug ? checkExerciseStatus(slug) : false;
 
   const makeExerciseCompleted = useCallback(() => {
     if (slug) {
@@ -28,7 +28,7 @@ export default function ExerciseLayout(
 
   const onSuccess = () => {
     makeExerciseCompleted();
-    goToNextExercise?.();
+    showModalSet(true);
   };
 
   return (
@@ -48,6 +48,14 @@ export default function ExerciseLayout(
         <div>
           <ExerciseEditor code={code} tests={content} onSuccess={onSuccess} />
         </div>
+      )}
+
+      {slug && showModal && (
+        <ModalExerciseCompleted
+          posts={posts}
+          slug={slug}
+          onClose={() => showModalSet(false)}
+        />
       )}
     </div>
   );

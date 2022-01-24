@@ -17,15 +17,20 @@ const updateLocalStorageExercisesData = (slug: string, status: boolean) => {
   }
 };
 
-const checkExerciseStatus = (slug: string) => {
+const getExerciseStatuses = () => {
   if (typeof window === 'object') {
     const exercisesStatusDatabase = window.localStorage.getItem(KEY);
 
     return exercisesStatusDatabase
-      ? JSON.parse(exercisesStatusDatabase)[slug]
+      ? JSON.parse(exercisesStatusDatabase)
       : false;
   }
 };
 
+const checkExerciseStatus = (slug: string) => {
+  const statuses = getExerciseStatuses();
+  return statuses?.[slug];
+};
+
 export default updateLocalStorageExercisesData;
-export { checkExerciseStatus };
+export { checkExerciseStatus, getExerciseStatuses };
