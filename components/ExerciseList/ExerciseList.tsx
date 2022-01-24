@@ -14,9 +14,7 @@ export default function ExerciseList(
 
   const links = posts.map((link) => (
     <li key={link.slug}>
-      <Link href={SLUG_PREFIX + link.slug}>
-        <a href={SLUG_PREFIX + link.slug}>{link.title}</a>
-      </Link>
+      <Link href={SLUG_PREFIX + link.slug}>{link.title}</Link>
     </li>
   ));
   return <ul>{links}</ul>;
