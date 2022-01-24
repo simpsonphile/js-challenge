@@ -1,3 +1,4 @@
+import Header from 'components/Header';
 import React from 'react';
 
 type DefaultLayoutProps = {
@@ -9,5 +10,10 @@ export default function DefaultLayout(
 ): React.ReactElement {
   const { children } = props;
 
-  return <div>{children}</div>;
+  return (
+    <div>
+      <Header />
+      {children}
+    </div>
+  );
 }
