@@ -1,5 +1,5 @@
-import ExerciseList from '../components/ExerciseList';
-import { getAllPosts, Post } from '../lib/getData';
+import ExerciseList from 'components/ExerciseList';
+import { getAllPosts, Post } from 'lib/getExercises';
 
 type HomeProps = {
   posts: Post[];

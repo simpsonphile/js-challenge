@@ -1,31 +1,54 @@
-import React from 'react';
-import ExerciseEditor from '../../components/ExerciseEditor';
+import React, { useCallback } from 'react';
+import ExerciseEditor from 'components/ExerciseEditor';
+import updateLocalStorageExercisesData, {
+  checkExerciseStatus,
+} from 'lib/updateData';
+
+import { Post } from 'lib/getExercises';
 
 import styles from './index.module.scss';
 
-type ExerciseProps = {
-  title: string;
-  code: string;
-  description: string;
-  tests: string;
-};
+type ExerciseProps = Post & { posts: Post[] };
 
 export default function ExerciseLayout(
   props: ExerciseProps
 ): React.ReactElement {
-  const { title, code, description, tests } = props;
+  const { title, code, description, content, slug, posts } = props;
+
+  console.log(posts);
+
+  const isPassed = slug ? checkExerciseStatus(slug) : false;
+
+  // const goToNextExercise = useCallback(() => {}, []);
+
+  const makeExerciseCompleted = useCallback(() => {
+    if (slug) {
+      updateLocalStorageExercisesData(slug, true);
+    }
+  }, [slug]);
 
   return (
     <div className={styles['exercise-layout']}>
-      <header className={styles['exercise-layout__header']}>
-        <h1>{title}</h1>
+      {title && (
+        <header className={styles['exercise-layout__header']}>
+          <h1>
+            {title}
+            {isPassed && '✅'}
+          </h1>
 
-        <div>{description}</div>
-      </header>
+          {description && <div>{description}</div>}
+        </header>
+      )}
 
-      <div>
-        <ExerciseEditor code={code} tests={tests} />
-      </div>
+      {code && content && (
+        <div>
+          <ExerciseEditor
+            code={code}
+            tests={content}
+            onSuccess={!isPassed ? makeExerciseCompleted : undefined}
+          />
+        </div>
+      )}
     </div>
   );
 }

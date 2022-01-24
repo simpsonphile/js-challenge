@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Post } from '../../lib/getData';
+import { Post } from 'lib/getExercises';
 
 type ExerciseListProps = {
   posts: Post[];

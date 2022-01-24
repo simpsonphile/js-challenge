@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import Editor from '../../components/Editor';
-import getTests from '../../lib/getTests';
-import Results from '../Results';
+import Editor from 'components/Editor';
+import getTests from 'lib/getTests';
+import Results from 'components/Results';
 
 type ExerciseEditorProps = {
   code: string;

@@ -1,32 +1,33 @@
 import { GetStaticProps } from 'next';
 
-import { getPostBySlug, getAllPosts } from '../../lib/getData';
-import ExerciseLayout from '../../layouts/ExerciseLayout';
+import { getPostBySlug, getAllPosts } from 'lib/getExercises';
+import ExerciseLayout from 'layouts/ExerciseLayout';
+
+import { Post } from 'lib/getExercises';
 
 type ExerciseProps = {
-  post: {
-    title: string;
-    slug: string;
-    code: string;
-    description: string;
-    content: string;
-  };
+  posts: Post[];
+  post: Post;
 };
 
-export default function Exercise({ post }: ExerciseProps) {
-  const { title, code, description, content } = post;
+export default function Exercise({ post, posts }: ExerciseProps) {
+  const { title, code, description, content, slug } = post;
 
   return (
     <ExerciseLayout
       title={title}
       code={code}
       description={description}
-      tests={content}
+      content={content}
+      slug={slug}
+      posts={posts}
     />
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const posts = getAllPosts(['slug']);
+
   const slug = params?.slug as string;
   const post: { [key: string]: string } = getPostBySlug(slug, [
     'title',
@@ -38,6 +39,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
+      posts,
       post: {
         ...post,
       },

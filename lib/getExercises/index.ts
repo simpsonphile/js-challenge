@@ -2,9 +2,13 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 
-type Post = {
+import exerciseSlugsInOrder from './order';
+
+export type Post = {
   title?: string;
   slug?: string;
+  code?: string;
+  description?: string;
   content?: string;
 };
 
@@ -36,7 +40,17 @@ export function getPostBySlug(slug: string, fields: string[] = []): Post {
 
 export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs();
-  const posts = slugs.map((slug) => getPostBySlug(slug, fields));
+  const posts = slugs
+    .map((slug) => getPostBySlug(slug, fields))
+    .sort((a, b) => {
+      if (!a?.slug && !b?.slug) return 0;
+      if (!a?.slug) return 1;
+      if (!b?.slug) return -1;
+      return (
+        exerciseSlugsInOrder.indexOf(a.slug) -
+        exerciseSlugsInOrder.indexOf(b.slug)
+      );
+    });
 
   return posts;
 }
