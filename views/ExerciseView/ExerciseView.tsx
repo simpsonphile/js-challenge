@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import ExerciseEditor from 'components/ExerciseEditor';
 import updateLocalStorageExercisesData, {
   checkExerciseStatus,
