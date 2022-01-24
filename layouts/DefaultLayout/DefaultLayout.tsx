@@ -13,6 +13,7 @@ export default function DefaultLayout(
     <div>
       <Header />
       {children}
+      <div id="footer" />
     </div>
   );
 }
