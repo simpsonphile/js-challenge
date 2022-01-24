@@ -10,10 +10,12 @@
   align-items: center;
   justify-content: center;
 
+  padding: 2rem;
+
   background: rgba(0,0,0,.8);
 }
 
 .modal__center {
   max-width: 30rem;
-  height: 30rem;
+  width: 100%;
 }

@@ -5,6 +5,7 @@ import ExerciseView from 'views/ExerciseView';
 
 import { Post } from 'lib/getExercises';
 import DefaultLayout from 'layouts/DefaultLayout';
+import Sidebar from 'components/Sidebar';
 
 type ExerciseProps = {
   posts: Post[];
@@ -15,7 +16,7 @@ export default function Exercise({ post, posts }: ExerciseProps) {
   const { title, code, description, content, slug } = post;
 
   return (
-    <DefaultLayout>
+    <DefaultLayout sidebar={<Sidebar posts={posts} />}>
       <ExerciseView
         title={title}
         code={code}
@@ -29,16 +30,11 @@ export default function Exercise({ post, posts }: ExerciseProps) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const posts = getAllPosts(['slug']);
+  const postKeys = ['title', 'slug', 'code', 'description', 'content'];
+  const posts = getAllPosts(postKeys);
 
   const slug = params?.slug as string;
-  const post: { [key: string]: string } = getPostBySlug(slug, [
-    'title',
-    'slug',
-    'code',
-    'description',
-    'content',
-  ]);
+  const post: { [key: string]: string } = getPostBySlug(slug, postKeys);
 
   return {
     props: {

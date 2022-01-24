@@ -1,11 +1,13 @@
-import Link from 'next/link';
+import Link from 'components/Link';
 import { Post } from 'lib/getExercises';
 
-type ExerciseListProps = {
+import style from './index.module.scss';
+
+export type ExerciseListProps = {
   posts: Post[];
 };
 
-const SLUG_PREFIX = 'exercises/';
+const SLUG_PREFIX = '/exercises/';
 
 export default function ExerciseList(
   props: ExerciseListProps
@@ -17,5 +19,6 @@ export default function ExerciseList(
       <Link href={SLUG_PREFIX + link.slug}>{link.title}</Link>
     </li>
   ));
-  return <ul>{links}</ul>;
+
+  return <ul className={style['exercise-list']}>{links}</ul>;
 }

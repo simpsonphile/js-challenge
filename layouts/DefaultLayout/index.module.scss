@@ -1,0 +1,19 @@
+.layout__header {
+  margin-bottom: 4rem;
+}
+
+.layout__sidebar {
+  position: fixed;
+  top: 8rem;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+
+  width: 20rem;
+}
+
+.layout--nav-shown {
+  .layout__content {
+    margin-left: 20rem;
+  }
+}

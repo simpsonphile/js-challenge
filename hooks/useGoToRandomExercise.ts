@@ -18,7 +18,7 @@ const useGoToNextExercise = (posts: Post[], slug?: string) => {
 
   const shuffledPostsWithStatus = shuffle(postsWithStatus);
 
-  const nextPost = shuffledPostsWithStatus.find((post) => post.isPassed);
+  const nextPost = shuffledPostsWithStatus.find((post) => !post.isPassed);
   const nextSlug = nextPost?.slug;
 
   if (nextSlug) {

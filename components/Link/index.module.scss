@@ -1,0 +1,14 @@
+.link {
+  text-decoration: none;
+
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.link--active {
+  color: blue;
+  text-decoration: underline;
+}
