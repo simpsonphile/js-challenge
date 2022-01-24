@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useRouter } from 'next/router';
 import ExerciseEditor from 'components/ExerciseEditor';
 import updateLocalStorageExercisesData, {
   checkExerciseStatus,
@@ -15,17 +16,30 @@ export default function ExerciseLayout(
 ): React.ReactElement {
   const { title, code, description, content, slug, posts } = props;
 
-  console.log(posts);
+  const router = useRouter();
 
   const isPassed = slug ? checkExerciseStatus(slug) : false;
 
-  // const goToNextExercise = useCallback(() => {}, []);
+  const goToNextExercise = useCallback(() => {
+    const index = posts.findIndex((post) => post.slug === slug);
+
+    const nextSlug = posts?.[index + 1]?.slug;
+
+    if (nextSlug) {
+      router.push('/exercises/' + nextSlug);
+    }
+  }, [posts, router, slug]);
 
   const makeExerciseCompleted = useCallback(() => {
     if (slug) {
       updateLocalStorageExercisesData(slug, true);
     }
   }, [slug]);
+
+  const onSuccess = () => {
+    makeExerciseCompleted();
+    goToNextExercise();
+  };
 
   return (
     <div className={styles['exercise-view']}>
@@ -42,11 +56,7 @@ export default function ExerciseLayout(
 
       {code && content && (
         <div>
-          <ExerciseEditor
-            code={code}
-            tests={content}
-            onSuccess={!isPassed ? makeExerciseCompleted : undefined}
-          />
+          <ExerciseEditor code={code} tests={content} onSuccess={onSuccess} />
         </div>
       )}
     </div>
