@@ -1,5 +1,6 @@
-import ExerciseList from 'components/ExerciseList';
+import DefaultLayout from 'layouts/DefaultLayout';
 import { getAllPosts, Post } from 'lib/getExercises';
+import HomeView from 'views/HomeView';
 
 type HomeProps = {
   posts: Post[];
@@ -8,7 +9,11 @@ type HomeProps = {
 export default function Home(props: HomeProps) {
   const { posts } = props;
 
-  return <ExerciseList posts={posts} />;
+  return (
+    <DefaultLayout>
+      <HomeView posts={posts}></HomeView>
+    </DefaultLayout>
+  );
 }
 
 export async function getStaticProps() {
