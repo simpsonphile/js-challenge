@@ -1,19 +1,31 @@
+.layout {
+  display: grid;
+  grid-template-columns: 20rem calc(100% - 20rem);
+  grid-template-areas: 
+  'header  header'
+  'content content';
+  gap: 2rem;
+
+  padding: 2rem;
+  width: 100%;
+}
+
 .layout__header {
-  margin-bottom: 4rem;
+  grid-area: header;
 }
 
 .layout__sidebar {
-  position: fixed;
-  top: 8rem;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
+  grid-area: sidebar;
 
   width: 20rem;
 }
 
+.layout__content {
+  grid-area: content;
+}
+
 .layout--nav-shown {
-  .layout__content {
-    margin-left: 20rem;
-  }
+  grid-template-areas: 
+  'header  header'
+  'sidebar content';
 }

@@ -8,6 +8,7 @@ import updateLocalStorageExercisesData, {
 import { Post } from 'lib/getExercises';
 
 import styles from './index.module.scss';
+import Headline from 'components/Headline';
 
 type ExerciseViewProps = Post & { posts: Post[] };
 
@@ -35,10 +36,10 @@ export default function ExerciseLayout(
     <div className={styles['exercise-view']}>
       {title && (
         <header className={styles['exercise-view__header']}>
-          <h1>
+          <Headline tag="h1">
             {title}
-            {isPassed && '✅'}
-          </h1>
+            {isPassed && ' ✅'}
+          </Headline>
 
           {description && <div>{description}</div>}
         </header>
