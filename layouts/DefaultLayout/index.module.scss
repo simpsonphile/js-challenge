@@ -3,7 +3,7 @@
   grid-template-columns: 20rem calc(100% - 20rem);
   grid-template-areas: 
   'header  header'
-  'content content';
+  'sidebar content';
   gap: 2rem;
 
   padding: 2rem;
@@ -22,10 +22,4 @@
 
 .layout__content {
   grid-area: content;
-}
-
-.layout--nav-shown {
-  grid-template-areas: 
-  'header  header'
-  'sidebar content';
 }
