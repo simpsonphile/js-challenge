@@ -1,0 +1,16 @@
+.input {
+  position: relative;
+}
+
+.input input {
+  width: 100%; 
+  border: 1px solid black;
+  border-radius: .4rem;
+}
+
+.input__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+

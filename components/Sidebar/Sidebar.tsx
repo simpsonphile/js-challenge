@@ -1,14 +1,15 @@
-import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
-import React from 'react';
+import ExerciseListWithSearch, {
+  ExerciseListWithSearchProps,
+} from 'components/ExerciseListWithSearch';
 
-type SidebarProps = ExerciseListProps;
+type SidebarProps = ExerciseListWithSearchProps;
 
 export default function Sidebar(props: SidebarProps): React.ReactElement {
   const { posts } = props;
 
   return (
     <div>
-      <ExerciseList posts={posts} />
+      <ExerciseListWithSearch posts={posts} />
     </div>
   );
 }
