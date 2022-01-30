@@ -1,7 +1,9 @@
 import { useCallback, useState } from 'react';
+import Button from '@mui/material/Button';
+
 import Editor from 'components/Editor';
-import getTests from 'lib/getTests';
-import Results from 'components/Results';
+import getTestWithMessages from 'lib/getTests';
+import Results, { Result } from 'components/Results';
 
 type ExerciseEditorProps = {
   code: string;
@@ -15,22 +17,24 @@ export default function ExerciseEditor(
   const { code, tests, onSuccess } = props;
 
   const [value, valueSet] = useState<string | undefined>(code);
-  const [results, resultsSet] = useState<boolean[]>([]);
+  const [results, resultsSet] = useState<Result[]>([]);
 
-  const testsArr = getTests(tests);
+  const testsArr = getTestWithMessages(tests);
 
-  const isAllPassed = results.length > 0 && !results.includes(false);
+  const isAllPassed =
+    results.length > 0 &&
+    !results.map((result) => result.result).includes(false);
 
   const onSubmit = useCallback(() => {
     if (isAllPassed) {
       onSuccess?.();
     } else {
-      const results = testsArr.map((test) => {
+      const results = testsArr.map(({ body, message }) => {
         try {
-          return !!eval(value + test);
+          return { result: !!eval(value + body), message };
         } catch (error) {
           console.log(error);
-          return false;
+          return { result: false, message };
         }
       });
 
@@ -46,7 +50,9 @@ export default function ExerciseEditor(
   return (
     <div>
       <Editor value={code} setValue={(val) => onEditorValueChange(val)} />
-      <button onClick={onSubmit}>{isAllPassed ? 'accept' : 'test'}</button>
+      <Button variant="contained" onClick={onSubmit}>
+        {isAllPassed ? 'accept' : 'test'}
+      </Button>
       <Results results={results} />
     </div>
   );

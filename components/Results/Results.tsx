@@ -1,7 +1,12 @@
-import styles from './index.module.scss';
+import List from 'components/List';
+
+export type Result = {
+  result: boolean;
+  message?: string;
+};
 
 type ResultsProps = {
-  results: boolean[];
+  results: Result[];
 };
 
 export default function Results(props: ResultsProps): React.ReactElement {
@@ -9,11 +14,11 @@ export default function Results(props: ResultsProps): React.ReactElement {
 
   if (results.length < 0) return <></>;
 
-  const resultNodes = results.map((result, index) => (
-    <li key={index}>
-      {result ? `test ${index} passed` : `test ${index} failed`}
-    </li>
-  ));
+  const resultNodes = results.map(({ result, message }, index) => {
+    const failMessage = message || `test ${index} failed`;
 
-  return <ul className={styles['result-list']}>{resultNodes}</ul>;
+    return result ? `test ${index} passed` : failMessage;
+  });
+
+  return <List>{resultNodes}</List>;
 }

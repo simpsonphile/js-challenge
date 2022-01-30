@@ -13,13 +13,15 @@ const useGoToNextExercise = (posts: Post[], slug?: string) => {
 
   const postsWithStatus = posts.map((post) => ({
     ...post,
-    isPassed: !!statuses?.[slug],
+    isPassed: post.slug ? !!statuses?.[post.slug] : false,
   }));
 
   const shuffledPostsWithStatus = shuffle(postsWithStatus);
 
   const nextPost = shuffledPostsWithStatus.find((post) => !post.isPassed);
   const nextSlug = nextPost?.slug;
+
+  console.log(postsWithStatus, !!statuses?.['e4']);
 
   if (nextSlug) {
     return () => router.push('/exercises/' + nextSlug);

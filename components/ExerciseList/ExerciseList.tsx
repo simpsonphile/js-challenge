@@ -1,7 +1,8 @@
-import Link from 'components/Link';
-import { Post } from 'lib/getExercises';
+import React from 'react';
 
-import style from './index.module.scss';
+import Link from 'components/Link';
+import List from 'components/List';
+import { Post } from 'lib/getExercises';
 
 export type ExerciseListProps = {
   posts: Post[];
@@ -14,11 +15,15 @@ export default function ExerciseList(
 ): React.ReactElement {
   const { posts } = props;
 
-  const links = posts.map((link) => (
-    <li key={link.slug}>
-      <Link href={SLUG_PREFIX + link.slug}>{link.title}</Link>
-    </li>
-  ));
+  const links = React.useMemo(
+    () =>
+      posts.map((link) => (
+        <Link key={link.slug} href={SLUG_PREFIX + link.slug}>
+          {link.title}
+        </Link>
+      )),
+    [posts]
+  );
 
-  return <ul className={style['exercise-list']}>{links}</ul>;
+  return <List>{links}</List>;
 }

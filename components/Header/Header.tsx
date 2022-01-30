@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ToggleButton from '@mui/material/ToggleButton';
 
 import LayoutContext from 'context/layoutContext';
 import { useContext } from 'react';
@@ -8,14 +9,15 @@ export default function Header(): React.ReactElement {
 
   return (
     <header>
-      <button
+      <ToggleButton
+        value="toggle-menu"
+        size="large"
+        selected={!!layoutContext?.isNavShownSet}
         onClick={() =>
           layoutContext?.isNavShownSet?.(!layoutContext.isNavShown)
         }
-      >
-        x
-      </button>
-      <Link href="/">JSChalange</Link>
+      ></ToggleButton>
+      <Link href="/">JSChallenge</Link>
     </header>
   );
 }

@@ -1,8 +1,9 @@
+import Button from '@mui/material/Button';
+
 import Modal from 'components/Modal';
 import useGoToNextExercise from 'hooks/useGoToNextExercise';
 import useGoToRandomExercise from 'hooks/useGoToRandomExercise';
 import { Post } from 'lib/getExercises';
-import React from 'react';
 
 type ModalExerciseCompletedProps = {
   posts: Post[];
@@ -19,26 +20,29 @@ export default function ModalExerciseCompleted(
   const goToRandomExercise = useGoToRandomExercise(posts, slug);
 
   return (
-    <Modal onClose={onClose}>
-      <div>
+    <Modal open={true} onClose={onClose}>
+      <>
         <h2>Congratulations!</h2>
-        <button
+        <Button
+          variant="contained"
           onClick={() => {
             goToNextExercise?.();
             onClose();
           }}
         >
           Go to next exercise
-        </button>
-        <button
+        </Button>
+
+        <Button
+          variant="outlined"
           onClick={() => {
             goToRandomExercise?.();
             onClose();
           }}
         >
           Go to random exercise
-        </button>
-      </div>
+        </Button>
+      </>
     </Modal>
   );
 }
