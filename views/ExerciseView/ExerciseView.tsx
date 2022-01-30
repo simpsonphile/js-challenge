@@ -2,13 +2,14 @@ import { useCallback, useState } from 'react';
 
 import ExerciseEditor from 'components/ExerciseEditor';
 import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
+import Headline from 'components/Headline';
+import ClientOnly from 'components/ClientOnly';
 import updateLocalStorageExercisesData, {
   checkExerciseStatus,
 } from 'lib/updateData';
 import { Post } from 'lib/getExercises';
 
 import styles from './index.module.scss';
-import Headline from 'components/Headline';
 
 type ExerciseViewProps = Post & { posts: Post[] };
 
@@ -38,7 +39,7 @@ export default function ExerciseLayout(
         <header className={styles['exercise-view__header']}>
           <Headline tag="h1">
             {title}
-            {isPassed && ' ✅'}
+            <ClientOnly>{isPassed && ' ✅'}</ClientOnly>
           </Headline>
 
           {description && <div>{description}</div>}
