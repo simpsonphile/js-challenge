@@ -17,7 +17,9 @@ const updateLocalStorageExercisesData = (slug: string, status: boolean) => {
   }
 };
 
-const getExerciseStatuses = () => {
+type ExerciseStatuses = { [key: string]: boolean };
+
+const getExerciseStatuses = (): ExerciseStatuses => {
   if (typeof window === 'object') {
     const exercisesStatusDatabase = window.localStorage.getItem(KEY);
 
@@ -25,6 +27,8 @@ const getExerciseStatuses = () => {
       ? JSON.parse(exercisesStatusDatabase)
       : false;
   }
+
+  return {};
 };
 
 const checkExerciseStatus = (slug: string) => {

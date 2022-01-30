@@ -2,7 +2,9 @@ import React from 'react';
 
 import Link from 'components/Link';
 import List from 'components/List';
+import ClientOnly from 'components/ClientOnly';
 import { Post } from 'lib/getExercises';
+import { checkExerciseStatus } from 'lib/updateData';
 
 export type ExerciseListProps = {
   posts: Post[];
@@ -17,11 +19,19 @@ export default function ExerciseList(
 
   const links = React.useMemo(
     () =>
-      posts.map((link) => (
-        <Link key={link.slug} href={SLUG_PREFIX + link.slug}>
-          {link.title}
-        </Link>
-      )),
+      posts.map(({ slug, title }) => {
+        const status = slug && checkExerciseStatus(slug);
+        return (
+          <Link
+            style={{ color: status ? 'green' : 'auto' }}
+            key={slug}
+            href={SLUG_PREFIX + slug}
+          >
+            {title}
+            <ClientOnly>{status && ' ✅'}</ClientOnly>
+          </Link>
+        );
+      }),
     [posts]
   );
 
