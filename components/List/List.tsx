@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import FlipMove from 'react-flip-move';
 
 import styles from './index.module.scss';
 
@@ -14,9 +15,11 @@ export default function List(props: ListProps): React.ReactElement {
 
   return (
     <ul className={classNames(styles['list'], className)} {...rest}>
-      {children.map((el, index) => {
-        return <li key={index}>{el}</li>;
-      })}
+      <FlipMove typeName={null}>
+        {children.map((el, index) => {
+          return <li key={index}>{el}</li>;
+        })}
+      </FlipMove>
     </ul>
   );
 }
