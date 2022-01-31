@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
-import Button from '@mui/material/Button';
 
 import Editor from 'components/Editor';
-import getTestWithMessages from 'lib/getTests';
 import Results, { Result } from 'components/Results';
+import Button from 'components/Button';
+import getTestWithMessages from 'lib/getTests';
 
 type ExerciseEditorProps = {
   code: string;
@@ -50,9 +50,7 @@ export default function ExerciseEditor(
   return (
     <div>
       <Editor value={code} setValue={(val) => onEditorValueChange(val)} />
-      <Button variant="contained" onClick={onSubmit}>
-        {isAllPassed ? 'accept' : 'test'}
-      </Button>
+      <Button onClick={onSubmit}>{isAllPassed ? 'accept' : 'test'}</Button>
       <Results results={results} />
     </div>
   );

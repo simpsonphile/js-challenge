@@ -1,6 +1,5 @@
-import Button from '@mui/material/Button';
-
 import Modal from 'components/Modal';
+import Button from 'components/Button';
 import useGoToNextExercise from 'hooks/useGoToNextExercise';
 import useGoToRandomExercise from 'hooks/useGoToRandomExercise';
 import { Post } from 'lib/getExercises';
@@ -24,7 +23,6 @@ export default function ModalExerciseCompleted(
       <>
         <h2>Congratulations!</h2>
         <Button
-          variant="contained"
           onClick={() => {
             goToNextExercise?.();
             onClose();
@@ -34,7 +32,6 @@ export default function ModalExerciseCompleted(
         </Button>
 
         <Button
-          variant="outlined"
           onClick={() => {
             goToRandomExercise?.();
             onClose();
