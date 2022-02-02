@@ -22,6 +22,7 @@ const light = generateTheme({
   common: {
     black: 'black',
     white: 'white',
+    gray: '#798086',
   },
   text: 'black',
   bg: 'pink',
@@ -33,6 +34,7 @@ const dark = generateTheme({
   common: {
     black: 'black',
     white: 'white',
+    gray: '#798086',
   },
   text: 'white',
   bg: '#241E4E',
