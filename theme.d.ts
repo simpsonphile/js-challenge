@@ -6,6 +6,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     getFontScale: (scale: FontScaleName) => FlattenSimpleInterpolation;
     borderRadius: string;
+    spaces: string[];
     common: {
       black: string;
       white: string;

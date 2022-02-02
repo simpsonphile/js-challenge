@@ -1,6 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 import getFontScale from './fontScales';
+import spaces from './spacing';
 
 const THEME_NAMES = ['light', 'dark'] as const;
 
@@ -9,6 +10,7 @@ type ThemeNames = typeof THEME_NAMES[number];
 const sharedThemeProps = {
   borderRadius: '.4rem',
   getFontScale,
+  spaces,
 } as const;
 
 const generateTheme = (
