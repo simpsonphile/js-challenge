@@ -1,12 +1,11 @@
-import { StyledButton } from './Button.styles';
+import { StyledButton, StyledButtonProps } from './Button.styles';
 
 type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
-  genre?: 'primary' | 'secondary';
   iconRight?: React.ReactElement;
-};
+} & StyledButtonProps;
 
 const defaultProps: Partial<ButtonProps> = {
   genre: 'primary',

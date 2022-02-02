@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-type StyledButtonProps = {
-  genre?: string;
+export type StyledButtonProps = {
+  genre?: 'primary' | 'secondary';
 };
 
 const ButtonSecondaryCss = css`
