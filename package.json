@@ -1,5 +1,5 @@
 {
-  "name": "js-chalange",
+  "name": "js-challenge",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -17,6 +17,7 @@
     "@types/codemirror": "^5.60.5",
     "@types/lodash": "^4.14.178",
     "@types/react-dom": "^17.0.11",
+    "@types/styled-components": "^5.1.21",
     "@uiw/react-codemirror": "^4.3.3",
     "classnames": "^2.3.1",
     "eslint-plugin-prettier": "^4.0.0",
@@ -29,7 +30,8 @@
     "react-flip-move": "^3.0.4",
     "react-use": "^17.3.2",
     "sass": "^1.49.0",
-    "ssr-window": "^4.0.2"
+    "ssr-window": "^4.0.2",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@types/node": "17.0.10",

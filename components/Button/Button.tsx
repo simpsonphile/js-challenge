@@ -1,43 +1,28 @@
-import { useMemo } from 'react';
-import classnames from 'classnames';
-
-import styles from './index.module.scss';
+import { StyledButton } from './Button.styles';
 
 type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
-  theme?: 'primary' | 'secondary';
+  genre?: 'primary' | 'secondary';
   iconRight?: React.ReactElement;
 };
 
 const defaultProps: Partial<ButtonProps> = {
-  theme: 'primary',
+  genre: 'primary',
 };
 
 export default function Button(props: ButtonProps): React.ReactElement {
-  const { theme, iconRight, className, children, ...rest } = {
+  const { genre, iconRight, className, ref, children, ...rest } = {
     ...defaultProps,
     ...props,
   };
 
-  const classNames = useMemo(
-    () =>
-      classnames(
-        styles.btn,
-        {
-          [styles['btn--t-' + theme]]: !!theme,
-        },
-        className
-      ),
-    [className, theme]
-  );
-
   return (
-    <button className={classNames} {...rest}>
-      {children && <span className={styles['btn__label']}>{children}</span>}
+    <StyledButton genre={genre} {...rest}>
+      {children && <span>{children}</span>}
 
-      {iconRight && <span className={styles['btn__ico']}>{iconRight}</span>}
-    </button>
+      {iconRight && <span>{iconRight}</span>}
+    </StyledButton>
   );
 }
