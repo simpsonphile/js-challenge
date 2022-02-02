@@ -12,7 +12,7 @@ const defaultProps: Partial<ButtonProps> = {
 };
 
 export default function Button(props: ButtonProps): React.ReactElement {
-  const { genre, iconRight, className, ref, children, ...rest } = {
+  const { genre, iconRight, ref, children, ...rest } = {
     ...defaultProps,
     ...props,
   };
