@@ -32,7 +32,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   color: inherit;
   background: transparent;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: ${({ theme }) => theme.borderRadius};
 
   ${({ genre }) => genre === 'primary' && ButtonPrimaryCss}
   ${({ genre }) => genre === 'secondary' && ButtonSecondaryCss}
