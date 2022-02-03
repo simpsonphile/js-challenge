@@ -4,16 +4,22 @@ export type StyledButtonProps = {
   genre?: 'primary' | 'secondary';
 };
 
-const main = ({ theme }: { theme: DefaultTheme }) => theme.color.main.c;
+const mainColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main.c;
+const hoverColor = ({ theme }: { theme: DefaultTheme }) =>
+  theme.color.main.shade(2);
 
 const ButtonSecondaryCss = css`
   border: 2px solid;
-  border-color: ${main};
-  color: ${main};
+  border-color: ${mainColor};
+  color: ${mainColor};
 `;
 
 const ButtonPrimaryCss = css`
-  background-color: ${main};
+  background-color: ${mainColor};
+
+  &:hover {
+    background-color: ${hoverColor};
+  }
 `;
 
 const StyledButton = styled.button<StyledButtonProps>`
@@ -22,6 +28,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 
   ${({ theme }) => theme.getFontScale('base')}
 
+  cursor: pointer;
   color: inherit;
   background: transparent;
   border: none;
