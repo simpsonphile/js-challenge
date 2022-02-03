@@ -1,20 +1,22 @@
 import 'styled-components';
 
-import { FontScaleName } from 'themes/themes';
+import { FontScaleName, Color } from 'themes';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
     getFontScale: (scale: FontScaleName) => FlattenSimpleInterpolation;
     borderRadius: string;
     spaces: string[];
-    common: {
-      black: string;
-      white: string;
-      gray: string;
+    color: {
+      common: {
+        black: Color;
+        white: Color;
+        gray: Color;
+      };
+      text: Color;
+      bg: Color;
+      main: Color;
+      supplementary: Color;
     };
-    text: string;
-    bg: string;
-    main: string;
-    supplementary: string;
   }
 }
