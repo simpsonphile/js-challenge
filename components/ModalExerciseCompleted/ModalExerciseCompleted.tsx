@@ -3,6 +3,8 @@ import Button from 'components/Button';
 import useGoToNextExercise from 'hooks/useGoToNextExercise';
 import useGoToRandomExercise from 'hooks/useGoToRandomExercise';
 import { Post } from 'lib/getExercises';
+import Inline from 'components/Inline';
+import Headline from 'components/Headline';
 
 type ModalExerciseCompletedProps = {
   posts: Post[];
@@ -19,26 +21,29 @@ export default function ModalExerciseCompleted(
   const goToRandomExercise = useGoToRandomExercise(posts, slug);
 
   return (
-    <Modal open={true} onClose={onClose}>
+    <Modal onClose={onClose}>
       <>
-        <h2>Congratulations!</h2>
-        <Button
-          onClick={() => {
-            goToNextExercise?.();
-            onClose();
-          }}
-        >
-          Go to next exercise
-        </Button>
+        <Headline tag="h2">Congratulations!</Headline>
 
-        <Button
-          onClick={() => {
-            goToRandomExercise?.();
-            onClose();
-          }}
-        >
-          Go to random exercise
-        </Button>
+        <Inline gap={2}>
+          <Button
+            onClick={() => {
+              goToNextExercise?.();
+              onClose();
+            }}
+          >
+            Go to next exercise
+          </Button>
+
+          <Button
+            onClick={() => {
+              goToRandomExercise?.();
+              onClose();
+            }}
+          >
+            Go to random exercise
+          </Button>
+        </Inline>
       </>
     </Modal>
   );
