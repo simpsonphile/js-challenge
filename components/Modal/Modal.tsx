@@ -1,19 +1,28 @@
-import MuiModal, { ModalProps } from '@mui/material/Modal';
-import Box from '@mui/material/Box';
+import { ReactElement, useRef } from 'react';
 import * as ReactDOM from 'react-dom';
 import { getDocument } from 'ssr-window';
+import { useClickAway } from 'react-use';
 
-import styles from './index.module.scss';
+import { StyledModal, StyledModalCenter } from './Modal.styles';
+
+type ModalProps = {
+  onClose: () => void;
+  children: ReactElement;
+};
 
 export default function Modal(props: ModalProps): React.ReactElement {
-  const { children, ...rest } = props;
+  const { children, onClose } = props;
   const document = getDocument();
   const domTarget = document.querySelector('#footer');
+  const ref =
+    useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+
+  useClickAway(ref, onClose);
 
   const modal = (
-    <MuiModal {...rest}>
-      <Box className={styles['modal__center']}>{children}</Box>
-    </MuiModal>
+    <StyledModal>
+      <StyledModalCenter ref={ref}>{children}</StyledModalCenter>
+    </StyledModal>
   );
 
   if (domTarget) {
