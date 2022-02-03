@@ -23,7 +23,7 @@ export default function ExerciseList(
         const status = slug && checkExerciseStatus(slug);
         return (
           <Link
-            style={{ color: status ? 'green' : 'auto' }}
+            color={status ? 'green' : 'auto'}
             key={slug}
             href={SLUG_PREFIX + slug}
           >
