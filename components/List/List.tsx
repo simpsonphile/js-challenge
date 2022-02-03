@@ -1,7 +1,4 @@
-import classNames from 'classnames';
-import FlipMove from 'react-flip-move';
-
-import styles from './index.module.scss';
+import { StyledList, StyledListElement } from './List.styles';
 
 type ListProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLUListElement>,
@@ -11,15 +8,13 @@ type ListProps = React.DetailedHTMLProps<
 };
 
 export default function List(props: ListProps): React.ReactElement {
-  const { children, className, ...rest } = props;
+  const { children, ref, ...rest } = props;
 
   return (
-    <ul className={classNames(styles['list'], className)} {...rest}>
-      <FlipMove typeName={null}>
-        {children.map((el, index) => {
-          return <li key={index}>{el}</li>;
-        })}
-      </FlipMove>
-    </ul>
+    <StyledList {...rest}>
+      {children.map((el, index) => {
+        return <StyledListElement key={index}>{el}</StyledListElement>;
+      })}
+    </StyledList>
   );
 }
