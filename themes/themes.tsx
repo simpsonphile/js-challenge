@@ -2,6 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 import getFontScale from './fontScales';
 import spaces from './spacing';
+import Color from './Color';
 
 const THEME_NAMES = ['light', 'dark'] as const;
 
@@ -14,34 +15,34 @@ const sharedThemeProps = {
 } as const;
 
 const generateTheme = (
-  themeProps: Omit<DefaultTheme, keyof typeof sharedThemeProps>
+  themeColorProps: DefaultTheme['color']
 ): DefaultTheme => ({
   ...sharedThemeProps,
-  ...themeProps,
+  color: themeColorProps,
 });
 
 const light = generateTheme({
   common: {
-    black: 'black',
-    white: 'white',
-    gray: '#798086',
+    black: new Color('black'),
+    white: new Color('white'),
+    gray: new Color('#798086'),
   },
-  text: 'black',
-  bg: 'pink',
-  main: 'red',
-  supplementary: '#FFC759',
+  text: new Color('black'),
+  bg: new Color('white'),
+  main: new Color('#FF7B9C'),
+  supplementary: new Color('#FFC759'),
 });
 
 const dark = generateTheme({
   common: {
-    black: 'black',
-    white: 'white',
-    gray: '#798086',
+    black: new Color('black'),
+    white: new Color('white'),
+    gray: new Color('#798086'),
   },
-  text: 'white',
-  bg: '#241E4E',
-  main: '#FF7B9C',
-  supplementary: '#FFC759',
+  text: new Color('white'),
+  bg: new Color('#241E4E'),
+  main: new Color('#FF7B9C'),
+  supplementary: new Color('#FFC759'),
 });
 
 const themes: { [key in ThemeNames]: DefaultTheme } = {

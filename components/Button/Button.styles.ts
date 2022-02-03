@@ -1,17 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 
 export type StyledButtonProps = {
   genre?: 'primary' | 'secondary';
 };
 
+const main = ({ theme }: { theme: DefaultTheme }) => theme.color.main.c;
+
 const ButtonSecondaryCss = css`
   border: 2px solid;
-  border-color: ${({ theme }) => theme.main};
-  color: ${({ theme }) => theme.main};
+  border-color: ${main};
+  color: ${main};
 `;
 
 const ButtonPrimaryCss = css`
-  background-color: ${({ theme }) => theme.main};
+  background-color: ${main};
 `;
 
 const StyledButton = styled.button<StyledButtonProps>`

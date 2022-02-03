@@ -6,10 +6,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    margin: 0;
+    width: 100%;
+    min-width: 320px;
+    max-width: 100%;
+    
     font-size: 1.6rem;
 
-    background-color: ${({ theme }) => theme.bg};
-    color: ${({ theme }) => theme.text};
+    background-color: ${({ theme }) => theme.color.bg.c};
+    color: ${({ theme }) => theme.color.text.c};
   }
 `;
 

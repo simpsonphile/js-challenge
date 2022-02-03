@@ -9,7 +9,7 @@ const StyledInput = styled.input`
   padding: ${({ theme }) => theme.spaces[2]};
 
   border: 2px solid;
-  border-color: ${({ theme }) => theme.main};
+  border-color: ${({ theme }) => theme.color.main.c};
   border-radius: 0.4rem;
 `;
 
