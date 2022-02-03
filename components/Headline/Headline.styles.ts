@@ -8,7 +8,7 @@ export type StyledHeadlineProps = {
 const StyledHeadline = styled.h1<StyledHeadlineProps>`
   margin: 0;
 
-  ${({ theme, size }) => theme.getFontScale(size)};
+  ${({ theme, size }) => size && theme.getFontScale(size)};
 `;
 
 export { StyledHeadline };
