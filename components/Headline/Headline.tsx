@@ -16,5 +16,5 @@ const defaultProps: Partial<HeadlineProps> = {
 export default function Headline(props: HeadlineProps): React.ReactElement {
   const { tag, size, ref, ...rest } = { ...defaultProps, ...props };
 
-  return <StyledHeadline size={size} {...rest} />;
+  return <StyledHeadline as={tag} size={size} {...rest} />;
 }
