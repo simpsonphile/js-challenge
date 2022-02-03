@@ -21,15 +21,17 @@ export default function ExerciseList(
     () =>
       posts.map(({ slug, title }) => {
         const status = slug && checkExerciseStatus(slug);
+
         return (
-          <Link
-            color={status ? 'green' : 'auto'}
-            key={slug}
-            href={SLUG_PREFIX + slug}
-          >
-            {title}
-            <ClientOnly>{status && ' ✅'}</ClientOnly>
-          </Link>
+          <ClientOnly key={slug}>
+            <Link
+              color={status ? 'green' : undefined}
+              href={SLUG_PREFIX + slug}
+            >
+              {title}
+              {status && ' ✅'}
+            </Link>
+          </ClientOnly>
         );
       }),
     [posts]

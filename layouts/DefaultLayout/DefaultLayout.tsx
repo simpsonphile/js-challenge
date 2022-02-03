@@ -1,3 +1,4 @@
+import ClientOnly from 'components/ClientOnly';
 import Header from 'components/Header';
 
 import styles from './index.module.scss';
@@ -14,9 +15,11 @@ export default function DefaultLayout(
 
   return (
     <div className={styles['layout']}>
-      <div className={styles['layout__header']}>
-        <Header />
-      </div>
+      <ClientOnly>
+        <div className={styles['layout__header']}>
+          <Header />
+        </div>
+      </ClientOnly>
 
       <div className={styles['layout__sidebar']}>{sidebar}</div>
 
