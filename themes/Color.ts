@@ -31,4 +31,8 @@ export default class Color {
   tint(lvl = 1) {
     return this.tintShade('brighten')(lvl);
   }
+
+  alpha(num = 1) {
+    return chroma(this.color).alpha(num).hex();
+  }
 }
