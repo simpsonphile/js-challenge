@@ -36,6 +36,7 @@ export default function ModalExerciseCompleted(
           </Button>
 
           <Button
+            genre="secondary"
             onClick={() => {
               goToRandomExercise?.();
               onClose();
