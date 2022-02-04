@@ -8,7 +8,7 @@ const StyledModal = styled.div`
   left: 0;
   z-index: 1000;
 
-  background-color: ${({ theme }) => theme.color.common.black.alpha(0.6)};
+  background-color: ${({ theme }) => theme.color.black.alpha(0.6)};
 `;
 
 const StyledModalCenter = styled.div`

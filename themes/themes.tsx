@@ -14,19 +14,22 @@ const sharedThemeProps = {
   spaces,
 } as const;
 
+// todo add default theme colors
 const generateTheme = (
-  themeColorProps: DefaultTheme['color']
+  themeColorProps: Omit<DefaultTheme['color'], 'valid' | 'error'>
 ): DefaultTheme => ({
   ...sharedThemeProps,
-  color: themeColorProps,
+  color: {
+    valid: new Color('#4BB543'),
+    error: new Color('#ff0033'),
+    ...themeColorProps,
+  },
 });
 
 const light = generateTheme({
-  common: {
-    black: new Color('black'),
-    white: new Color('white'),
-    gray: new Color('#798086'),
-  },
+  black: new Color('black'),
+  white: new Color('white'),
+  gray: new Color('#798086'),
   text: new Color('black'),
   bg: new Color('white'),
   main: new Color('#FF7B9C'),
@@ -34,11 +37,9 @@ const light = generateTheme({
 });
 
 const dark = generateTheme({
-  common: {
-    black: new Color('black'),
-    white: new Color('white'),
-    gray: new Color('#798086'),
-  },
+  black: new Color('black'),
+  white: new Color('white'),
+  gray: new Color('#798086'),
   text: new Color('white'),
   bg: new Color('#241E4E'),
   main: new Color('#FF7B9C'),

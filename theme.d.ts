@@ -8,15 +8,15 @@ declare module 'styled-components' {
     borderRadius: string;
     spaces: string[];
     color: {
-      common: {
-        black: Color;
-        white: Color;
-        gray: Color;
-      };
+      black: Color;
+      white: Color;
+      gray: Color;
       text: Color;
       bg: Color;
       main: Color;
       supplementary: Color;
+      valid: Color;
+      error: Color;
     };
   }
 }
