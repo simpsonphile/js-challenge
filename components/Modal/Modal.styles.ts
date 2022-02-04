@@ -8,6 +8,8 @@ const StyledModal = styled.div`
   left: 0;
   z-index: 1000;
 
+  padding: ${({ theme }) => theme.spaces[3]};
+
   background-color: ${({ theme }) => theme.color.black.alpha(0.6)};
 `;
 
@@ -16,11 +18,6 @@ const StyledModalCenter = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  padding: 2rem;
-
-  background-color: ${({ theme }) => theme.color.white.c};
-  border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
 export { StyledModal, StyledModalCenter };
