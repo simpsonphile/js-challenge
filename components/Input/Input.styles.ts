@@ -10,7 +10,7 @@ const StyledInput = styled.input`
 
   border: 2px solid;
   border-color: ${({ theme }) => theme.color.main.c};
-  border-radius: 0.4rem;
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: transparent;
 `;
 
