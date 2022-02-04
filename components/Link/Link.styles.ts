@@ -14,13 +14,14 @@ const StyledLink = styled.a<StyledLinkProps>`
     text-decoration: underline;
   }
 
-  ${({ isActive }) =>
+  ${({ isActive, theme }) =>
     isActive &&
     css`
-      color: blue;
+      color: ${theme.color.main.c};
       text-decoration: underline;
     `}
 
+  // todo color function (less boilerplate)
   ${({ color }) =>
     color &&
     css`

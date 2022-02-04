@@ -19,7 +19,7 @@ const StyledModalCenter = styled.div`
 
   padding: 2rem;
 
-  background-color: white;
+  background-color: ${({ theme }) => theme.color.white.c};
   border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
