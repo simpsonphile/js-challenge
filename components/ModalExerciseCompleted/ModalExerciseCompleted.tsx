@@ -5,6 +5,7 @@ import useGoToRandomExercise from 'hooks/useGoToRandomExercise';
 import { Post } from 'lib/getExercises';
 import Inline from 'components/Inline';
 import Headline from 'components/Headline';
+import Box from 'components/Box';
 
 type ModalExerciseCompletedProps = {
   posts: Post[];
@@ -22,7 +23,7 @@ export default function ModalExerciseCompleted(
 
   return (
     <Modal onClose={onClose}>
-      <>
+      <Box bgColor="white">
         <Headline tag="h2">Congratulations!</Headline>
 
         <Inline gap={2}>
@@ -45,7 +46,7 @@ export default function ModalExerciseCompleted(
             Go to random exercise
           </Button>
         </Inline>
-      </>
+      </Box>
     </Modal>
   );
 }
