@@ -1,4 +1,4 @@
-import { breakpoints } from './config';
+import { breakpoints } from '../config';
 
 // todo add media Queries like hover etc
 

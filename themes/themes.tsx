@@ -3,21 +3,13 @@ import { DefaultTheme } from 'styled-components';
 import getFontScale from './fontScales';
 import { spaces, radiss, defaultTheme } from './config';
 
-const THEME_NAMES = ['light', 'dark'] as const;
-
-type ThemeNames = typeof THEME_NAMES[number];
-
-const sharedThemeProps = {
-  radiss,
-  getFontScale, //get param
-  spaces,
-} as const;
-
 // todo add default theme colors
 const generateTheme = (
   themeColorProps: DefaultTheme['color']
 ): DefaultTheme => ({
-  ...sharedThemeProps,
+  radiss,
+  getFontScale, //get param
+  spaces,
   color: {
     ...themeColorProps,
   },
@@ -33,10 +25,10 @@ const dark = generateTheme({
   bg: '#241E4E',
 });
 
-const themes: { [key in ThemeNames]: DefaultTheme } = {
+const themes = {
   light,
   dark,
-};
+} as const;
 
 export type ThemeName = keyof typeof themes;
 
