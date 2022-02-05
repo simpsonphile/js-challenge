@@ -1,6 +1,6 @@
 import 'styled-components';
 
-import { FontScaleName, Color } from 'themes';
+import { FontScaleName, Color } from './index';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
