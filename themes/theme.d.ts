@@ -1,6 +1,6 @@
 import 'styled-components';
 
-import { FontScaleName, Color } from './index';
+import { FontScaleName } from './fontScales';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -8,15 +8,15 @@ declare module 'styled-components' {
     radiss: string[];
     spaces: string[];
     color: {
-      black: Color;
-      white: Color;
-      gray: Color;
-      text: Color;
-      bg: Color;
-      main: Color;
-      supplementary: Color;
-      valid: Color;
-      error: Color;
+      black: string;
+      white: string;
+      gray: string;
+      text: string;
+      bg: string;
+      main: string;
+      supplementary: string;
+      valid: string;
+      error: string;
     };
   }
 }
