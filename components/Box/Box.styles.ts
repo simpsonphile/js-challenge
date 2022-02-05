@@ -8,7 +8,7 @@ export type StyledBoxProps = {
 
 const StyledBox = styled.div<StyledBoxProps>`
   ${color};
-  border-radius: ${({ theme }) => theme.borderRadius};
+  border-radius: ${({ theme }) => theme.radiss[2]};
 `;
 
 export { StyledBox };

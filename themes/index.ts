@@ -3,15 +3,7 @@ import ThemeProvider from './ThemeProvider';
 import ThemeConsumer from './ThemeConsumer';
 import themes, { ThemeName } from './themes';
 import { FontScaleName } from './fontScales';
-import mediaMinWidth from './breakpoints';
-import Color from './Color';
+import mediaMinWidth from './mediaQueries';
 
-export {
-  ThemeContext,
-  ThemeProvider,
-  ThemeConsumer,
-  themes,
-  Color,
-  mediaMinWidth,
-};
+export { ThemeContext, ThemeProvider, ThemeConsumer, themes, mediaMinWidth };
 export type { ThemeName, FontScaleName };

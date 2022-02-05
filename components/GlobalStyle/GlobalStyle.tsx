@@ -13,8 +13,8 @@ const GlobalStyle = createGlobalStyle`
     
     font-size: 1.6rem;
 
-    background-color: ${({ theme }) => theme.color.bg.c};
-    color: ${({ theme }) => theme.color.text.c};
+    background-color: ${({ theme }) => theme.color.bg};
+    color: ${({ theme }) => theme.color.text};
   }
 `;
 

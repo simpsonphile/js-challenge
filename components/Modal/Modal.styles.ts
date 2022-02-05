@@ -10,7 +10,7 @@ const StyledModal = styled.div`
 
   padding: ${({ theme }) => theme.spaces[3]};
 
-  background-color: ${({ theme }) => theme.color.black.alpha(0.6)};
+  background-color: ${({ theme }) => theme.color.black};
 `;
 
 const StyledModalCenter = styled.div`

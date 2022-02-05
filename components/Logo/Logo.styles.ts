@@ -6,7 +6,7 @@ const StyledLogo = styled.div`
 
     ${({ theme }) => theme.getFontScale('xl')};
     font-weight: 700;
-    color: ${({ theme }) => theme.color.text.c};
+    color: ${({ theme }) => theme.color.text};
   }
 `;
 

@@ -17,7 +17,7 @@ const StyledLink = styled.a<StyledLinkProps>`
   ${({ isActive, theme }) =>
     isActive &&
     css`
-      color: ${theme.color.main.c};
+      color: ${theme.color.main};
       text-decoration: underline;
     `}
 

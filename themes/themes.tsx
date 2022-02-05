@@ -1,49 +1,36 @@
 import { DefaultTheme } from 'styled-components';
 
 import getFontScale from './fontScales';
-import spaces from './spacing';
-import Color from './Color';
+import { spaces, radiss, defaultTheme } from './config';
 
 const THEME_NAMES = ['light', 'dark'] as const;
 
 type ThemeNames = typeof THEME_NAMES[number];
 
 const sharedThemeProps = {
-  borderRadius: '.4rem',
-  getFontScale,
+  radiss,
+  getFontScale, //get param
   spaces,
 } as const;
 
 // todo add default theme colors
 const generateTheme = (
-  themeColorProps: Omit<DefaultTheme['color'], 'valid' | 'error'>
+  themeColorProps: DefaultTheme['color']
 ): DefaultTheme => ({
   ...sharedThemeProps,
   color: {
-    valid: new Color('#4BB543'),
-    error: new Color('#ff0033'),
     ...themeColorProps,
   },
 });
 
 const light = generateTheme({
-  black: new Color('black'),
-  white: new Color('white'),
-  gray: new Color('#798086'),
-  text: new Color('black'),
-  bg: new Color('white'),
-  main: new Color('#FF7B9C'),
-  supplementary: new Color('#FFC759'),
+  ...defaultTheme,
 });
 
 const dark = generateTheme({
-  black: new Color('black'),
-  white: new Color('white'),
-  gray: new Color('#798086'),
-  text: new Color('white'),
-  bg: new Color('#241E4E'),
-  main: new Color('#FF7B9C'),
-  supplementary: new Color('#FFC759'),
+  ...defaultTheme,
+  text: 'white',
+  bg: '#241E4E',
 });
 
 const themes: { [key in ThemeNames]: DefaultTheme } = {

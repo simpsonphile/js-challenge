@@ -5,7 +5,7 @@ import { FontScaleName, Color } from 'themes';
 declare module 'styled-components' {
   export interface DefaultTheme {
     getFontScale: (scale: FontScaleName) => FlattenSimpleInterpolation;
-    borderRadius: string;
+    radiss: string[];
     spaces: string[];
     color: {
       black: Color;

@@ -4,9 +4,8 @@ export type StyledButtonProps = {
   genre?: 'primary' | 'secondary';
 };
 
-const mainColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main.c;
-const hoverColor = ({ theme }: { theme: DefaultTheme }) =>
-  theme.color.main.shade(2);
+const mainColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main;
+const hoverColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main;
 
 const ButtonSecondaryCss = css`
   border: 2px solid;
@@ -32,7 +31,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   color: inherit;
   background: transparent;
   border: none;
-  border-radius: ${({ theme }) => theme.borderRadius};
+  border-radius: ${({ theme }) => theme.radiss[2]};
 
   ${({ genre }) => genre === 'primary' && ButtonPrimaryCss}
   ${({ genre }) => genre === 'secondary' && ButtonSecondaryCss}

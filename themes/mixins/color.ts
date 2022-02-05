@@ -26,18 +26,18 @@ export const color = ({
   ${color &&
   theme &&
   css`
-    color: ${theme.color?.[color].c};
+    color: ${theme.color?.[color]};
   `};
 
   ${bgColor &&
   theme &&
   css`
-    background-color: ${theme.color?.[bgColor].c};
+    background-color: ${theme.color?.[bgColor]};
   `};
 
   ${borderColor &&
   theme &&
   css`
-    border-color: ${theme.color?.[borderColor].c};
+    border-color: ${theme.color?.[borderColor]};
   `};
 `;
