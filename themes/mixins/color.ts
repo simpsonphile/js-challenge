@@ -3,41 +3,43 @@ import { css, DefaultTheme, ThemedStyledProps } from 'styled-components';
 
 export type DefaultThemeColorKeys = keyof DefaultTheme['color'];
 
-export type ColorProps = Partial<
+export type ColorProps = {
+  color?: DefaultThemeColorKeys;
+  bgColor?: DefaultThemeColorKeys;
+  borderColor?: DefaultThemeColorKeys;
+};
+
+export type Props = Partial<
   ThemedStyledProps<
     Pick<
       DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
       'key' | keyof HTMLAttributes<HTMLDivElement>
-    > & {
-      color?: DefaultThemeColorKeys;
-      bgColor?: DefaultThemeColorKeys;
-      borderColor?: DefaultThemeColorKeys;
-    },
+    > &
+      ColorProps,
     DefaultTheme
   >
 >;
 
-export const color = ({
-  theme,
-  color,
-  bgColor,
-  borderColor,
-}: ColorProps) => css`
-  ${color &&
-  theme &&
-  css`
-    color: ${theme.color?.[color]};
-  `};
+// add defaultTheme
+// change to betterName
 
-  ${bgColor &&
-  theme &&
+export const color = ({ theme, color, bgColor, borderColor }: Props) =>
   css`
-    background-color: ${theme.color?.[bgColor]};
-  `};
+    ${color &&
+    theme &&
+    css`
+      color: ${theme.color?.[color]};
+    `};
 
-  ${borderColor &&
-  theme &&
-  css`
-    border-color: ${theme.color?.[borderColor]};
-  `};
-`;
+    ${bgColor &&
+    theme &&
+    css`
+      background-color: ${theme.color?.[bgColor]};
+    `};
+
+    ${borderColor &&
+    theme &&
+    css`
+      border-color: ${theme.color?.[borderColor]};
+    `};
+  `;
