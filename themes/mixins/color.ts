@@ -1,5 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { css, DefaultTheme, ThemedStyledProps } from 'styled-components';
+import { css, DefaultTheme } from 'styled-components';
+
+import { ExtendedPartialThemedStyledProps } from './types';
 
 export type DefaultThemeColorKeys = keyof DefaultTheme['color'];
 
@@ -9,21 +10,14 @@ export type ColorProps = {
   borderColor?: DefaultThemeColorKeys;
 };
 
-export type Props = Partial<
-  ThemedStyledProps<
-    Pick<
-      DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-      'key' | keyof HTMLAttributes<HTMLDivElement>
-    > &
-      ColorProps,
-    DefaultTheme
-  >
->;
+export type ThemeAndColorProps = ExtendedPartialThemedStyledProps<ColorProps>;
 
-// add defaultTheme
-// change to betterName
-
-export const color = ({ theme, color, bgColor, borderColor }: Props) =>
+export const colorMixin = ({
+  theme,
+  color,
+  bgColor,
+  borderColor,
+}: ThemeAndColorProps) =>
   css`
     ${color &&
     theme &&

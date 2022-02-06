@@ -1,22 +1,14 @@
 import 'styled-components';
 
-import { FontScaleName } from './fontScales';
+import { FontScales, Spaces, Breakpoints, Color } from './config';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    getFontScale: (scale: FontScaleName) => FlattenSimpleInterpolation;
+    // getFontScale: (scale: FontScaleName) => FlattenSimpleInterpolation;
+    fontScales: FontScales;
     radiss: string[];
-    spaces: string[];
-    color: {
-      black: string;
-      white: string;
-      gray: string;
-      text: string;
-      bg: string;
-      main: string;
-      supplementary: string;
-      valid: string;
-      error: string;
-    };
+    spaces: Spaces;
+    breakpoints: Breakpoints;
+    color: Color;
   }
 }

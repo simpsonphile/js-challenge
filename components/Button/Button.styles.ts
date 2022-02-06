@@ -1,5 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
+import getFontScale from 'themes/mixins/getFontScale';
+
 export type StyledButtonProps = {
   genre?: 'primary' | 'secondary';
 };
@@ -25,7 +27,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   height: 4rem;
   min-width: 8rem;
 
-  ${({ theme }) => theme.getFontScale('base')}
+  ${({ theme }) => getFontScale({ theme, scale: 'base' })};
 
   cursor: pointer;
   color: inherit;

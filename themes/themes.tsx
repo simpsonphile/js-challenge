@@ -1,12 +1,8 @@
-import getFontScale from './fontScales';
-import { spaces, radiss, defaultTheme } from './config';
+import { DefaultTheme } from 'styled-components';
 
-const light = {
-  radiss,
-  getFontScale, //get param
-  spaces,
-  ...defaultTheme,
-};
+import { defaultTheme } from './config';
+
+const light: DefaultTheme = defaultTheme;
 
 const dark = {
   ...light,

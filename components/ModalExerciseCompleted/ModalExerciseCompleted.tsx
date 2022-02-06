@@ -24,7 +24,9 @@ export default function ModalExerciseCompleted(
   return (
     <Modal onClose={onClose}>
       <Box bgColor="white">
-        <Headline tag="h2">Congratulations!</Headline>
+        <Headline tag="h2" scale="xl">
+          Congratulations!
+        </Headline>
 
         <Inline gap={2}>
           <Button
