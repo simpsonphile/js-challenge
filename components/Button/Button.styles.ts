@@ -1,13 +1,15 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
 import getFontScale from 'themes/mixins/getFontScale';
+import { mediaHover } from 'themes/mixins/mediaQueries';
 
 export type StyledButtonProps = {
   genre?: 'primary' | 'secondary';
 };
 
 const mainColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main;
-const hoverColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main;
+const hoverColor = ({ theme }: { theme: DefaultTheme }) =>
+  theme.color.supplementary;
 
 const ButtonSecondaryCss = css`
   border: 2px solid;
@@ -18,9 +20,9 @@ const ButtonSecondaryCss = css`
 const ButtonPrimaryCss = css`
   background-color: ${mainColor};
 
-  &:hover {
+  ${mediaHover(css`
     background-color: ${hoverColor};
-  }
+  `)}
 `;
 
 const StyledButton = styled.button<StyledButtonProps>`
