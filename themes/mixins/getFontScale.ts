@@ -8,10 +8,10 @@ export type FontScaleProps = {
   scale?: FontScaleName;
 };
 
-export type ThemeAndColorProps =
+export type ThemeAndFontScaleProps =
   ExtendedPartialThemedStyledProps<FontScaleProps>;
 
-const FontScale = ({ theme, scale }: ThemeAndColorProps) => css`
+const FontScale = ({ theme, scale }: ThemeAndFontScaleProps) => css`
   ${scale &&
   theme?.fontScales[scale] &&
   css`
