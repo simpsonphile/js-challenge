@@ -8,7 +8,7 @@ const StyledModal = styled.div`
   left: 0;
   z-index: 1000;
 
-  padding: ${({ theme }) => theme.spaces[3]};
+  padding: ${({ theme }) => theme.spaces.base};
 
   background-color: ${({ theme }) => theme.color.black};
 `;

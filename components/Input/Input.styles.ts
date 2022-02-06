@@ -6,7 +6,7 @@ const StyledInputWrap = styled.div`
 
 const StyledInput = styled.input`
   width: 100%;
-  padding: ${({ theme }) => theme.spaces[2]};
+  padding: ${({ theme }) => theme.spaces.s};
 
   border: 2px solid;
   border-color: ${({ theme }) => theme.color.main};
@@ -17,7 +17,7 @@ const StyledInput = styled.input`
 const StyledInputIconWrap = styled.span`
   position: absolute;
   top: 50%;
-  right: ${({ theme }) => theme.spaces[2]};
+  right: ${({ theme }) => theme.spaces.s};
 
   transform: translateY(-50%);
 `;
