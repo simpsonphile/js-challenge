@@ -52,19 +52,7 @@ const breakpoints: Breakpoints = {
 
 // Colors
 /***********************************************************/
-type ColorKeys =
-  | 'valid'
-  | 'error'
-  | 'black'
-  | 'white'
-  | 'gray'
-  | 'text'
-  | 'bg'
-  | 'main'
-  | 'supplementary';
-export type Color = Record<ColorKeys, string>;
-
-const color: Color = {
+const color = {
   valid: '#4BB543',
   error: '#ff0033',
   black: 'black',
@@ -75,6 +63,8 @@ const color: Color = {
   main: '#FF7B9C',
   supplementary: '#FFC759',
 };
+
+export type Color = typeof color;
 
 // defaultTheme
 /***********************************************************/
