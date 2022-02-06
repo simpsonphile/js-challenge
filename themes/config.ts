@@ -17,18 +17,6 @@ export type FontScales = typeof fontScales;
 
 // Spacing
 /***********************************************************/
-// type SpaceKeys =
-//   | '0'
-//   | 'xs'
-//   | 's'
-//   | 'base'
-//   | 'lg'
-//   | 'xl'
-//   | 'xl2'
-//   | 'xl3'
-//   | 'xl4';
-// export type Spaces = Record<SpaceKeys, string>;
-
 const spaces = {
   '0': '0rem',
   xs: '0.4rem',
@@ -45,12 +33,15 @@ export type Spaces = typeof spaces;
 
 // Radiss
 /***********************************************************/
-const radiss = ['0rem', '0.4rem', '0.8rem'];
+const radiss = ['0rem', '0.4rem', '0.8rem'] as const;
+
+export type Radiss = typeof radiss;
 
 // Breakpoints
 /***********************************************************/
 type BreakpointKeys = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 export type Breakpoints = Record<BreakpointKeys, string>;
+
 const breakpoints: Breakpoints = {
   sm: '640px',
   md: '768px',
