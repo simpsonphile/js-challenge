@@ -1,8 +1,27 @@
+import { css, DefaultTheme, ThemedStyledFunction } from 'styled-components';
 import { breakpoints } from '../config';
 
-// todo add media Queries like hover etc
+type BreakpointKeys = keyof typeof breakpoints;
 
-const mediaMinWidth = (breakpoint: keyof typeof breakpoints) =>
-  `@media (min-width: ${breakpoints[breakpoint]}`;
+type MediaMinWidth = Record<
+  BreakpointKeys,
+  ThemedStyledFunction<'div', DefaultTheme, object, never>
+>;
 
-export default mediaMinWidth;
+const breakpointKeys = Object.keys(breakpoints) as BreakpointKeys[];
+
+const mediaMinWidth = breakpointKeys.reduce(
+  (acc: MediaMinWidth, cur: BreakpointKeys) => {
+    return {
+      ...acc,
+      [cur]: (...args: TemplateStringsArray) => css`
+        @media (min-width: ${breakpoints[cur]}) {
+          ${css(args)}
+        }
+      `,
+    };
+  },
+  {} as MediaMinWidth
+);
+
+export { mediaMinWidth };
