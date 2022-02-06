@@ -39,16 +39,15 @@ export type Radiss = typeof radiss;
 
 // Breakpoints
 /***********************************************************/
-type BreakpointKeys = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-export type Breakpoints = Record<BreakpointKeys, string>;
-
-const breakpoints: Breakpoints = {
+const breakpoints = {
   sm: '640px',
   md: '768px',
   lg: '1024px',
   xl: '1280px',
   '2xl': '1536px',
 };
+
+export type Breakpoints = typeof breakpoints;
 
 // Colors
 /***********************************************************/
