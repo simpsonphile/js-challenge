@@ -1,14 +1,17 @@
 import { DefaultTheme } from 'styled-components';
+import produce from 'immer';
 
 import { defaultTheme } from './config';
 
 const light: DefaultTheme = defaultTheme;
 
-const dark = {
-  ...light,
-  text: 'white',
-  bg: '#241E4E',
-};
+const dark = produce(light, (draft) => {
+  draft.color = {
+    ...draft.color,
+    text: 'white',
+    bg: '#241E4E',
+  };
+});
 
 const themes = {
   light,
