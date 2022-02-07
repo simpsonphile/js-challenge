@@ -20,7 +20,6 @@
     "@types/styled-components": "^5.1.21",
     "@uiw/react-codemirror": "^4.3.3",
     "chroma-js": "^2.4.2",
-    "classnames": "^2.3.1",
     "eslint-plugin-prettier": "^4.0.0",
     "gray-matter": "^4.0.3",
     "immer": "^9.0.12",
@@ -31,7 +30,6 @@
     "react-dom": "17.0.2",
     "react-flip-move": "^3.0.4",
     "react-use": "^17.3.2",
-    "sass": "^1.49.0",
     "ssr-window": "^4.0.2",
     "styled-components": "^5.3.3"
   },
