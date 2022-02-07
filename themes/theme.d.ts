@@ -1,12 +1,12 @@
 import 'styled-components';
 
-import { FontScales, Spaces, Breakpoints, Radiss, Color } from './config';
+import { FontScales, Spacing, Breakpoints, Radiss, Color } from './config';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
     fontScales: FontScales;
     radiss: Radiss;
-    spaces: Spaces;
+    spacing: Spacing;
     breakpoints: Breakpoints;
     color: Color;
   }

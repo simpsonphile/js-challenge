@@ -17,7 +17,7 @@ export type FontScales = typeof fontScales;
 
 // Spacing
 /***********************************************************/
-const spaces = {
+const spacing = {
   '0': '0rem',
   xs: '0.4rem',
   s: '0.8rem',
@@ -29,7 +29,7 @@ const spaces = {
   xl4: '51.2rem',
 } as const;
 
-export type Spaces = typeof spaces;
+export type Spacing = typeof spacing;
 
 // Radiss
 /***********************************************************/
@@ -69,10 +69,10 @@ export type Color = typeof color;
 /***********************************************************/
 const defaultTheme: DefaultTheme = {
   fontScales,
-  spaces,
+  spacing,
   radiss,
   breakpoints,
   color,
 };
 
-export { fontScales, spaces, radiss, breakpoints, defaultTheme };
+export { fontScales, spacing, radiss, breakpoints, defaultTheme };

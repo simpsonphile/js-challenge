@@ -4,7 +4,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
 
-  padding: ${({ theme }) => theme.spaces.base};
+  padding: ${({ theme }) => theme.spacing.base};
 
   background-color: ${({ theme }) => theme.color.bg};
 `;
