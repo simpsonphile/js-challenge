@@ -1,7 +1,12 @@
 import ClientOnly from 'components/ClientOnly';
 import Header from 'components/Header';
 
-import styles from './index.module.scss';
+import {
+  StyledDefaultLayout,
+  StyledDefaultLayoutContent,
+  StyledDefaultLayoutHeader,
+  StyledDefaultLayoutSidebar,
+} from './DefaultLayout.style';
 
 type DefaultLayoutProps = {
   children: React.ReactChild;
@@ -14,18 +19,18 @@ export default function DefaultLayout(
   const { children, sidebar } = props;
 
   return (
-    <div className={styles['layout']}>
+    <StyledDefaultLayout>
       <ClientOnly>
-        <div className={styles['layout__header']}>
+        <StyledDefaultLayoutHeader>
           <Header />
-        </div>
+        </StyledDefaultLayoutHeader>
       </ClientOnly>
 
-      <div className={styles['layout__sidebar']}>{sidebar}</div>
+      <StyledDefaultLayoutSidebar>{sidebar}</StyledDefaultLayoutSidebar>
 
-      <div className={styles['layout__content']}>{children}</div>
+      <StyledDefaultLayoutContent>{children}</StyledDefaultLayoutContent>
 
       <div id="footer" />
-    </div>
+    </StyledDefaultLayout>
   );
 }
