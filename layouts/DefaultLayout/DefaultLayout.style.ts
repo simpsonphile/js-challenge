@@ -1,20 +1,23 @@
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 const SIDEBAR_WIDTH = '20rem';
+const padding = ({ theme }: { theme: DefaultTheme }) => theme.spacing.lg;
 
 const StyledDefaultLayout = styled.div`
   display: grid;
-  grid-template-columns: ${SIDEBAR_WIDTH} calc(100% - ${SIDEBAR_WIDTH});
+  grid-template-columns: ${SIDEBAR_WIDTH} auto;
   grid-template-areas:
     'header  header'
     'sidebar content';
-  gap: 2rem;
+  gap: ${padding};
 
-  width: 100%;
+  padding: ${padding};
 `;
 
 const StyledDefaultLayoutHeader = styled.div`
   grid-area: header;
+
+  margin: -${padding} -${padding} 0 -${padding};
 `;
 
 const StyledDefaultLayoutSidebar = styled.aside`
