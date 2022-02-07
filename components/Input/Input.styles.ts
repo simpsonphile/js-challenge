@@ -8,6 +8,7 @@ const StyledInput = styled.input`
   width: 100%;
   padding: ${({ theme }) => theme.spaces.s};
 
+  color: ${({ theme }) => theme.color.text};
   border: 2px solid;
   border-color: ${({ theme }) => theme.color.main};
   border-radius: ${({ theme }) => theme.radiss[2]};
