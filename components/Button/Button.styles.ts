@@ -37,6 +37,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   border: none;
   border-radius: ${({ theme }) => theme.radiss[2]};
 
+  transition: background-color 0.2s;
+
   ${({ genre }) => genre === 'primary' && ButtonPrimaryCss}
   ${({ genre }) => genre === 'secondary' && ButtonSecondaryCss}
 `;
