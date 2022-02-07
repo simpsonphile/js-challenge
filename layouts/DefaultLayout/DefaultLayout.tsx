@@ -19,14 +19,16 @@ export default function DefaultLayout(
   const { children, sidebar } = props;
 
   return (
-    <StyledDefaultLayout>
+    <StyledDefaultLayout hasSidebar={!!sidebar}>
       <ClientOnly>
         <StyledDefaultLayoutHeader>
           <Header />
         </StyledDefaultLayoutHeader>
       </ClientOnly>
 
-      <StyledDefaultLayoutSidebar>{sidebar}</StyledDefaultLayoutSidebar>
+      {sidebar && (
+        <StyledDefaultLayoutSidebar>{sidebar}</StyledDefaultLayoutSidebar>
+      )}
 
       <StyledDefaultLayoutContent>{children}</StyledDefaultLayoutContent>
 
