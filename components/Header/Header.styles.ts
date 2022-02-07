@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
 
   padding: ${({ theme }) => theme.spacing.base};
 
-  background-color: ${({ theme }) => theme.color.bg};
+  background-color: ${({ theme }) => theme.color.bgAccent};
 `;
 
 export { StyledHeader };

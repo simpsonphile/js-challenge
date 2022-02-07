@@ -9,7 +9,7 @@ export type StyledButtonProps = {
 
 const mainColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main;
 const hoverColor = ({ theme }: { theme: DefaultTheme }) =>
-  theme.color.supplementary;
+  theme.color.mainHover;
 
 const ButtonSecondaryCss = css`
   border: 2px solid;

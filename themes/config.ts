@@ -59,7 +59,9 @@ const color = {
   gray: '#798086',
   text: 'black',
   bg: 'white',
+  bgAccent: '#cccccc',
   main: '#FF7B9C',
+  mainHover: '#e66f8c',
   supplementary: '#FFC759',
 };
 

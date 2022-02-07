@@ -13,6 +13,12 @@ const StyledInput = styled.input`
   border-color: ${({ theme }) => theme.color.main};
   border-radius: ${({ theme }) => theme.radiss[2]};
   background-color: transparent;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border-color: ${({ theme }) => theme.color.mainHover};
+  }
 `;
 
 const StyledInputIconWrap = styled.span`

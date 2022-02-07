@@ -10,6 +10,7 @@ const dark = produce(light, (draft) => {
     ...draft.color,
     text: 'white',
     bg: '#241E4E',
+    bgAccent: '#1d183e',
   };
 });
 
