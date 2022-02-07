@@ -28,7 +28,7 @@ export default function ModalExerciseCompleted(
           Congratulations!
         </Headline>
 
-        <Inline gap={2}>
+        <Inline gap="s">
           <Button
             onClick={() => {
               goToNextExercise?.();
