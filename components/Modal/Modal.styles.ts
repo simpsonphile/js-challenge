@@ -8,16 +8,21 @@ const StyledModal = styled.div`
   left: 0;
   z-index: 1000;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   padding: ${({ theme }) => theme.spacing.base};
 
-  background-color: ${({ theme }) => theme.color.black};
+  background-color: ${({ theme }) => theme.color.shadow};
 `;
 
 const StyledModalCenter = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  overflow: auto;
+
+  max-height: 100%;
+  max-width: 64rem;
+  width: 100%;
 `;
 
 export { StyledModal, StyledModalCenter };
