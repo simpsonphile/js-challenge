@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { spacingMixin, SpacingProps } from 'themes/mixins/spacing';
 
@@ -11,9 +11,15 @@ const StyledInline = styled.div<StyledInlineProps>`
   display: flex;
   flex-direction: row;
   flex-wrap: ${({ wrap }) => (wrap ? 'wrap' : 'nowrap')};
+  ${({ theme, gap }) =>
+    gap &&
+    css`
+      margin-top: -${theme.spacing[gap]};
+      margin-left: -${theme.spacing[gap]};
+    `};
 
-  & > *:not(:first-child) {
-    ${({ theme, gap }) => spacingMixin({ theme, ml: gap })};
+  & > * {
+    ${({ theme, gap }) => spacingMixin({ theme, ml: gap, mt: gap })};
   }
 `;
 

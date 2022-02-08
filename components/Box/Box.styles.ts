@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 import { colorMixin, ColorProps } from 'themes/mixins/color';
 import getFontScale, { FontScaleProps } from 'themes/mixins/getFontScale';
-import { SpaceMixin, SpaceProps } from 'themes/mixins/space';
+import { spacingMixin, SpacingProps } from 'themes/mixins/spacing';
 
 export type StyledBoxProps = {
   padding?: number;
 } & ColorProps &
   FontScaleProps &
-  SpaceProps;
+  SpacingProps;
 
 const StyledBox = styled.div<StyledBoxProps>`
   ${colorMixin};
   ${getFontScale};
-  ${SpaceMixin};
+  ${spacingMixin};
   border-radius: ${({ theme }) => theme.radiss[2]};
 `;
 
