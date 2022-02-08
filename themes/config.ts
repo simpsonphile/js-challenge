@@ -63,6 +63,7 @@ const color = {
   main: '#FF7B9C',
   mainHover: '#e66f8c',
   supplementary: '#FFC759',
+  shadow: 'rgba(10,10,10,.9)',
 };
 
 export type Color = typeof color;
