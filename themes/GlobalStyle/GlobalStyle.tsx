@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import getFontScale from 'themes/mixins/getFontScale';
+
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
@@ -11,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     min-width: 320px;
     max-width: 100%;
     
-    font-size: ${({ theme }) => theme.fontScales.base};
+    ${({ theme }) => getFontScale({ theme, scale: 'base' })};
 
     background-color: ${({ theme }) => theme.color.bg};
     color: ${({ theme }) => theme.color.text};
