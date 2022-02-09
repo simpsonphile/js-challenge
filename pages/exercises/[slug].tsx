@@ -13,14 +13,13 @@ type ExerciseProps = {
 };
 
 export default function Exercise({ post, posts }: ExerciseProps) {
-  const { title, code, description, content, slug } = post;
+  const { title, code, content, slug } = post;
 
   return (
     <DefaultLayout sidebar={<Sidebar posts={posts} />}>
       <ExerciseView
         title={title}
         code={code}
-        description={description}
         content={content}
         slug={slug}
         posts={posts}

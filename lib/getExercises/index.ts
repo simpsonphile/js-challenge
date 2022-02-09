@@ -8,7 +8,6 @@ export type Post = {
   title?: string;
   slug?: string;
   code?: string;
-  description?: string;
   content?: string;
 };
 
