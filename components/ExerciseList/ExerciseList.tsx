@@ -25,11 +25,11 @@ export default function ExerciseList(
         return (
           <ClientOnly key={slug}>
             <Link
-              color={status ? 'green' : undefined}
+              color={status ? 'valid' : undefined}
               href={SLUG_PREFIX + slug}
             >
+              {status && '✅ '}
               {title}
-              {status && ' ✅'}
             </Link>
           </ClientOnly>
         );

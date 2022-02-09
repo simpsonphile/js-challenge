@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 
+import { colorMixin, ColorProps } from 'themes/mixins/color';
+
 export type StyledLinkProps = {
   isActive?: boolean;
-  color?: string;
+  color?: ColorProps['color'];
 };
 
 const StyledLink = styled.a<StyledLinkProps>`
@@ -22,12 +24,7 @@ const StyledLink = styled.a<StyledLinkProps>`
       text-decoration: underline;
     `}
 
-  // todo color function (less boilerplate)
-  ${({ color }) =>
-    color &&
-    css`
-      color: ${color};
-    `}
+  ${colorMixin}
 `;
 
 export { StyledLink };
