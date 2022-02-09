@@ -1,15 +1,15 @@
 import { useRouter } from 'next/router';
 
-import { Post } from 'lib/getExercises';
+import { Exercise } from 'lib/getExercises';
 
-const useGoToNextExercise = (posts: Post[], slug?: string) => {
+const useGoToNextExercise = (exercises: Exercise[], slug?: string) => {
   const router = useRouter();
 
   if (!slug) return;
 
-  const index = posts.findIndex((post) => post.slug === slug);
+  const index = exercises.findIndex((exercise) => exercise.slug === slug);
 
-  const nextSlug = posts?.[index + 1]?.slug;
+  const nextSlug = exercises?.[index + 1]?.slug;
 
   if (nextSlug) {
     return () => router.push('/exercises/' + nextSlug);

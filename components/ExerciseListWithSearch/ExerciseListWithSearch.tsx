@@ -10,16 +10,16 @@ export type ExerciseListWithSearchProps = ExerciseListProps;
 export default function ExerciseListWithSearch(
   props: ExerciseListWithSearchProps
 ): React.ReactElement {
-  const { posts } = props;
+  const { exercises } = props;
 
   const [value, valueSet] = useState('');
 
-  const postsFiltered = React.useMemo(
+  const exercisesFiltered = React.useMemo(
     () =>
-      posts.filter(({ title }) =>
+      exercises.filter(({ title }) =>
         title?.toLowerCase().includes(value.toLowerCase())
       ),
-    [posts, value]
+    [exercises, value]
   );
 
   return (
@@ -27,7 +27,7 @@ export default function ExerciseListWithSearch(
       <StyledExerciseListSearch>
         <InputSearch value={value} onChange={(e) => valueSet(e.target.value)} />
       </StyledExerciseListSearch>
-      <ExerciseList posts={postsFiltered} />
+      <ExerciseList exercises={exercisesFiltered} />
     </div>
   );
 }

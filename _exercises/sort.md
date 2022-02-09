@@ -1,6 +1,5 @@
 ---
 title: Custom sort without using array sort method
-slug: e5
 code: "
 // function that return sorted array\n
 // can't use array sort method\n

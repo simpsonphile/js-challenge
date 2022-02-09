@@ -1,3 +1,9 @@
-const exerciseSlugsInOrder = ['e1', 'e2', 'e3', 'e4', 'e5'];
+const exerciseSlugsInOrder = [
+  'adder',
+  'map',
+  'palindrome',
+  'fibonacci',
+  'sort',
+];
 
 export default exerciseSlugsInOrder;

@@ -1,20 +1,20 @@
 import { useCallback, useState } from 'react';
 
-import ExerciseEditor from 'components/ExerciseEditor';
 import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
-import Headline from 'components/Headline';
-import ClientOnly from 'components/ClientOnly';
 import updateLocalStorageExercisesData, {
   checkExerciseStatus,
 } from 'lib/updateData';
-import { Post } from 'lib/getExercises';
+import { Exercise } from 'lib/getExercises';
 
-type ExerciseViewProps = Post & { posts: Post[] };
+import Header from './components/Header';
+import Tabs from './components/Tabs';
+
+type ExerciseViewProps = Exercise & { exercises: Exercise[] };
 
 export default function ExerciseLayout(
   props: ExerciseViewProps
 ): React.ReactElement {
-  const { title, code, description, content, slug, posts } = props;
+  const { title, code, solution, hints, tests, slug, exercises } = props;
 
   const [showModal, showModalSet] = useState(false);
 
@@ -33,26 +33,20 @@ export default function ExerciseLayout(
 
   return (
     <div>
-      {title && (
-        <header>
-          <Headline tag="h1">
-            {title}
-            <ClientOnly>{isPassed && ' ✅'}</ClientOnly>
-          </Headline>
+      {title && <Header title={title} isPassed={isPassed} />}
 
-          {description && <div>{description}</div>}
-        </header>
-      )}
-
-      {code && content && (
-        <div>
-          <ExerciseEditor code={code} tests={content} onSuccess={onSuccess} />
-        </div>
-      )}
+      <Tabs
+        code={code}
+        tests={tests}
+        onSuccess={onSuccess}
+        solution={solution}
+        isPassed={isPassed}
+        hints={hints}
+      />
 
       {slug && showModal && (
         <ModalExerciseCompleted
-          posts={posts}
+          exercises={exercises}
           slug={slug}
           onClose={() => showModalSet(false)}
         />

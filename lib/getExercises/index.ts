@@ -4,22 +4,27 @@ import matter from 'gray-matter';
 
 import exerciseSlugsInOrder from './order';
 
-export type Post = {
+export type Exercise = {
   title?: string;
   slug?: string;
+  hints?: string;
+  solution?: string;
   code?: string;
-  content?: string;
+  tests?: string;
 };
 
-const postsDirectory = join(process.cwd(), '_exercises');
+const exercisesDir = join(process.cwd(), '_exercises');
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+export function getExerciseSlugs() {
+  return fs.readdirSync(exercisesDir);
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []): Post {
+export function getExerciseBySlug(
+  slug: string,
+  fields: string[] = []
+): Exercise {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const fullPath = join(exercisesDir, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
@@ -33,14 +38,15 @@ export function getPostBySlug(slug: string, fields: string[] = []): Post {
 
   return {
     ...items,
-    content,
+    tests: content,
+    slug: realSlug,
   };
 }
 
-export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
+export function getAllExercises(fields: string[] = []) {
+  const slugs = getExerciseSlugs();
+  const exercises = slugs
+    .map((slug) => getExerciseBySlug(slug, fields))
     .sort((a, b) => {
       if (!a?.slug && !b?.slug) return 0;
       if (!a?.slug) return 1;
@@ -51,5 +57,5 @@ export function getAllPosts(fields: string[] = []) {
       );
     });
 
-  return posts;
+  return exercises;
 }

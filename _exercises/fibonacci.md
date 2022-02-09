@@ -1,6 +1,5 @@
 ---
 title: Fibonacci
-slug: e4
 code: "
 // generate fibonacci sequence with given length starting from 0 (0, 1, 1, 2, 3...)
 function generateFibonacci(length) {\n\n

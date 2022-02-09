@@ -1,6 +1,11 @@
 ---
 title: Adder function
-slug: e1
+hints: "hints"
+solution: "
+function createAdder(base) {\n
+\t(val) => base + val;\n
+}
+"
 code: "
 // write function that create adder function\n\n
 function createAdder(base) {\n

@@ -1,6 +1,5 @@
 ---
 title: Check if palindrome
-slug: e3
 code: "
 // write function that checks if string is palindrome\n\n
 function checkIfPalindrome(str) {\n

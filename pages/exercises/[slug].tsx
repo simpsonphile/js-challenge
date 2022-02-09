@@ -1,58 +1,64 @@
 import { GetStaticProps } from 'next';
 
-import { getPostBySlug, getAllPosts } from 'lib/getExercises';
+import { getExerciseBySlug, getAllExercises } from 'lib/getExercises';
 import ExerciseView from 'views/ExerciseView';
 
-import { Post } from 'lib/getExercises';
+import { Exercise } from 'lib/getExercises';
 import DefaultLayout from 'layouts/DefaultLayout';
 import Sidebar from 'components/Sidebar';
 
-type ExerciseProps = {
-  posts: Post[];
-  post: Post;
+type ExercisePageProps = {
+  exercises: Exercise[];
+  exercise: Exercise;
 };
 
-export default function Exercise({ post, posts }: ExerciseProps) {
-  const { title, code, content, slug } = post;
-
+export default function ExercisePage({
+  exercise,
+  exercises,
+}: ExercisePageProps) {
   return (
-    <DefaultLayout sidebar={<Sidebar posts={posts} />}>
-      <ExerciseView
-        title={title}
-        code={code}
-        content={content}
-        slug={slug}
-        posts={posts}
-      />
+    <DefaultLayout sidebar={<Sidebar exercises={exercises} />}>
+      <ExerciseView exercises={exercises} {...exercise} />
     </DefaultLayout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postKeys = ['title', 'slug', 'code', 'description', 'content'];
-  const posts = getAllPosts(postKeys);
+  const exerciseKeys = [
+    'title',
+    'slug',
+    'code',
+    'solution',
+    'hints',
+    'description',
+    'tests',
+  ];
+  const exercises = getAllExercises(exerciseKeys);
 
   const slug = params?.slug as string;
-  const post: { [key: string]: string } = getPostBySlug(slug, postKeys);
+  const exercise: { [key: string]: string } = getExerciseBySlug(
+    slug,
+    exerciseKeys
+  );
 
   return {
     props: {
-      posts,
-      post: {
-        ...post,
+      exercises,
+      exercise: {
+        ...exercise,
       },
     },
   };
 };
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug']);
+  const exercises = getAllExercises(['slug']);
 
   return {
-    paths: posts.map((post) => {
+    paths: exercises.map((exercise) => {
       return {
         params: {
-          slug: post.slug,
+          slug: exercise.slug,
         },
       };
     }),

@@ -2,13 +2,13 @@ import Modal from 'components/Modal';
 import Button from 'components/Button';
 import useGoToNextExercise from 'hooks/useGoToNextExercise';
 import useGoToRandomExercise from 'hooks/useGoToRandomExercise';
-import { Post } from 'lib/getExercises';
+import { Exercise } from 'lib/getExercises';
 import Inline from 'components/Inline';
 import Headline from 'components/Headline';
 import Box from 'components/Box';
 
 type ModalExerciseCompletedProps = {
-  posts: Post[];
+  exercises: Exercise[];
   slug: string;
   onClose: () => void;
 };
@@ -16,10 +16,10 @@ type ModalExerciseCompletedProps = {
 export default function ModalExerciseCompleted(
   props: ModalExerciseCompletedProps
 ): React.ReactElement {
-  const { posts, slug, onClose } = props;
+  const { exercises, slug, onClose } = props;
 
-  const goToNextExercise = useGoToNextExercise(posts, slug);
-  const goToRandomExercise = useGoToRandomExercise(posts, slug);
+  const goToNextExercise = useGoToNextExercise(exercises, slug);
+  const goToRandomExercise = useGoToRandomExercise(exercises, slug);
 
   return (
     <Modal onClose={onClose}>

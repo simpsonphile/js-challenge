@@ -1,6 +1,5 @@
 ---
 title: Map
-slug: e2
 code: "
 // function that return mapped array\n
 // can't use array map method\n
