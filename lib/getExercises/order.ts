@@ -1,5 +1,5 @@
 const exerciseSlugsInOrder = [
-  'adder',
+  'adder-function',
   'map',
   'palindrome',
   'fibonacci',

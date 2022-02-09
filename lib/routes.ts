@@ -1,6 +1,6 @@
 const routes = {
   home: '/',
-  exercises: '/exercises/',
+  exercises: '/exercises',
   exercise: (slug: string) => `/exercises/${slug}`,
 };
 
