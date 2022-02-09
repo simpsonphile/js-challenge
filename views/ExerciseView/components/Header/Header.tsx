@@ -1,5 +1,6 @@
+import Box from 'components/Box';
 import ClientOnly from 'components/ClientOnly';
-import HeadlineHeader from 'components/HeadlineHeader';
+import Headline from 'components/Headline';
 
 type HeaderProps = {
   title: string;
@@ -10,17 +11,11 @@ export default function Header(props: HeaderProps): React.ReactElement {
   const { title, isPassed } = props;
 
   return (
-    <HeadlineHeader
-      headlineProps={{
-        tag: 'h1',
-        scale: 'xl2',
-        children: (
-          <>
-            <ClientOnly>{isPassed && '✅ '}</ClientOnly>
-            {title}
-          </>
-        ),
-      }}
-    />
+    <Box mb="lg">
+      <Headline tag="h1" scale="xl2">
+        <ClientOnly>{isPassed && '✅ '}</ClientOnly>
+        {title}
+      </Headline>
+    </Box>
   );
 }
