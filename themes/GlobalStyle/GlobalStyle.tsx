@@ -18,6 +18,24 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.color.bg};
     color: ${({ theme }) => theme.color.text};
   }
+
+  ::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.color.bgAccent};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.color.main};
+    border-radius: 3.2rem;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.color.mainHover};
+  }
 `;
 
 export default GlobalStyle;
