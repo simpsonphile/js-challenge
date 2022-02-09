@@ -1,4 +1,8 @@
-import { StyledButton, StyledButtonProps } from './Button.styles';
+import {
+  StyledButton,
+  StyledButtonIcon,
+  StyledButtonProps,
+} from './Button.styles';
 
 type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -21,7 +25,7 @@ export default function Button(props: ButtonProps): React.ReactElement {
     <StyledButton genre={genre} {...rest}>
       {children && <span>{children}</span>}
 
-      {iconRight && <span>{iconRight}</span>}
+      {iconRight && <StyledButtonIcon>{iconRight}</StyledButtonIcon>}
     </StyledButton>
   );
 }
