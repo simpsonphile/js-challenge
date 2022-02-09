@@ -3,11 +3,11 @@ import React from 'react';
 import Link from 'components/Link';
 import List from 'components/List';
 import ClientOnly from 'components/ClientOnly';
-import { Post } from 'lib/getExercises';
+import { Exercise } from 'lib/getExercises';
 import { checkExerciseStatus } from 'lib/updateData';
 
 export type ExerciseListProps = {
-  posts: Post[];
+  exercises: Exercise[];
 };
 
 const SLUG_PREFIX = '/exercises/';
@@ -15,24 +15,26 @@ const SLUG_PREFIX = '/exercises/';
 export default function ExerciseList(
   props: ExerciseListProps
 ): React.ReactElement {
-  const { posts } = props;
+  const { exercises } = props;
 
   const links = React.useMemo(
     () =>
-      posts.map(({ slug, title }) => {
+      exercises.map(({ slug, title }) => {
         const status = slug && checkExerciseStatus(slug);
+
         return (
-          <Link
-            style={{ color: status ? 'green' : 'auto' }}
-            key={slug}
-            href={SLUG_PREFIX + slug}
-          >
-            {title}
-            <ClientOnly>{status && ' ✅'}</ClientOnly>
-          </Link>
+          <ClientOnly key={slug}>
+            <Link
+              color={status ? 'valid' : undefined}
+              href={SLUG_PREFIX + slug}
+            >
+              {status && '✅ '}
+              {title}
+            </Link>
+          </ClientOnly>
         );
       }),
-    [posts]
+    [exercises]
   );
 
   return <List>{links}</List>;

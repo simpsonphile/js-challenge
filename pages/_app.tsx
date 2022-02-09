@@ -1,10 +1,15 @@
 import type { AppProps } from 'next/app';
 
+import AppWrapper from 'components/AppWrapper';
+
 import 'normalize.css/normalize.css';
-import 'scss/main.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <AppWrapper>
+      <Component {...pageProps} />
+    </AppWrapper>
+  );
 }
 
 export default MyApp;

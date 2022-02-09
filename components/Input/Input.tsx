@@ -1,7 +1,10 @@
 import { forwardRef } from 'react';
-import classNames from 'classnames';
 
-import styles from './index.module.scss';
+import {
+  StyledInput,
+  StyledInputIconWrap,
+  StyledInputWrap,
+} from './Input.styles';
 
 export type InputProps = Omit<
   React.DetailedHTMLProps<
@@ -10,18 +13,20 @@ export type InputProps = Omit<
   >,
   'ref'
 > & {
-  iconRight?: string;
+  iconRight?: React.ReactElement;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { iconRight, className, ...rest } = props;
+  const { iconRight, ...rest } = props;
+
+  const hasIcon = !!iconRight;
 
   return (
-    <div className={classNames(styles.input, className)} {...rest}>
-      <input ref={ref} {...rest} />
+    <StyledInputWrap {...rest}>
+      <StyledInput ref={ref} hasIcon={hasIcon} {...rest} />
 
-      <div className={styles['input__icon']}>{iconRight}</div>
-    </div>
+      {hasIcon && <StyledInputIconWrap>{iconRight}</StyledInputIconWrap>}
+    </StyledInputWrap>
   );
 });
 

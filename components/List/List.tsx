@@ -1,6 +1,4 @@
-import classNames from 'classnames';
-
-import styles from './index.module.scss';
+import { StyledList, StyledListElement } from './List.styles';
 
 type ListProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLUListElement>,
@@ -10,13 +8,13 @@ type ListProps = React.DetailedHTMLProps<
 };
 
 export default function List(props: ListProps): React.ReactElement {
-  const { children, className, ...rest } = props;
+  const { children, ref, ...rest } = props;
 
   return (
-    <ul className={classNames(styles['list'], className)} {...rest}>
+    <StyledList {...rest}>
       {children.map((el, index) => {
-        return <li key={index}>{el}</li>;
+        return <StyledListElement key={index}>{el}</StyledListElement>;
       })}
-    </ul>
+    </StyledList>
   );
 }

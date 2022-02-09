@@ -1,24 +1,20 @@
-import classNames from 'classnames';
+import { StyledHeadline, StyledHeadlineProps } from './Headline.styles';
 
-import styles from './index.module.scss';
-
-type HeadlineProps = {
+export type HeadlineProps = {
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 } & React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLHeadingElement>,
   HTMLHeadingElement
->;
+> &
+  StyledHeadlineProps;
 
 const defaultProps: Partial<HeadlineProps> = {
   tag: 'p',
+  scale: 'xl',
 };
 
 export default function Headline(props: HeadlineProps): React.ReactElement {
-  const { tag, className, ...rest } = { ...defaultProps, ...props };
+  const { tag, ref, ...rest } = { ...defaultProps, ...props };
 
-  const Tag = tag || 'p';
-
-  return (
-    <Tag className={classNames(styles['headline'], className)} {...rest} />
-  );
+  return <StyledHeadline as={tag} {...rest} />;
 }

@@ -1,28 +1,30 @@
-import Sidebar from 'components/Sidebar';
 import DefaultLayout from 'layouts/DefaultLayout';
-import { getAllPosts, Post } from 'lib/getExercises';
+import Sidebar from 'components/Sidebar';
 import HomeView from 'views/HomeView';
+import { Exercise, getAllExercises } from 'lib/getExercises';
+import { GetStaticProps } from 'next';
 
-type HomeProps = {
-  posts: Post[];
+type ExercisePageProps = {
+  exercises: Exercise[];
 };
 
-export default function Home(props: HomeProps) {
-  const { posts } = props;
+export default function Home(props: ExercisePageProps) {
+  const { exercises } = props;
 
   return (
-    <DefaultLayout sidebar={<Sidebar posts={posts} />}>
+    <DefaultLayout sidebar={<Sidebar exercises={exercises} />}>
       <HomeView></HomeView>
     </DefaultLayout>
   );
 }
 
-export async function getStaticProps() {
-  const posts = getAllPosts(['slug', 'title']);
+export const getStaticProps: GetStaticProps = async () => {
+  const exerciseKeys = ['title', 'slug'];
+  const exercises = getAllExercises(exerciseKeys);
 
   return {
     props: {
-      posts,
+      exercises,
     },
   };
-}
+};

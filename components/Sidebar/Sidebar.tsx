@@ -5,11 +5,11 @@ import ExerciseListWithSearch, {
 type SidebarProps = ExerciseListWithSearchProps;
 
 export default function Sidebar(props: SidebarProps): React.ReactElement {
-  const { posts } = props;
+  const { exercises } = props;
 
   return (
     <div>
-      <ExerciseListWithSearch posts={posts} />
+      <ExerciseListWithSearch exercises={exercises} />
     </div>
   );
 }
