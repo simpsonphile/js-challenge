@@ -22,7 +22,7 @@ const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
             'sidebar content';
         `
       : css`
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(0, 1fr);
           grid-template-areas:
             'header'
             'content';
@@ -43,6 +43,8 @@ const StyledDefaultLayoutSidebar = styled.aside`
 
 const StyledDefaultLayoutContent = styled.main`
   grid-area: content;
+
+  min-width: 0;
 `;
 
 export {
