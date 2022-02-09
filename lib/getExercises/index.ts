@@ -1,31 +1,45 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
-
-import exerciseSlugsInOrder from './order';
+import globule from 'globule';
 
 export type Exercise = {
+  fullSlug: string;
+  slug: string;
+  cat?: string | null;
   title?: string;
-  slug?: string;
   hints?: string;
   solution?: string;
   code?: string;
   tests?: string;
 };
 
+type ExerciseKeys = keyof Exercise;
+
 const exercisesDir = join(process.cwd(), '_exercises');
 
 export function getExerciseSlugs() {
-  return fs.readdirSync(exercisesDir);
+  return globule.find(exercisesDir + '/**/*.md');
+}
+
+export function getExerciseByShortSlug(
+  slug: string,
+  fields: ExerciseKeys[] = []
+) {
+  const longSlug = exercisesDir + '/' + slug + '.md';
+
+  return getExerciseBySlug(longSlug, fields);
 }
 
 export function getExerciseBySlug(
   slug: string,
-  fields: string[] = []
+  fields: ExerciseKeys[] = []
 ): Exercise {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(exercisesDir, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const slugNoExt = slug.replace(/\.md$/, '');
+  const shortSlug = slugNoExt.replace(exercisesDir + '/', '');
+  const [slugPart1, slugPart2] = shortSlug.split('/');
+  const fileContents = fs.readFileSync(slug, 'utf8');
+
   const { data, content } = matter(fileContents);
 
   const items: { [key: string]: string } = {};
@@ -39,23 +53,16 @@ export function getExerciseBySlug(
   return {
     ...items,
     tests: content,
-    slug: realSlug,
+    fullSlug: shortSlug,
+    slug: slugPart2 || slugPart1,
+    cat: slugPart2 ? slugPart1 : null,
   };
 }
 
-export function getAllExercises(fields: string[] = []) {
+export function getAllExercises(fields: ExerciseKeys[] = []) {
   const slugs = getExerciseSlugs();
-  const exercises = slugs
-    .map((slug) => getExerciseBySlug(slug, fields))
-    .sort((a, b) => {
-      if (!a?.slug && !b?.slug) return 0;
-      if (!a?.slug) return 1;
-      if (!b?.slug) return -1;
-      return (
-        exerciseSlugsInOrder.indexOf(a.slug) -
-        exerciseSlugsInOrder.indexOf(b.slug)
-      );
-    });
+
+  const exercises = slugs.map((slug) => getExerciseBySlug(slug, fields));
 
   return exercises;
 }

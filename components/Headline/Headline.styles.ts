@@ -9,6 +9,10 @@ const StyledHeadline = styled.h1<StyledHeadlineProps>`
 
   ${getFontScale};
   line-height: 1;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export { StyledHeadline };
