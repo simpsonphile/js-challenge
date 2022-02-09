@@ -8,6 +8,7 @@ const StyledHeadline = styled.h1<StyledHeadlineProps>`
   margin: 0;
 
   ${getFontScale};
+  line-height: 1;
 `;
 
 export { StyledHeadline };
