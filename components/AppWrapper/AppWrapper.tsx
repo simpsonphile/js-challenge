@@ -1,5 +1,5 @@
 import ThemeContextProvider from 'themes/ThemeProvider';
-import GlobalStyle from 'components/GlobalStyle';
+import GlobalStyle from 'themes/GlobalStyle';
 import ThemeContextConsumer from 'themes/ThemeConsumer';
 
 type AppWrapperProps = {

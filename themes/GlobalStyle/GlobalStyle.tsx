@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     min-width: 320px;
     max-width: 100%;
     
-    font-size: 1.6rem;
+    font-size: ${({ theme }) => theme.fontScales.base};
 
     background-color: ${({ theme }) => theme.color.bg};
     color: ${({ theme }) => theme.color.text};
