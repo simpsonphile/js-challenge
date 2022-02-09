@@ -5,12 +5,11 @@ import List from 'components/List';
 import ClientOnly from 'components/ClientOnly';
 import { Exercise } from 'lib/getExercises';
 import { checkExerciseStatus } from 'lib/updateData';
+import routes from 'lib/routes';
 
 export type ExerciseListProps = {
   exercises: Exercise[];
 };
-
-const SLUG_PREFIX = '/exercises/';
 
 export default function ExerciseList(
   props: ExerciseListProps
@@ -26,7 +25,7 @@ export default function ExerciseList(
           <ClientOnly key={slug}>
             <Link
               color={status ? 'valid' : undefined}
-              href={SLUG_PREFIX + slug}
+              href={slug ? routes.exercise(slug) : ''}
             >
               {status && '✅ '}
               {title}

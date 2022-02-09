@@ -9,7 +9,7 @@ import {
 } from './DefaultLayout.style';
 
 type DefaultLayoutProps = {
-  children: React.ReactChild;
+  children?: React.ReactChild;
   sidebar?: React.ReactChild;
 };
 
@@ -30,7 +30,9 @@ export default function DefaultLayout(
         <StyledDefaultLayoutSidebar>{sidebar}</StyledDefaultLayoutSidebar>
       )}
 
-      <StyledDefaultLayoutContent>{children}</StyledDefaultLayoutContent>
+      {children && (
+        <StyledDefaultLayoutContent>{children}</StyledDefaultLayoutContent>
+      )}
 
       <div id="footer" />
     </StyledDefaultLayout>

@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 
 import { Exercise } from 'lib/getExercises';
+import routes from 'lib/routes';
 
 const useGoToNextExercise = (exercises: Exercise[], slug?: string) => {
   const router = useRouter();
@@ -12,7 +13,7 @@ const useGoToNextExercise = (exercises: Exercise[], slug?: string) => {
   const nextSlug = exercises?.[index + 1]?.slug;
 
   if (nextSlug) {
-    return () => router.push('/exercises/' + nextSlug);
+    return () => router.push(routes.exercise(nextSlug));
   }
 };
 
