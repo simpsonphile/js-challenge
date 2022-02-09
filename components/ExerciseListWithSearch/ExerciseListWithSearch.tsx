@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Search from 'components/Search';
 import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
 
+import { StyledExerciseListSearch } from './ExerciseListWithSearch.styles';
+
 export type ExerciseListWithSearchProps = ExerciseListProps;
 
 export default function ExerciseListWithSearch(
@@ -22,7 +24,9 @@ export default function ExerciseListWithSearch(
 
   return (
     <div>
-      <Search value={value} onChange={(e) => valueSet(e.target.value)} />
+      <StyledExerciseListSearch>
+        <Search value={value} onChange={(e) => valueSet(e.target.value)} />
+      </StyledExerciseListSearch>
       <ExerciseList posts={postsFiltered} />
     </div>
   );
