@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { Exercise } from 'lib/getExercises';
 import { getExerciseStatuses } from 'lib/updateData';
 import shuffle from 'lodash/shuffle';
+import routes from 'lib/routes';
 
 const useGoToNextExercise = (exercises: Exercise[], slug?: string) => {
   const router = useRouter();
@@ -24,7 +25,7 @@ const useGoToNextExercise = (exercises: Exercise[], slug?: string) => {
   const nextSlug = nextExercise?.slug;
 
   if (nextSlug) {
-    return () => router.push('/exercises/' + nextSlug);
+    return () => router.push(routes.exercise(nextSlug));
   }
 };
 
