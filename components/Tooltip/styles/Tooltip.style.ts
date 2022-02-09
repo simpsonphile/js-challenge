@@ -17,7 +17,6 @@ const StyledTooltip = styled.div`
 `;
 
 const setMessagePosition = ({ position }: { position?: Position }) => {
-  console.log(position);
   if (position === 'right')
     return css`
       transform: translate(50%, -50%);
