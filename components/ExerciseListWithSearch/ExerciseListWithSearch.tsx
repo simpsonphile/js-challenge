@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Search from 'components/Search';
+import InputSearch from 'components/InputSearch';
 import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
 
 import { StyledExerciseListSearch } from './ExerciseListWithSearch.styles';
@@ -25,7 +25,7 @@ export default function ExerciseListWithSearch(
   return (
     <div>
       <StyledExerciseListSearch>
-        <Search value={value} onChange={(e) => valueSet(e.target.value)} />
+        <InputSearch value={value} onChange={(e) => valueSet(e.target.value)} />
       </StyledExerciseListSearch>
       <ExerciseList posts={postsFiltered} />
     </div>
