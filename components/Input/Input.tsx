@@ -13,17 +13,19 @@ export type InputProps = Omit<
   >,
   'ref'
 > & {
-  iconRight?: string;
+  iconRight?: React.ReactElement;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { iconRight, ...rest } = props;
 
+  const hasIcon = !!iconRight;
+
   return (
     <StyledInputWrap {...rest}>
-      <StyledInput ref={ref} {...rest} />
+      <StyledInput ref={ref} hasIcon={hasIcon} {...rest} />
 
-      <StyledInputIconWrap>{iconRight}</StyledInputIconWrap>
+      {hasIcon && <StyledInputIconWrap>{iconRight}</StyledInputIconWrap>}
     </StyledInputWrap>
   );
 });
