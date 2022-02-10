@@ -4,7 +4,7 @@ import { colorMixin, ColorProps } from 'themes/mixins/color';
 import getFontScale, { FontScaleProps } from 'themes/mixins/getFontScale';
 
 export type StyledHeadlineProps = FontScaleProps & {
-  color: ColorProps['color'];
+  color?: ColorProps['color'];
 };
 
 const StyledHeadline = styled.h1<StyledHeadlineProps>`
