@@ -1,6 +1,10 @@
+import { useRouter } from 'next/router';
+
 import Box from 'components/Box';
 import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
 import Accords from 'components/Accords';
+import routes from 'lib/routes';
+
 import { exerciseArrToCatObj } from './exerciseArrToCatObj';
 
 export type ExerciseListWithCatsProps = ExerciseListProps;
@@ -9,6 +13,12 @@ export default function ExerciseListWithCats(
   props: ExerciseListWithCatsProps
 ): React.ReactElement {
   const { exercises } = props;
+
+  const { asPath } = useRouter();
+
+  const currentCat = exercises.find(
+    (exercise) => routes.exercise(exercise.fullSlug) === asPath
+  )?.cat;
 
   const exercisesByCat = exerciseArrToCatObj(exercises);
 
@@ -24,5 +34,10 @@ export default function ExerciseListWithCats(
     },
   ]);
 
-  return <Accords items={Object.fromEntries(accordsData)} />;
+  return (
+    <Accords
+      defaultActive={currentCat ? [currentCat] : undefined}
+      items={Object.fromEntries(accordsData)}
+    />
+  );
 }
