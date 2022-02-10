@@ -41,7 +41,7 @@ export function getExerciseBySlug(
   const { data, content } = matter(fileContents);
 
   const items: Exercise = {
-    id: shortSlug,
+    id: data?.id,
     fullSlug: shortSlug,
     slug: slugPart2 || slugPart1,
     cat: fields.includes('cat') ? (slugPart2 ? slugPart1 : null) : undefined,
