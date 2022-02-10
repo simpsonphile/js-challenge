@@ -1,4 +1,5 @@
 ---
+id: map
 title: Map
 code: "
 // function that return mapped array\n

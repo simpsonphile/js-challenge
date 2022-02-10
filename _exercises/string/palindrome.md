@@ -1,4 +1,5 @@
 ---
+id: palindrome
 title: Check if palindrome
 code: "
 // write function that checks if string is palindrome\n\n

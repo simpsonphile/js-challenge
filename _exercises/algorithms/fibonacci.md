@@ -1,4 +1,5 @@
 ---
+id: fibonacci
 title: Fibonacci
 code: "
 // generate fibonacci sequence with given length starting from 0 (0, 1, 1, 2, 3...)
