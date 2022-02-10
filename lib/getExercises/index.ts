@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import globule from 'globule';
 
 export type Exercise = {
+  id: string;
   fullSlug: string;
   slug: string;
   cat?: string | null;
@@ -14,7 +15,7 @@ export type Exercise = {
   tests?: string;
 };
 
-type ExerciseKeys = keyof Exercise;
+type Fields = keyof Omit<Exercise, 'id' | 'fullSlug' | 'slug'>;
 
 const exercisesDir = join(process.cwd(), '_exercises');
 
@@ -22,10 +23,7 @@ export function getExerciseSlugs() {
   return globule.find(exercisesDir + '/**/*.md');
 }
 
-export function getExerciseByShortSlug(
-  slug: string,
-  fields: ExerciseKeys[] = []
-) {
+export function getExerciseByShortSlug(slug: string, fields: Fields[] = []) {
   const longSlug = exercisesDir + '/' + slug + '.md';
 
   return getExerciseBySlug(longSlug, fields);
@@ -33,7 +31,7 @@ export function getExerciseByShortSlug(
 
 export function getExerciseBySlug(
   slug: string,
-  fields: ExerciseKeys[] = []
+  fields: Fields[] = []
 ): Exercise {
   const slugNoExt = slug.replace(/\.md$/, '');
   const shortSlug = slugNoExt.replace(exercisesDir + '/', '');
@@ -42,7 +40,13 @@ export function getExerciseBySlug(
 
   const { data, content } = matter(fileContents);
 
-  const items: { [key: string]: string } = {};
+  const items: Exercise = {
+    id: shortSlug,
+    fullSlug: shortSlug,
+    slug: slugPart2 || slugPart1,
+    cat: fields.includes('cat') ? (slugPart2 ? slugPart1 : null) : undefined,
+    tests: fields.includes('tests') ? content : undefined,
+  };
 
   fields.forEach((field) => {
     if (typeof data[field] !== 'undefined') {
@@ -50,16 +54,10 @@ export function getExerciseBySlug(
     }
   });
 
-  return {
-    ...items,
-    tests: content,
-    fullSlug: shortSlug,
-    slug: slugPart2 || slugPart1,
-    cat: slugPart2 ? slugPart1 : null,
-  };
+  return items;
 }
 
-export function getAllExercises(fields: ExerciseKeys[] = []) {
+export function getAllExercises(fields: Fields[] = []) {
   const slugs = getExerciseSlugs();
 
   const exercises = slugs.map((slug) => getExerciseBySlug(slug, fields));

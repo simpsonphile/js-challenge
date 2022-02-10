@@ -24,8 +24,6 @@ export default function ExercisePage({
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const exercises = getAllExercises([
     'title',
-    'slug',
-    'fullSlug',
     'code',
     'solution',
     'hints',
@@ -50,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export async function getStaticPaths() {
-  const exercises = getAllExercises(['slug', 'cat']);
+  const exercises = getAllExercises(['cat']);
 
   return {
     paths: exercises.map(({ cat, slug }) => {
