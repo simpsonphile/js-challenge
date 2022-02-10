@@ -1,6 +1,6 @@
 ---
 id: sort
-title: Custom sort without using array sort method
+title: Sort
 code: "
 // function that return sorted array\n
 // can't use array sort method\n
