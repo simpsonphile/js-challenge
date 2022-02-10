@@ -1,7 +1,6 @@
 import Box from 'components/Box';
 import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
-import Headline from 'components/Headline';
-import List from 'components/List';
+import Accords from 'components/Accords';
 import { exerciseArrToCatObj } from './exerciseArrToCatObj';
 
 export type ExerciseListWithCatsProps = ExerciseListProps;
@@ -11,18 +10,19 @@ export default function ExerciseListWithCats(
 ): React.ReactElement {
   const { exercises } = props;
 
-  const x = exerciseArrToCatObj(exercises);
+  const exercisesByCat = exerciseArrToCatObj(exercises);
 
-  const a = Object.entries(x).map(([cat, items]) => (
-    <>
-      <Box bgColor="bgAccent" p="s base" mb="base">
-        <Headline>{cat}</Headline>
-      </Box>
-      <Box pl="base">
-        <ExerciseList exercises={items} />
-      </Box>
-    </>
-  ));
+  const accordsData = Object.entries(exercisesByCat).map(([cat, items]) => [
+    cat,
+    {
+      title: cat,
+      content: (
+        <Box pl="base">
+          <ExerciseList exercises={items} />
+        </Box>
+      ),
+    },
+  ]);
 
-  return <List gap="lg">{a}</List>;
+  return <Accords items={Object.fromEntries(accordsData)} />;
 }
