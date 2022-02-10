@@ -14,10 +14,8 @@ export type TabsProps = {
   defaultActive?: string;
 };
 
-const defaultProps: Partial<TabsProps> = {};
-
 export default function Tabs(props: TabsProps): React.ReactElement {
-  const { items, defaultActive } = { ...defaultProps, ...props };
+  const { items, defaultActive } = props;
 
   const { navItems, contentItems } = useTabs(items, defaultActive);
 

@@ -9,12 +9,18 @@ function map(arr, callback) {\n
 }
 "
 ---
-// test
+```js
 const arr = [2, 3, 4];
 const callback = (val) => val * 2;
 const result = map(arr, callback);
 result[0] == 4 && result[1] == 6 && result[2] == 8
-// test
-map.toString().includes('.map');
-// message
-you can't use array map method
+```
+
+```js
+!map.toString().includes('.map');
+// messages
+{
+  "fail": "you can't use array map method",
+  "success": "you have not used array map method"
+}
+```

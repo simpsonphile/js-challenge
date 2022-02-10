@@ -1,9 +1,7 @@
 import { GetStaticProps } from 'next';
 
-import { getExerciseBySlug, getAllExercises } from 'lib/getExercises';
+import { getAllExercises, Exercise } from 'lib/getExercises';
 import ExerciseView from 'views/ExerciseView';
-
-import { Exercise } from 'lib/getExercises';
 import DefaultLayout from 'layouts/DefaultLayout';
 import Sidebar from 'components/Sidebar';
 
@@ -24,41 +22,41 @@ export default function ExercisePage({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const exerciseKeys = [
+  const exercises = getAllExercises([
     'title',
     'slug',
+    'fullSlug',
     'code',
     'solution',
     'hints',
-    'description',
     'tests',
-  ];
-  const exercises = getAllExercises(exerciseKeys);
+    'cat',
+  ]);
 
-  const slug = params?.slug as string;
-  const exercise: { [key: string]: string } = getExerciseBySlug(
-    slug,
-    exerciseKeys
-  );
+  const fullSlug = (
+    Array.isArray(params?.slug) ? params?.slug.join('/') : params?.slug
+  ) as string;
+
+  const exercise = exercises.find((exp) => {
+    return exp.fullSlug === fullSlug;
+  });
 
   return {
     props: {
       exercises,
-      exercise: {
-        ...exercise,
-      },
+      exercise,
     },
   };
 };
 
 export async function getStaticPaths() {
-  const exercises = getAllExercises(['slug']);
+  const exercises = getAllExercises(['slug', 'cat']);
 
   return {
-    paths: exercises.map((exercise) => {
+    paths: exercises.map(({ cat, slug }) => {
       return {
         params: {
-          slug: exercise.slug,
+          slug: [cat, slug].filter((el) => el),
         },
       };
     }),

@@ -18,14 +18,14 @@ export default function ExerciseList(
 
   const links = React.useMemo(
     () =>
-      exercises.map(({ slug, title }) => {
-        const status = slug && checkExerciseStatus(slug);
+      exercises.map(({ fullSlug, title }) => {
+        const status = fullSlug && checkExerciseStatus(fullSlug);
 
         return (
-          <ClientOnly key={slug}>
+          <ClientOnly key={fullSlug}>
             <Link
               color={status ? 'valid' : undefined}
-              href={slug ? routes.exercise(slug) : ''}
+              href={fullSlug ? routes.exercise(fullSlug) : ''}
             >
               {status && '✅ '}
               {title}
@@ -36,5 +36,5 @@ export default function ExerciseList(
     [exercises]
   );
 
-  return <List>{links}</List>;
+  return <List gap="xs">{links}</List>;
 }

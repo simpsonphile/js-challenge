@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 
 import InputSearch from 'components/InputSearch';
-import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
 
 import { StyledExerciseListSearch } from './ExerciseListWithSearch.styles';
+import ExerciseListWithCats, {
+  ExerciseListWithCatsProps,
+} from 'components/ExerciseListWithCats';
 
-export type ExerciseListWithSearchProps = ExerciseListProps;
+export type ExerciseListWithSearchProps = ExerciseListWithCatsProps;
 
 export default function ExerciseListWithSearch(
   props: ExerciseListWithSearchProps
@@ -27,7 +29,7 @@ export default function ExerciseListWithSearch(
       <StyledExerciseListSearch>
         <InputSearch value={value} onChange={(e) => valueSet(e.target.value)} />
       </StyledExerciseListSearch>
-      <ExerciseList exercises={exercisesFiltered} />
+      <ExerciseListWithCats exercises={exercisesFiltered} />
     </div>
   );
 }

@@ -1,8 +1,11 @@
+import Box from 'components/Box';
+import Headline from 'components/Headline';
 import List from 'components/List';
 
 export type Result = {
   result: boolean;
-  message?: string;
+  failMessage?: string;
+  successMessage?: string;
 };
 
 type ResultsProps = {
@@ -12,13 +15,24 @@ type ResultsProps = {
 export default function Results(props: ResultsProps): React.ReactElement {
   const { results } = props;
 
-  if (results.length < 0) return <></>;
+  const resultNodes = results.map(
+    ({ result, failMessage, successMessage }, index) => {
+      let text = failMessage || `test ${index} failed`;
+      if (result) {
+        text = successMessage || `test ${index} passed`;
+      }
 
-  const resultNodes = results.map(({ result, message }, index) => {
-    const failMessage = message || `test ${index} failed`;
+      return (
+        <Headline scale="base" key={text} color={result ? 'valid' : 'error'}>
+          {text}
+        </Headline>
+      );
+    }
+  );
 
-    return result ? `test ${index} passed` : failMessage;
-  });
-
-  return <List>{resultNodes}</List>;
+  return (
+    <Box p="base" bgColor="bgAccent">
+      <List>{resultNodes}</List>
+    </Box>
+  );
 }

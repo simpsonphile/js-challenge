@@ -13,11 +13,15 @@ type StyledTabsItemProps = {
 const getMainColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main;
 const getGrayColor = ({ theme }: { theme: DefaultTheme }) => theme.color.gray;
 const getTextColor = ({ theme }: { theme: DefaultTheme }) => theme.color.text;
+const getBgAccentColor = ({ theme }: { theme: DefaultTheme }) =>
+  theme.color.bgAccent;
 
 const StyledTabs = styled.div``;
 
 const StyledTabsNav = styled.div`
   display: flex;
+
+  background-color: ${getBgAccentColor};
 
   &:not(:last-child) {
     margin-bottom: ${({ theme }) => theme.spacing.s};
