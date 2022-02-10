@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router';
-
-import { Exercise } from 'lib/getExercises';
-import { getExerciseStatuses } from 'lib/updateData';
 import shuffle from 'lodash/shuffle';
+
+import { Exercise } from 'contexts/exercises';
 import routes from 'lib/routes';
 
 const useGoToNextExercise = (exercises: Exercise[], slug?: string) => {
@@ -10,19 +9,10 @@ const useGoToNextExercise = (exercises: Exercise[], slug?: string) => {
 
   if (!slug) return;
 
-  const statuses = getExerciseStatuses();
+  const shuffledExercises = shuffle(exercises);
 
-  const exercisesWithStatus = exercises.map((exercise) => ({
-    ...exercise,
-    isPassed: exercise.slug ? !!statuses?.[exercise.slug] : false,
-  }));
-
-  const shuffledExercisesWithStatus = shuffle(exercisesWithStatus);
-
-  const nextExercise = shuffledExercisesWithStatus.find(
-    (exercise) => !exercise.isPassed
-  );
-  const nextSlug = nextExercise?.slug;
+  const nextExercise = shuffledExercises.find((exercise) => !exercise.isPassed);
+  const nextSlug = nextExercise?.fullSlug;
 
   if (nextSlug) {
     return () => router.push(routes.exercise(nextSlug));

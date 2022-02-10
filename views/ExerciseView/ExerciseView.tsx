@@ -22,14 +22,14 @@ export default function ExerciseLayout(
 
   const exercise = getExerciseById(id);
 
-  const { slug, isPassed, title, code, tests, solution, hints } =
+  const { fullSlug, isPassed, title, code, tests, solution, hints } =
     exercise || {};
 
   const makeExerciseCompleted = useCallback(() => {
-    if (slug) {
-      updateLocalStorageExercisesData(slug, true);
+    if (id) {
+      updateLocalStorageExercisesData(id, true);
     }
-  }, [slug]);
+  }, [id]);
 
   const onSuccess = () => {
     makeExerciseCompleted();
@@ -49,10 +49,10 @@ export default function ExerciseLayout(
         hints={hints}
       />
 
-      {slug && showModal && (
+      {fullSlug && showModal && (
         <ModalExerciseCompleted
           exercises={exercises}
-          slug={slug}
+          slug={fullSlug}
           onClose={() => showModalSet(false)}
         />
       )}
