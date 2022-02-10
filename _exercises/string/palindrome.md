@@ -7,15 +7,15 @@ function checkIfPalindrome(str) {\n
 }
 "
 ---
-// test
-const x = checkIfPalindrome('zy');
-x === false
-// test
-const x = checkIfPalindrome('abba');
-x === true
-// test
-const x = checkIfPalindrome('1111');
-x === true
-// test
-const x = checkIfPalindrome('cebula');
-x === false
+```js
+const x = checkIfPalindrome('zy') === false;
+```
+```js
+const x = checkIfPalindrome('abba') === true;
+```
+```js
+const x = checkIfPalindrome('1111') === true;
+```
+```js
+const x = checkIfPalindrome('cebula') === false;
+```

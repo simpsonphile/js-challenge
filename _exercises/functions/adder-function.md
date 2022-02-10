@@ -13,7 +13,9 @@ function createAdder(base) {\n
 }
 "
 ---
-// test
+```js
 createAdder(2)(2) === 4
-// test
+```
+```js
 createAdder(10)(12) === 22
+```
