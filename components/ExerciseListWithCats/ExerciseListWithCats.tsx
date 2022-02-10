@@ -1,9 +1,11 @@
+import { useContext, useMemo } from 'react';
 import { useRouter } from 'next/router';
 
 import Box from 'components/Box';
 import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
 import Accords from 'components/Accords';
 import routes from 'lib/routes';
+import { ExerciseContext } from 'contexts/exercises';
 
 import { exerciseArrToCatObj } from './exerciseArrToCatObj';
 
@@ -15,6 +17,8 @@ export default function ExerciseListWithCats(
   const { exercises } = props;
 
   const { asPath } = useRouter();
+  const { getCategoryExercisesCount, getCategoryCompletedExercisesCount } =
+    useContext(ExerciseContext);
 
   const currentCat = exercises.find(
     (exercise) => routes.exercise(exercise.fullSlug) === asPath
@@ -22,22 +26,37 @@ export default function ExerciseListWithCats(
 
   const exercisesByCat = exerciseArrToCatObj(exercises);
 
-  const accordsData = Object.entries(exercisesByCat).map(([cat, items]) => [
-    cat,
-    {
-      title: cat,
-      content: (
-        <Box pl="base">
-          <ExerciseList exercises={items} />
-        </Box>
-      ),
-    },
-  ]);
+  const accordsData = useMemo(
+    () =>
+      Object.entries(exercisesByCat).map(([cat, items]) => {
+        const allExercises = getCategoryExercisesCount(cat);
+        const passedExercises = getCategoryCompletedExercisesCount(cat);
+        const title = `${cat} [${passedExercises} / ${allExercises}]`;
+        return [
+          cat,
+          {
+            title,
+            content: (
+              <Box pl="base">
+                <ExerciseList exercises={items} />
+              </Box>
+            ),
+          },
+        ];
+      }),
+    [
+      exercisesByCat,
+      getCategoryCompletedExercisesCount,
+      getCategoryExercisesCount,
+    ]
+  );
+
+  const items = Object.fromEntries(accordsData);
 
   return (
     <Accords
       defaultActive={currentCat ? [currentCat] : undefined}
-      items={Object.fromEntries(accordsData)}
+      items={items}
     />
   );
 }
