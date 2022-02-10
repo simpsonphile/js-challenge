@@ -1,24 +1,29 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 
 import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
-import updateLocalStorageExercisesData, {
-  checkExerciseStatus,
-} from 'lib/updateData';
-import { Exercise } from 'lib/getExercises';
+import updateLocalStorageExercisesData from 'lib/updateData';
 
 import Header from './components/Header';
 import Tabs from './components/Tabs';
+import { ExerciseContext } from 'contexts/exercises';
 
-type ExerciseViewProps = Exercise & { exercises: Exercise[] };
+type ExerciseViewProps = {
+  id: string;
+};
 
 export default function ExerciseLayout(
   props: ExerciseViewProps
 ): React.ReactElement {
-  const { title, code, solution, hints, tests, slug, exercises } = props;
+  const { id } = props;
 
   const [showModal, showModalSet] = useState(false);
 
-  const isPassed = slug ? checkExerciseStatus(slug) : false;
+  const { getExerciseById, exercises } = useContext(ExerciseContext);
+
+  const exercise = getExerciseById(id);
+
+  const { slug, isPassed, title, code, tests, solution, hints } =
+    exercise || {};
 
   const makeExerciseCompleted = useCallback(() => {
     if (slug) {

@@ -3,9 +3,8 @@ import React from 'react';
 import Link from 'components/Link';
 import List from 'components/List';
 import ClientOnly from 'components/ClientOnly';
-import { Exercise } from 'lib/getExercises';
-import { checkExerciseStatus } from 'lib/updateData';
 import routes from 'lib/routes';
+import { Exercise } from 'contexts/exercises';
 
 export type ExerciseListProps = {
   exercises: Exercise[];
@@ -18,21 +17,17 @@ export default function ExerciseList(
 
   const links = React.useMemo(
     () =>
-      exercises.map(({ fullSlug, title }) => {
-        const status = fullSlug && checkExerciseStatus(fullSlug);
-
-        return (
-          <ClientOnly key={fullSlug}>
-            <Link
-              color={status ? 'valid' : undefined}
-              href={fullSlug ? routes.exercise(fullSlug) : ''}
-            >
-              {status && '✅ '}
-              {title}
-            </Link>
-          </ClientOnly>
-        );
-      }),
+      exercises.map(({ fullSlug, title, isPassed }) => (
+        <ClientOnly key={fullSlug}>
+          <Link
+            color={isPassed ? 'valid' : undefined}
+            href={fullSlug ? routes.exercise(fullSlug) : ''}
+          >
+            {isPassed && '✅ '}
+            {title}
+          </Link>
+        </ClientOnly>
+      )),
     [exercises]
   );
 

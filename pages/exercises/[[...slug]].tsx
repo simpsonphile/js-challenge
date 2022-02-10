@@ -4,6 +4,7 @@ import { getAllExercises, Exercise } from 'lib/getExercises';
 import ExerciseView from 'views/ExerciseView';
 import DefaultLayout from 'layouts/DefaultLayout';
 import Sidebar from 'components/Sidebar';
+import { ExercisesProvider } from 'contexts/exercises';
 
 type ExercisePageProps = {
   exercises: Exercise[];
@@ -15,9 +16,11 @@ export default function ExercisePage({
   exercises,
 }: ExercisePageProps) {
   return (
-    <DefaultLayout sidebar={<Sidebar exercises={exercises} />}>
-      <ExerciseView exercises={exercises} {...exercise} />
-    </DefaultLayout>
+    <ExercisesProvider exercises={exercises}>
+      <DefaultLayout sidebar={<Sidebar />}>
+        <ExerciseView id={exercise.id} />
+      </DefaultLayout>
+    </ExercisesProvider>
   );
 }
 
