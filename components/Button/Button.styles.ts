@@ -67,11 +67,11 @@ const StyledButtonIcon = styled.span`
   display: inline-flex;
 
   &:not(:last-child) {
-    margin-right: 0.4rem;
+    margin-right: ${({ theme }) => theme.spacing.xs};
   }
 
   &:not(:first-child) {
-    margin-left: 0.4rem;
+    margin-left: ${({ theme }) => theme.spacing.xs};
   }
 `;
 
