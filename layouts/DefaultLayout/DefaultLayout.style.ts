@@ -9,9 +9,10 @@ const padding = ({ theme }: { theme: DefaultTheme }) => theme.spacing.lg;
 
 const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
   display: grid;
+  grid-template-rows: min-content 1fr;
   gap: ${padding};
 
-  padding: ${padding};
+  padding: 0 ${padding} ${padding} ${padding};
 
   ${({ hasSidebar }) =>
     hasSidebar
@@ -32,7 +33,7 @@ const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
 const StyledDefaultLayoutHeader = styled.div`
   grid-area: header;
 
-  margin: -${padding} -${padding} 0 -${padding};
+  margin: 0 -${padding};
 `;
 
 const StyledDefaultLayoutSidebar = styled.aside`
