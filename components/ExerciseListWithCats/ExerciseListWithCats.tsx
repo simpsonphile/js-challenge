@@ -1,6 +1,7 @@
 import { useContext, useMemo } from 'react';
 import { useRouter } from 'next/router';
 
+import ClientOnly from 'components/ClientOnly';
 import Box from 'components/Box';
 import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
 import Accords from 'components/Accords';
@@ -31,7 +32,11 @@ export default function ExerciseListWithCats(
       Object.entries(exercisesByCat).map(([cat, items]) => {
         const allExercises = getCategoryExercisesCount(cat);
         const passedExercises = getCategoryCompletedExercisesCount(cat);
-        const title = `${cat} [${passedExercises} / ${allExercises}]`;
+        const title = (
+          <ClientOnly>
+            {`${cat} [${passedExercises} / ${allExercises}]`}
+          </ClientOnly>
+        );
         return [
           cat,
           {
