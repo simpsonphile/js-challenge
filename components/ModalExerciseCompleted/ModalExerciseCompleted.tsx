@@ -18,15 +18,18 @@ export default function ModalExerciseCompleted(
 ): React.ReactElement {
   const { exercises, slug, onClose } = props;
 
+  // merge
   const goToNextExercise = useGoToNextExercise(exercises, slug);
   const goToRandomExercise = useGoToRandomExercise(exercises, slug);
 
   return (
     <Modal onClose={onClose}>
-      <Box bgColor="white">
-        <Headline tag="h2" scale="xl">
-          Congratulations!
-        </Headline>
+      <Box bgColor="bg" p="base">
+        <Box mb="base">
+          <Headline tag="h2" scale="xl">
+            Congratulations!
+          </Headline>
+        </Box>
 
         <Inline gap="s">
           <Button

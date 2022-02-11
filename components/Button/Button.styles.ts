@@ -7,9 +7,11 @@ export type StyledButtonProps = {
 };
 
 const buttonResetCss = css`
+  padding: 0;
+
   cursor: pointer;
   color: inherit;
-  background: transparent;
+  background-color: transparent;
   border: none;
 `;
 
@@ -43,6 +45,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 
       height: 4rem;
       min-width: 8rem;
+      padding: 0 ${({ theme }) => theme.spacing.s};
 
       font-size: ${({ theme }) => theme.fontScales.base[0]};
       line-height: 1;
@@ -56,7 +59,13 @@ const StyledButton = styled.button<StyledButtonProps>`
     `}
 `;
 
+const StyledButtonLabel = styled.span`
+  display: inline-flex;
+`;
+
 const StyledButtonIcon = styled.span`
+  display: inline-flex;
+
   &:not(:last-child) {
     margin-right: 0.4rem;
   }
@@ -66,4 +75,4 @@ const StyledButtonIcon = styled.span`
   }
 `;
 
-export { StyledButton, StyledButtonIcon };
+export { StyledButton, StyledButtonLabel, StyledButtonIcon };
