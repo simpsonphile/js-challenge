@@ -61,6 +61,10 @@ const StyledButton = styled.button<StyledButtonProps>`
 
 const StyledButtonLabel = styled.span`
   display: inline-flex;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const StyledButtonIcon = styled.span`
