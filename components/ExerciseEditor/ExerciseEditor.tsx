@@ -16,14 +16,17 @@ export default function ExerciseEditor(
 ): React.ReactElement {
   const { code, tests, onSuccess } = props;
 
-  const { onEditorValueChange, onSubmit, results, isAllPassed } =
-    useExerciseEditor(code, tests, onSuccess);
+  const { onEditorValueChange, onSubmit, results } = useExerciseEditor(
+    code,
+    tests,
+    onSuccess
+  );
 
   return (
     <StyledExerciseEditor>
       <Editor value={code} setValue={(val) => onEditorValueChange(val)} />
       <Results results={results || []} />
-      <Button onClick={onSubmit}>{isAllPassed ? 'accept' : 'test'}</Button>
+      <Button onClick={onSubmit}>test</Button>
     </StyledExerciseEditor>
   );
 }

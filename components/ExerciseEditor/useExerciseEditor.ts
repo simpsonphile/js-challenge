@@ -3,6 +3,14 @@ import { useCallback, useState } from 'react';
 import { Result } from 'components/Results';
 import getTestWithMessages from 'lib/parseTestsDataFromString';
 
+const checkIfAllPassed = (results?: Result[]) => {
+  return (
+    results &&
+    results.length > 0 &&
+    !results.map((result) => result.result).includes(false)
+  );
+};
+
 const useExerciseEditor = (
   code: string,
   tests: string,
@@ -13,27 +21,24 @@ const useExerciseEditor = (
 
   const testsArr = getTestWithMessages(tests);
 
-  const isAllPassed =
-    results &&
-    results.length > 0 &&
-    !results.map((result) => result.result).includes(false);
-
   const onSubmit = useCallback(() => {
-    if (isAllPassed) {
-      onSuccess?.();
-    } else {
-      const results = testsArr?.map(({ body, failMessage, successMessage }) => {
+    const newResults = testsArr?.map(
+      ({ body, failMessage, successMessage }) => {
         try {
           return { result: !!eval(value + body), failMessage, successMessage };
         } catch (error) {
           console.log(error);
           return { result: false, failMessage };
         }
-      });
+      }
+    );
 
-      resultsSet(results);
+    resultsSet(newResults);
+
+    if (checkIfAllPassed(newResults)) {
+      onSuccess?.();
     }
-  }, [onSuccess, isAllPassed, value, testsArr]);
+  }, [onSuccess, value, testsArr]);
 
   const onEditorValueChange = (val: string) => {
     valueSet(val);
@@ -42,7 +47,6 @@ const useExerciseEditor = (
   return {
     onSubmit,
     onEditorValueChange,
-    isAllPassed,
     results,
   };
 };

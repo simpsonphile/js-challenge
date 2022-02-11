@@ -8,7 +8,7 @@ type TabsProps = {
   hints?: string;
   solution?: string;
   isPassed?: boolean;
-  onSuccess?: () => void;
+  onSuccess: () => void;
 };
 
 export default function Tabs(props: TabsProps): React.ReactElement {
