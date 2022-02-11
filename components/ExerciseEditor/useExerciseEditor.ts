@@ -33,10 +33,11 @@ const useExerciseEditor = (
       }
     );
 
-    resultsSet(newResults);
-
     if (checkIfAllPassed(newResults)) {
       onSuccess?.();
+      resultsSet([]);
+    } else {
+      resultsSet(newResults);
     }
   }, [onSuccess, value, testsArr]);
 
