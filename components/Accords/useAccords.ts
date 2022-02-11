@@ -23,6 +23,12 @@ const useAccords = (items: Items, defaultActive?: string[]) => {
     activeAccordsSet(newActiveAccords);
   };
 
+  const turnOn = (key: string) => {
+    if (!hasKey(key)) {
+      activeAccordsSet([key, ...activeAccords]);
+    }
+  };
+
   const accords = Object.entries(items).map(([key, val]) => ({
     title: val.title,
     toggle: () => toggle(key),
@@ -30,7 +36,7 @@ const useAccords = (items: Items, defaultActive?: string[]) => {
     content: val.content,
   }));
 
-  return { accords };
+  return { accords, turnOn };
 };
 
 export default useAccords;

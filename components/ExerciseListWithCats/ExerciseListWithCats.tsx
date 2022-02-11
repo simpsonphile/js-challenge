@@ -1,10 +1,16 @@
-import { useContext, useMemo } from 'react';
+import {
+  MutableRefObject,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
 import { useRouter } from 'next/router';
 
 import ClientOnly from 'components/ClientOnly';
 import Box from 'components/Box';
 import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
-import Accords from 'components/Accords';
+import Accords, { AccordsHandle } from 'components/Accords';
 import routes from 'lib/routes';
 import { ExerciseContext } from 'contexts/exercises';
 
@@ -20,12 +26,19 @@ export default function ExerciseListWithCats(
   const { asPath } = useRouter();
   const { getCategoryExercisesCount, getCategoryCompletedExercisesCount } =
     useContext(ExerciseContext);
+  const accordsRef = useRef<AccordsHandle>() as MutableRefObject<AccordsHandle>;
 
   const currentCat = exercises.find(
     (exercise) => routes.exercise(exercise.fullSlug) === asPath
   )?.cat;
 
   const exercisesByCat = exerciseArrToCatObj(exercises);
+
+  useEffect(() => {
+    if (currentCat) {
+      accordsRef.current.turnOn(currentCat);
+    }
+  }, [currentCat]);
 
   const accordsData = useMemo(
     () =>
@@ -60,6 +73,7 @@ export default function ExerciseListWithCats(
 
   return (
     <Accords
+      ref={accordsRef}
       defaultActive={currentCat ? [currentCat] : undefined}
       items={items}
     />
