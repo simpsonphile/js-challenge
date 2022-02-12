@@ -24,10 +24,10 @@ export default function Tabs(props: TabsProps): React.ReactElement {
       <StyledTabsNav>
         {navItems.map(({ active, title, changeTab, goToLink, asLink }) => (
           <StyledTabsNavItem
+            key={title}
             as={Button}
             genre="plain"
             active={active}
-            key={title}
             onClick={asLink ? goToLink : changeTab}
           >
             {title}

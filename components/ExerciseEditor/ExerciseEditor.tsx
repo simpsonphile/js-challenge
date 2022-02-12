@@ -30,7 +30,7 @@ export default function ExerciseEditor(
       <Editor value={code} setValue={(val) => onEditorValueChange(val)} />
       <Results results={results || []} />
       <Button onClick={onSubmit}>test</Button>
-      <Button onClick={toggleFullScreen} iconRight={<AiOutlineFullscreen />}>
+      <Button iconRight={<AiOutlineFullscreen />} onClick={toggleFullScreen}>
         full screen
       </Button>
     </StyledExerciseEditor>

@@ -1,23 +1,25 @@
 import { useEffect, useState } from 'react';
 
 type ClientOnlyProps = {
-  children: React.ReactNode;
+  children: React.ReactElement;
 };
 
-export default function ClientOnly(props: ClientOnlyProps): React.ReactElement {
+export default function ClientOnly(
+  props: ClientOnlyProps
+): React.ReactElement | null {
   const { children } = props;
 
-  const [show, setShow] = useState(false);
+  const [isShown, isShownSet] = useState(false);
 
   const isBrowser = typeof window !== 'undefined';
 
   useEffect(() => {
     if (isBrowser) {
-      setShow(true);
+      isShownSet(true);
     }
-  }, [isBrowser, show, setShow]);
+  }, [isBrowser, isShown, isShownSet]);
 
-  if (!show) return <></>;
+  if (!isShown || !children) return null;
 
-  return <>{children}</>;
+  return children;
 }

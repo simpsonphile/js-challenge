@@ -19,7 +19,7 @@ const useTabs = (items: Items, defaultActive?: string) => {
   }));
 
   const contentItems = Object.entries(items)
-    .filter(([_, val]) => !val?.asLink)
+    .filter(([, val]) => !val?.asLink)
     .map(([key, val]) => ({
       id: key,
       content: val?.content,

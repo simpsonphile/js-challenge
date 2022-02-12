@@ -34,8 +34,8 @@ export default function Tabs(props: TabsProps): React.ReactElement {
               <ExerciseEditor
                 code={code}
                 tests={tests}
-                onSuccess={onSuccess}
                 toggleFullScreen={toggleFullScreen}
+                onSuccess={onSuccess}
               />
             </div>
           )}

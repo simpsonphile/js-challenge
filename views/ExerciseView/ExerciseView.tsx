@@ -17,7 +17,7 @@ export default function ExerciseLayout(
 ): React.ReactElement {
   const { id } = props;
 
-  const [showModal, showModalSet] = useState(false);
+  const [isModalShown, isModalShownSet] = useState(false);
   const [isFullScreen, isFullScreenSet] = useState(false);
   const toggleFullScreen = () => isFullScreenSet(!isFullScreen);
 
@@ -35,25 +35,25 @@ export default function ExerciseLayout(
 
   const onSuccess = () => {
     makeExerciseCompleted();
-    showModalSet(true);
+    isModalShownSet(true);
   };
 
   return (
-    <FullScreen toggle={isFullScreenSet} state={isFullScreen}>
+    <FullScreen isActive={isFullScreen} toggle={isFullScreenSet}>
       <>
-        {title && <Header title={title} isPassed={isPassed} />}
+        {title && <Header isPassed={isPassed} title={title} />}
 
         <Tabs
           {...exercise}
-          onSuccess={onSuccess}
           toggleFullScreen={toggleFullScreen}
+          onSuccess={onSuccess}
         />
 
-        {fullSlug && showModal && (
+        {fullSlug && isModalShown && (
           <ModalExerciseCompleted
             exercises={exercises}
             slug={fullSlug}
-            onClose={() => showModalSet(false)}
+            onClose={() => isModalShownSet(false)}
           />
         )}
       </>

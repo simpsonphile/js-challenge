@@ -23,7 +23,7 @@ export default function Results(props: ResultsProps): React.ReactElement {
       }
 
       return (
-        <Headline scale="base" key={text} color={result ? 'valid' : 'error'}>
+        <Headline key={text} scale="base" color={result ? 'valid' : 'error'}>
           {text}
         </Headline>
       );

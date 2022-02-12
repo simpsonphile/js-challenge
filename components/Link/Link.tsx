@@ -21,7 +21,7 @@ export default function Link(props: LinkProps): React.ReactElement {
 
   return (
     <NextLink href={href}>
-      <StyledLink isActive={isActive} {...rest}></StyledLink>
+      <StyledLink isActive={isActive} {...rest} />
     </NextLink>
   );
 }

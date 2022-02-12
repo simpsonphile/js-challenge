@@ -5,10 +5,12 @@ type PortalProps = {
   children: React.ReactElement;
 };
 
-export default function Portal(props: PortalProps): React.ReactElement {
+export default function Portal(props: PortalProps): React.ReactElement | null {
   const { children } = props;
 
-  const [portalElement, setPortalElement] = useState(<></>);
+  const [portalElement, setPortalElement] = useState<React.ReactElement | null>(
+    null
+  );
 
   const isBrowser = typeof window === 'object';
 
@@ -16,11 +18,11 @@ export default function Portal(props: PortalProps): React.ReactElement {
     if (isBrowser) {
       const domTarget = document.querySelector('#footer');
 
-      let el = <></>;
+      if (domTarget) {
+        const el = ReactDOM.createPortal(children, domTarget);
 
-      if (domTarget) el = ReactDOM.createPortal(children, domTarget);
-
-      setPortalElement(el);
+        setPortalElement(el);
+      }
     }
   }, [isBrowser, children]);
 

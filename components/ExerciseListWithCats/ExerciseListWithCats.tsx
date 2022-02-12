@@ -47,7 +47,7 @@ export default function ExerciseListWithCats(
         const passedExercises = getCategoryCompletedExercisesCount(cat);
         const title = (
           <ClientOnly>
-            {`${cat} [${passedExercises} / ${allExercises}]`}
+            <span>{`${cat} [${passedExercises} / ${allExercises}]`}</span>
           </ClientOnly>
         );
         return [

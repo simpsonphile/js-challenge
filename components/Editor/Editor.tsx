@@ -22,7 +22,6 @@ export default function Editor(props: EditorProps): React.ReactElement {
   return (
     <StyledEditor>
       <CodeMirror
-        className={'editor__textarea'}
         value={value}
         extensions={[javascript()]}
         theme={oneDark}
