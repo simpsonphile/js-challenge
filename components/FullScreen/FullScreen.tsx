@@ -14,8 +14,6 @@ export default function FullScreen(props: FullScreenProps): React.ReactElement {
 
   const isBrowser = typeof window === 'object';
 
-  console.log(state);
-
   const ref = useRef<HTMLDivElement>() as MutableRefObject<HTMLDivElement>;
 
   useFullscreen(ref, isBrowser && state, {
