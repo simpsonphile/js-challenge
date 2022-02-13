@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { colorMixin, ColorProps } from 'themes/mixins/color';
 
-import { Arrow } from './Arrow.style';
+import { Arrow } from './Arrow.styles';
 import { Position } from './types';
 
 export type StyledTooltipProps = {

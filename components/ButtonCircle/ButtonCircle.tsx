@@ -1,6 +1,6 @@
 import Button, { ButtonProps } from 'components/Button';
 
-import { StyledButtonCircle } from './ButtonCircle.style';
+import { StyledButtonCircle } from './ButtonCircle.styles';
 
 type ButtonCircleProps = Omit<ButtonProps, 'iconRight' | 'genre'>;
 

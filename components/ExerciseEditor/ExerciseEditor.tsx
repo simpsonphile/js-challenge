@@ -4,7 +4,7 @@ import Button from 'components/Button';
 import Editor from 'components/Editor';
 import Results from 'components/Results';
 
-import { StyledExerciseEditor } from './ExerciseEditor.style';
+import { StyledExerciseEditor } from './ExerciseEditor.styles';
 import useExerciseEditor from './useExerciseEditor';
 
 type ExerciseEditorProps = {

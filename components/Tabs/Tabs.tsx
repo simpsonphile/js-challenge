@@ -5,7 +5,7 @@ import {
   StyledTabsNav,
   StyledTabsNavItem,
   StyledTabsItem,
-} from './Tabs.style';
+} from './Tabs.styles';
 import { Items } from './types';
 import useTabs from './useTabs';
 

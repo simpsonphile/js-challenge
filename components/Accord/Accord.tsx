@@ -7,7 +7,7 @@ import {
   StyledAccordHead,
   StyledAccordIcon,
   StyledAccordContent,
-} from './Accord.style';
+} from './Accord.styles';
 
 export type AccordProps = {
   title: string;

@@ -2,7 +2,7 @@ import { MutableRefObject, useRef } from 'react';
 
 import { useFullscreen } from 'react-use';
 
-import { StyledFullScreen } from './FullScreen.style';
+import { StyledFullScreen } from './FullScreen.styles';
 
 type FullScreenProps = {
   children: React.ReactElement;

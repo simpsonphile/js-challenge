@@ -2,7 +2,7 @@ import {
   StyledTooltip,
   StyledTooltipMessage,
   StyledTooltipProps,
-} from './Tooltip.style';
+} from './Tooltip.styles';
 
 export { StyledTooltip, StyledTooltipMessage };
 export type { StyledTooltipProps };
