@@ -1,7 +1,8 @@
 import { FormEvent } from 'react';
-import CodeMirror from '@uiw/react-codemirror';
-import { oneDark } from '@codemirror/theme-one-dark';
+
 import { javascript } from '@codemirror/lang-javascript';
+import { oneDark } from '@codemirror/theme-one-dark';
+import CodeMirror from '@uiw/react-codemirror';
 
 import { StyledEditor } from './Editor.styles';
 

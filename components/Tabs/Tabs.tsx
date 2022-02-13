@@ -1,13 +1,13 @@
 import Button from 'components/Button';
 
-import { Items } from './types';
-import useTabs from './useTabs';
 import {
   StyledTabs,
   StyledTabsNav,
   StyledTabsNavItem,
   StyledTabsItem,
 } from './Tabs.style';
+import { Items } from './types';
+import useTabs from './useTabs';
 
 export type TabsProps = {
   items: Items;

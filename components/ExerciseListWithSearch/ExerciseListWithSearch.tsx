@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 
-import InputSearch from 'components/InputSearch';
 import ExerciseListWithCats from 'components/ExerciseListWithCats';
+import InputSearch from 'components/InputSearch';
 import { ExerciseContext } from 'contexts/exercises';
 
 import { StyledExerciseListSearch } from './ExerciseListWithSearch.styles';

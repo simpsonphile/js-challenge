@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { mediaHover } from 'themes/mixins/mediaQueries';
 
 export type StyledAccordSharedProps = {

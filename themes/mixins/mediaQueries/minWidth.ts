@@ -5,6 +5,7 @@ import {
   FlattenSimpleInterpolation,
   ThemeProps,
 } from 'styled-components';
+
 import { breakpoints } from '../../config';
 
 type BreakpointKeys = keyof typeof breakpoints;

@@ -1,5 +1,5 @@
-import { DefaultTheme } from 'styled-components';
 import produce from 'immer';
+import { DefaultTheme } from 'styled-components';
 
 import { defaultTheme } from './config';
 

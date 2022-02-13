@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import FontScale from 'themes/mixins/getFontScale';
 
 const StyledText = styled.div`

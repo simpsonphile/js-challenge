@@ -1,9 +1,9 @@
 import { useCallback, useContext, useState } from 'react';
 
-import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
-import updateLocalStorageExercisesData from 'lib/updateData';
-import { ExerciseContext } from 'contexts/exercises';
 import FullScreen from 'components/FullScreen';
+import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
+import { ExerciseContext } from 'contexts/exercises';
+import updateLocalStorageExercisesData from 'lib/updateData';
 
 import Header from './components/Header';
 import Tabs from './components/Tabs';

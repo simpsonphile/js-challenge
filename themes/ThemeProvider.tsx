@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { useLocalStorage } from 'react-use';
 
 import { ThemeContext, ThemeName } from './index';

@@ -1,7 +1,7 @@
 import fs from 'fs';
-import { join } from 'path';
-import matter from 'gray-matter';
 import globule from 'globule';
+import matter from 'gray-matter';
+import { join } from 'path';
 
 export type Exercise = {
   id: string;

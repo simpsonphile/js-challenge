@@ -1,8 +1,8 @@
 import { AiOutlineFullscreen } from 'react-icons/ai';
 
+import Button from 'components/Button';
 import Editor from 'components/Editor';
 import Results from 'components/Results';
-import Button from 'components/Button';
 
 import { StyledExerciseEditor } from './ExerciseEditor.style';
 import useExerciseEditor from './useExerciseEditor';

@@ -1,10 +1,10 @@
 import React from 'react';
 
+import ClientOnly from 'components/ClientOnly';
 import Link from 'components/Link';
 import List from 'components/List';
-import ClientOnly from 'components/ClientOnly';
-import routes from 'lib/routes';
 import { Exercise } from 'contexts/exercises';
+import routes from 'lib/routes';
 
 export type ExerciseListProps = {
   exercises: Exercise[];

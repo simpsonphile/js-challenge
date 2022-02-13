@@ -1,9 +1,10 @@
 import { ReactElement, useEffect, useRef, useState } from 'react';
-import { useClickAway, useLockBodyScroll } from 'react-use';
-import { AiOutlineClose } from 'react-icons/ai';
 
-import Portal from 'components/Portal';
+import { AiOutlineClose } from 'react-icons/ai';
+import { useClickAway, useLockBodyScroll } from 'react-use';
+
 import ButtonCircle from 'components/ButtonCircle/ButtonCircle';
+import Portal from 'components/Portal';
 
 import {
   StyledModal,

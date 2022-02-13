@@ -1,6 +1,8 @@
+import { FaChevronDown } from 'react-icons/fa';
+
 import Box from 'components/Box';
 import Headline from 'components/Headline';
-import { FaChevronDown } from 'react-icons/fa';
+
 import {
   StyledAccordHead,
   StyledAccordIcon,

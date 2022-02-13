@@ -1,6 +1,6 @@
-import BaseTabs, { TabsProps as BaseTabsProps } from 'components/Tabs';
-import ExerciseEditor from 'components/ExerciseEditor';
 import Editor from 'components/Editor';
+import ExerciseEditor from 'components/ExerciseEditor';
+import BaseTabs, { TabsProps as BaseTabsProps } from 'components/Tabs';
 
 type TabsProps = {
   code?: string;

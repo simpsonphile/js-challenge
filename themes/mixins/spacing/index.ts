@@ -1,5 +1,5 @@
-import { css, DefaultTheme } from 'styled-components';
 import memo from 'lodash/memoize';
+import { css, DefaultTheme } from 'styled-components';
 
 import {
   SpaceString,

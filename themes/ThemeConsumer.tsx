@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 
 import { ThemeContext, themes } from './index';

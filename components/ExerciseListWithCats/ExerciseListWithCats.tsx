@@ -5,14 +5,15 @@ import {
   useMemo,
   useRef,
 } from 'react';
+
 import { useRouter } from 'next/router';
 
-import ClientOnly from 'components/ClientOnly';
-import Box from 'components/Box';
-import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
 import Accords, { AccordsHandle } from 'components/Accords';
-import routes from 'lib/routes';
+import Box from 'components/Box';
+import ClientOnly from 'components/ClientOnly';
+import ExerciseList, { ExerciseListProps } from 'components/ExerciseList';
 import { ExerciseContext } from 'contexts/exercises';
+import routes from 'lib/routes';
 
 import { exerciseArrToCatObj } from './exerciseArrToCatObj';
 

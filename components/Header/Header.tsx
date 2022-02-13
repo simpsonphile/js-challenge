@@ -1,6 +1,6 @@
 import ClientOnly from 'components/ClientOnly';
-import ThemeSwitcher from 'components/ThemeSwitcher';
 import Logo from 'components/Logo';
+import ThemeSwitcher from 'components/ThemeSwitcher';
 
 import { StyledHeader } from './Header.styles';
 

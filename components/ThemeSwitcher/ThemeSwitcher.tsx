@@ -1,9 +1,10 @@
 import { useContext } from 'react';
-import { WiDaySunny, WiNightClear } from 'react-icons/wi';
 
-import ThemeContext from 'themes/ThemeContext';
+import { WiDaySunny, WiNightClear } from 'react-icons/wi';
 import { useTheme } from 'styled-components';
+
 import Button from 'components/Button';
+import ThemeContext from 'themes/ThemeContext';
 
 export default function ThemeSwitcher(): React.ReactElement {
   const themeContext = useContext(ThemeContext);

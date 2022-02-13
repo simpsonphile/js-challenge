@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next';
 
-import { getAllExercises, Exercise } from 'lib/getExercises';
-import ExerciseView from 'views/ExerciseView';
-import DefaultLayout from 'layouts/DefaultLayout';
 import Sidebar from 'components/Sidebar';
 import { ExercisesProvider } from 'contexts/exercises';
+import DefaultLayout from 'layouts/DefaultLayout';
+import { getAllExercises, Exercise } from 'lib/getExercises';
+import ExerciseView from 'views/ExerciseView';
 
 type ExercisePageProps = {
   exercises: Exercise[];

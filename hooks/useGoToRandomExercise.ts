@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import shuffle from 'lodash/shuffle';
+import { useRouter } from 'next/router';
 
 import { Exercise } from 'contexts/exercises';
 import routes from 'lib/routes';
