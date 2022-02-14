@@ -1,10 +1,11 @@
 import {
   StyledButton,
+  StyledButtonLabel,
   StyledButtonIcon,
   StyledButtonProps,
 } from './Button.styles';
 
-type ButtonProps = React.DetailedHTMLProps<
+export type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
@@ -23,7 +24,7 @@ export default function Button(props: ButtonProps): React.ReactElement {
 
   return (
     <StyledButton genre={genre} {...rest}>
-      {children && <span>{children}</span>}
+      {children && <StyledButtonLabel>{children}</StyledButtonLabel>}
 
       {iconRight && <StyledButtonIcon>{iconRight}</StyledButtonIcon>}
     </StyledButton>

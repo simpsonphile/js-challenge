@@ -11,9 +11,9 @@ export type StyledBoxProps = {
   SpacingProps;
 
 const StyledBox = styled.div<StyledBoxProps>`
-  ${colorMixin};
-  ${getFontScale};
-  ${spacingMixin};
+  ${colorMixin}
+  ${getFontScale}
+  ${spacingMixin}
   border-radius: ${({ theme }) => theme.radiss[2]};
 `;
 

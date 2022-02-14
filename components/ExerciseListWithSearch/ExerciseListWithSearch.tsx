@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
+import ExerciseListWithCats from 'components/ExerciseListWithCats';
 import InputSearch from 'components/InputSearch';
+import { ExerciseContext } from 'contexts/exercises';
 
 import { StyledExerciseListSearch } from './ExerciseListWithSearch.styles';
-import ExerciseListWithCats, {
-  ExerciseListWithCatsProps,
-} from 'components/ExerciseListWithCats';
 
-export type ExerciseListWithSearchProps = ExerciseListWithCatsProps;
-
-export default function ExerciseListWithSearch(
-  props: ExerciseListWithSearchProps
-): React.ReactElement {
-  const { exercises } = props;
-
+export default function ExerciseListWithSearch(): React.ReactElement {
   const [value, valueSet] = useState('');
+
+  const { exercises } = useContext(ExerciseContext);
 
   const exercisesFiltered = React.useMemo(
     () =>
-      exercises.filter(({ title }) =>
+      Object.values(exercises).filter(({ title }) =>
         title?.toLowerCase().includes(value.toLowerCase())
       ),
     [exercises, value]

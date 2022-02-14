@@ -39,7 +39,7 @@ const useTooltip = (eventTriggerRef: RefObject<HTMLDivElement>) => {
     eventTriggerRef.current?.addEventListener('mouseleave', onMouseLeave);
 
     return deleteListeners;
-  }, [isBrowser, eventTriggerRef.current]);
+  }, [isBrowser, eventTriggerRef, onMouseEnter, onMouseMove, onMouseLeave]);
 
   return {
     pos,

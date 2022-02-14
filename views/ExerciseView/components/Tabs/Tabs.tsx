@@ -1,6 +1,6 @@
-import BaseTabs, { TabsProps as BaseTabsProps } from 'components/Tabs';
-import ExerciseEditor from 'components/ExerciseEditor';
 import Editor from 'components/Editor';
+import ExerciseEditor from 'components/ExerciseEditor';
+import BaseTabs, { TabsProps as BaseTabsProps } from 'components/Tabs';
 
 type TabsProps = {
   code?: string;
@@ -8,11 +8,20 @@ type TabsProps = {
   hints?: string;
   solution?: string;
   isPassed?: boolean;
-  onSuccess?: () => void;
+  onSuccess: () => void;
+  toggleFullScreen: () => void;
 };
 
 export default function Tabs(props: TabsProps): React.ReactElement {
-  const { code, tests, hints, solution, isPassed, onSuccess } = props;
+  const {
+    code,
+    tests,
+    hints,
+    solution,
+    isPassed,
+    onSuccess,
+    toggleFullScreen,
+  } = props;
 
   const tabItems: BaseTabsProps['items'] = {};
 
@@ -22,7 +31,12 @@ export default function Tabs(props: TabsProps): React.ReactElement {
         <div>
           {code && tests && (
             <div>
-              <ExerciseEditor code={code} tests={tests} onSuccess={onSuccess} />
+              <ExerciseEditor
+                code={code}
+                tests={tests}
+                toggleFullScreen={toggleFullScreen}
+                onSuccess={onSuccess}
+              />
             </div>
           )}
         </div>

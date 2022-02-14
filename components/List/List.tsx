@@ -17,8 +17,8 @@ export default function List(props: ListProps): React.ReactElement {
 
   return (
     <StyledList {...rest}>
-      {children.map((el, index) => {
-        return <StyledListElement key={index}>{el}</StyledListElement>;
+      {children.map((el) => {
+        return <StyledListElement key={el?.toString()}>{el}</StyledListElement>;
       })}
     </StyledList>
   );

@@ -1,4 +1,5 @@
 ---
+id: adder-function
 title: Adder function
 hints: "hints"
 solution: "

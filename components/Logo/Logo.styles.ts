@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import getFontScale from 'themes/mixins/getFontScale';
 
 const StyledLogo = styled.div`

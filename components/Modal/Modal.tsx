@@ -1,9 +1,17 @@
 import { ReactElement, useEffect, useRef, useState } from 'react';
+
+import { AiOutlineClose } from 'react-icons/ai';
 import { useClickAway, useLockBodyScroll } from 'react-use';
 
+import ButtonCircle from 'components/ButtonCircle/ButtonCircle';
 import Portal from 'components/Portal';
 
-import { StyledModal, StyledModalCenter } from './Modal.styles';
+import {
+  StyledModal,
+  StyledModalWrap,
+  StyledModalCloseBtn,
+  StyledModalCenter,
+} from './Modal.styles';
 
 type ModalProps = {
   onClose: () => void;
@@ -31,7 +39,14 @@ export default function Modal(props: ModalProps): React.ReactElement {
   return (
     <Portal>
       <StyledModal>
-        <StyledModalCenter ref={ref}>{children}</StyledModalCenter>
+        <StyledModalWrap>
+          <StyledModalCloseBtn>
+            <ButtonCircle onClick={onClose}>
+              <AiOutlineClose />
+            </ButtonCircle>
+          </StyledModalCloseBtn>
+          <StyledModalCenter ref={ref}>{children}</StyledModalCenter>
+        </StyledModalWrap>
       </StyledModal>
     </Portal>
   );

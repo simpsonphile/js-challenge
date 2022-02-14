@@ -1,11 +1,13 @@
+import { FaChevronDown } from 'react-icons/fa';
+
 import Box from 'components/Box';
 import Headline from 'components/Headline';
-import { FaChevronDown } from 'react-icons/fa';
+
 import {
   StyledAccordHead,
   StyledAccordIcon,
   StyledAccordContent,
-} from './Accord.style';
+} from './Accord.styles';
 
 export type AccordProps = {
   title: string;
@@ -20,7 +22,7 @@ export default function Accord(props: AccordProps): React.ReactElement {
   return (
     <div>
       <StyledAccordHead as={Box} bgColor="main" p="xs base" onClick={toggle}>
-        <Headline>{title}</Headline>
+        <Headline scale="lg">{title}</Headline>
 
         <StyledAccordIcon isActive={isActive}>
           <FaChevronDown />

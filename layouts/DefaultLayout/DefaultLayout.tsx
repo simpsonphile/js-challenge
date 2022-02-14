@@ -6,7 +6,7 @@ import {
   StyledDefaultLayoutContent,
   StyledDefaultLayoutHeader,
   StyledDefaultLayoutSidebar,
-} from './DefaultLayout.style';
+} from './DefaultLayout.styles';
 
 type DefaultLayoutProps = {
   children?: React.ReactChild;

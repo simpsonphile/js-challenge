@@ -13,7 +13,9 @@ export default function Header(props: HeaderProps): React.ReactElement {
   return (
     <Box mb="lg">
       <Headline tag="h1" scale="xl2">
-        <ClientOnly>{isPassed && '✅ '}</ClientOnly>
+        <ClientOnly>
+          <span>{isPassed && '✅ '}</span>
+        </ClientOnly>
         {title}
       </Headline>
     </Box>

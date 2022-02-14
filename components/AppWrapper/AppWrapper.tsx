@@ -1,6 +1,6 @@
-import ThemeContextProvider from 'themes/ThemeProvider';
 import GlobalStyle from 'themes/GlobalStyle';
 import ThemeContextConsumer from 'themes/ThemeConsumer';
+import ThemeContextProvider from 'themes/ThemeProvider';
 
 type AppWrapperProps = {
   children: React.ReactElement;

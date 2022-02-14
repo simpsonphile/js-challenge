@@ -1,7 +1,8 @@
 import { FormEvent } from 'react';
-import CodeMirror from '@uiw/react-codemirror';
-import { oneDark } from '@codemirror/theme-one-dark';
+
 import { javascript } from '@codemirror/lang-javascript';
+import { oneDark } from '@codemirror/theme-one-dark';
+import CodeMirror from '@uiw/react-codemirror';
 
 import { StyledEditor } from './Editor.styles';
 
@@ -22,7 +23,6 @@ export default function Editor(props: EditorProps): React.ReactElement {
   return (
     <StyledEditor>
       <CodeMirror
-        className={'editor__textarea'}
         value={value}
         extensions={[javascript()]}
         theme={oneDark}

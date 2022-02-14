@@ -1,56 +1,62 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 
+import FullScreen from 'components/FullScreen';
 import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
-import updateLocalStorageExercisesData, {
-  checkExerciseStatus,
-} from 'lib/updateData';
-import { Exercise } from 'lib/getExercises';
+import { ExerciseContext } from 'contexts/exercises';
+import updateLocalStorageExercisesData from 'lib/updateData';
 
 import Header from './components/Header';
 import Tabs from './components/Tabs';
 
-type ExerciseViewProps = Exercise & { exercises: Exercise[] };
+type ExerciseViewProps = {
+  id: string;
+};
 
 export default function ExerciseLayout(
   props: ExerciseViewProps
 ): React.ReactElement {
-  const { title, code, solution, hints, tests, slug, exercises } = props;
+  const { id } = props;
 
-  const [showModal, showModalSet] = useState(false);
+  const [isModalShown, isModalShownSet] = useState(false);
+  const [isFullScreen, isFullScreenSet] = useState(false);
+  const toggleFullScreen = () => isFullScreenSet(!isFullScreen);
 
-  const isPassed = slug ? checkExerciseStatus(slug) : false;
+  const { getExerciseById, exercises } = useContext(ExerciseContext);
+
+  const exercise = getExerciseById(id);
+
+  const { fullSlug, isPassed, title } = exercise || {};
 
   const makeExerciseCompleted = useCallback(() => {
-    if (slug) {
-      updateLocalStorageExercisesData(slug, true);
+    if (id) {
+      updateLocalStorageExercisesData(id, true);
     }
-  }, [slug]);
+  }, [id]);
 
   const onSuccess = () => {
     makeExerciseCompleted();
-    showModalSet(true);
+    isModalShownSet(true);
   };
 
   return (
-    <div>
-      {title && <Header title={title} isPassed={isPassed} />}
+    <FullScreen isActive={isFullScreen} toggle={isFullScreenSet}>
+      <>
+        {title && <Header isPassed={isPassed} title={title} />}
 
-      <Tabs
-        code={code}
-        tests={tests}
-        onSuccess={onSuccess}
-        solution={solution}
-        isPassed={isPassed}
-        hints={hints}
-      />
-
-      {slug && showModal && (
-        <ModalExerciseCompleted
-          exercises={exercises}
-          slug={slug}
-          onClose={() => showModalSet(false)}
+        <Tabs
+          {...exercise}
+          toggleFullScreen={toggleFullScreen}
+          onSuccess={onSuccess}
         />
-      )}
-    </div>
+
+        {fullSlug && isModalShown && (
+          <ModalExerciseCompleted
+            exercises={exercises}
+            slug={fullSlug}
+            onClose={() => isModalShownSet(false)}
+          />
+        )}
+      </>
+    </FullScreen>
   );
 }

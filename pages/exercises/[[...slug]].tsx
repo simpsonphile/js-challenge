@@ -1,9 +1,10 @@
 import { GetStaticProps } from 'next';
 
+import Sidebar from 'components/Sidebar';
+import { ExercisesProvider } from 'contexts/exercises';
+import DefaultLayout from 'layouts/DefaultLayout';
 import { getAllExercises, Exercise } from 'lib/getExercises';
 import ExerciseView from 'views/ExerciseView';
-import DefaultLayout from 'layouts/DefaultLayout';
-import Sidebar from 'components/Sidebar';
 
 type ExercisePageProps = {
   exercises: Exercise[];
@@ -15,17 +16,17 @@ export default function ExercisePage({
   exercises,
 }: ExercisePageProps) {
   return (
-    <DefaultLayout sidebar={<Sidebar exercises={exercises} />}>
-      <ExerciseView exercises={exercises} {...exercise} />
-    </DefaultLayout>
+    <ExercisesProvider exercises={exercises}>
+      <DefaultLayout sidebar={<Sidebar />}>
+        <ExerciseView id={exercise.id} />
+      </DefaultLayout>
+    </ExercisesProvider>
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const exercises = getAllExercises([
     'title',
-    'slug',
-    'fullSlug',
     'code',
     'solution',
     'hints',
@@ -50,7 +51,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export async function getStaticPaths() {
-  const exercises = getAllExercises(['slug', 'cat']);
+  const exercises = getAllExercises(['cat']);
 
   return {
     paths: exercises.map(({ cat, slug }) => {
