@@ -11,6 +11,7 @@ export type Exercise = {
   code?: string;
   tests?: string;
   isPassed?: boolean;
+  userCode?: string;
 };
 
 export type ExerciseContextType = {
@@ -19,16 +20,12 @@ export type ExerciseContextType = {
   getCompletedExercisesCount: () => number;
   getCategoryCompletedExercisesCount: (category: string) => number;
   getCategoryExercisesCount: (category: string) => number;
+  setExerciseStatus: (id: string, data: boolean) => void;
+  setExerciseCode: (id: string, data: string) => void;
 };
 
-const defaultContext: ExerciseContextType = {
-  exercises: [],
-  getExerciseById: (id: string) => undefined,
-  getCompletedExercisesCount: () => 0,
-  getCategoryCompletedExercisesCount: (category: string) => 0,
-  getCategoryExercisesCount: (category: string) => 0,
-};
-
-const ExerciseContext = React.createContext(defaultContext);
+const ExerciseContext = React.createContext<ExerciseContextType>(
+  {} as ExerciseContextType
+);
 
 export { ExerciseContext };

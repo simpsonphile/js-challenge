@@ -9,14 +9,17 @@ function checkIfPalindrome(str) {\n
 "
 ---
 ```js
-const x = checkIfPalindrome('zy') === false;
+checkIfPalindrome('zy') === false;
 ```
+
 ```js
-const x = checkIfPalindrome('abba') === true;
+checkIfPalindrome('abba') === true;
 ```
+
 ```js
-const x = checkIfPalindrome('1111') === true;
+checkIfPalindrome('1111') === true;
 ```
+
 ```js
-const x = checkIfPalindrome('cebula') === false;
+checkIfPalindrome('cebula') === false;
 ```

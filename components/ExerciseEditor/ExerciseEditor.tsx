@@ -6,25 +6,23 @@ import { StyledExerciseEditor } from './ExerciseEditor.styles';
 import useExerciseEditor from './useExerciseEditor';
 
 type ExerciseEditorProps = {
-  code: string;
-  tests: string;
+  id: string;
   onSuccess: () => void;
 };
 
 export default function ExerciseEditor(
   props: ExerciseEditorProps
 ): React.ReactElement {
-  const { code, tests, onSuccess } = props;
+  const { id, onSuccess } = props;
 
-  const { onEditorValueChange, onSubmit, results } = useExerciseEditor(
-    code,
-    tests,
-    onSuccess
+  const { onEditorValueChange, onSubmit, results, value } = useExerciseEditor(
+    onSuccess,
+    id
   );
 
   return (
     <StyledExerciseEditor>
-      <Editor value={code} setValue={(val) => onEditorValueChange(val)} />
+      <Editor value={value} setValue={(val) => onEditorValueChange(val)} />
       <Results results={results || []} />
       <Button onClick={onSubmit}>test</Button>
     </StyledExerciseEditor>

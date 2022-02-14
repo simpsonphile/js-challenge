@@ -3,29 +3,27 @@ import ExerciseEditor from 'components/ExerciseEditor';
 import BaseTabs, { TabsProps as BaseTabsProps } from 'components/Tabs';
 
 type TabsProps = {
+  id: string;
   code?: string;
   tests?: string;
   hints?: string;
   solution?: string;
   isPassed?: boolean;
   onSuccess: () => void;
-  toggleFullScreen: () => void;
 };
 
 export default function Tabs(props: TabsProps): React.ReactElement {
-  const { code, tests, hints, solution, isPassed, onSuccess } = props;
+  const { id, hints, solution, isPassed, onSuccess } = props;
 
   const tabItems: BaseTabsProps['items'] = {};
 
-  if (code && tests) {
+  if (id) {
     tabItems.code = {
       content: (
         <div>
-          {code && tests && (
-            <div>
-              <ExerciseEditor code={code} tests={tests} onSuccess={onSuccess} />
-            </div>
-          )}
+          <div>
+            <ExerciseEditor id={id} onSuccess={onSuccess} />
+          </div>
         </div>
       ),
     };
