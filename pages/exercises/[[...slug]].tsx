@@ -1,7 +1,9 @@
 import { GetStaticProps } from 'next';
 
+import ButtonFABToggleFullScreen from 'components/ButtonFABToggleFullScreen';
 import Sidebar from 'components/Sidebar';
 import { ExercisesProvider } from 'contexts/exercises';
+import { FullScreensProvider } from 'contexts/fullScreen';
 import DefaultLayout from 'layouts/DefaultLayout';
 import { getAllExercises, Exercise } from 'lib/getExercises';
 import ExerciseView from 'views/ExerciseView';
@@ -17,9 +19,14 @@ export default function ExercisePage({
 }: ExercisePageProps) {
   return (
     <ExercisesProvider exercises={exercises}>
-      <DefaultLayout sidebar={<Sidebar />}>
-        <ExerciseView id={exercise.id} />
-      </DefaultLayout>
+      <FullScreensProvider>
+        <DefaultLayout
+          sidebar={<Sidebar />}
+          FAB={<ButtonFABToggleFullScreen />}
+        >
+          <ExerciseView id={exercise.id} />
+        </DefaultLayout>
+      </FullScreensProvider>
     </ExercisesProvider>
   );
 }

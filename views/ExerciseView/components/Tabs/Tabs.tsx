@@ -13,15 +13,7 @@ type TabsProps = {
 };
 
 export default function Tabs(props: TabsProps): React.ReactElement {
-  const {
-    code,
-    tests,
-    hints,
-    solution,
-    isPassed,
-    onSuccess,
-    toggleFullScreen,
-  } = props;
+  const { code, tests, hints, solution, isPassed, onSuccess } = props;
 
   const tabItems: BaseTabsProps['items'] = {};
 
@@ -31,12 +23,7 @@ export default function Tabs(props: TabsProps): React.ReactElement {
         <div>
           {code && tests && (
             <div>
-              <ExerciseEditor
-                code={code}
-                tests={tests}
-                toggleFullScreen={toggleFullScreen}
-                onSuccess={onSuccess}
-              />
+              <ExerciseEditor code={code} tests={tests} onSuccess={onSuccess} />
             </div>
           )}
         </div>

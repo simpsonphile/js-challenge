@@ -11,12 +11,13 @@ import {
 type DefaultLayoutProps = {
   children?: React.ReactChild;
   sidebar?: React.ReactChild;
+  FAB?: React.ReactElement;
 };
 
 export default function DefaultLayout(
   props: DefaultLayoutProps
 ): React.ReactElement {
-  const { children, sidebar } = props;
+  const { children, sidebar, FAB } = props;
 
   return (
     <StyledDefaultLayout hasSidebar={!!sidebar}>
@@ -33,6 +34,8 @@ export default function DefaultLayout(
       {children && (
         <StyledDefaultLayoutContent>{children}</StyledDefaultLayoutContent>
       )}
+
+      {FAB}
 
       <div id="footer" />
     </StyledDefaultLayout>

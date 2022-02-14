@@ -39,7 +39,7 @@ export default function ExerciseLayout(
   };
 
   return (
-    <FullScreen isActive={isFullScreen} toggle={isFullScreenSet}>
+    <FullScreen>
       <>
         {title && <Header isPassed={isPassed} title={title} />}
 
