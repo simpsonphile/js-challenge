@@ -41,7 +41,7 @@ export default function ExerciseLayout(
       <>
         {title && <Header isPassed={isPassed} title={title} />}
 
-        {id && <Tabs id={id} onSuccess={onSuccess} />}
+        {exercise?.id && <Tabs {...exercise} onSuccess={onSuccess} />}
 
         {fullSlug && isModalShown && (
           <ModalExerciseCompleted
