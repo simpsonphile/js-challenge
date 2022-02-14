@@ -9,7 +9,6 @@ type TabsProps = {
   solution?: string;
   isPassed?: boolean;
   onSuccess: () => void;
-  toggleFullScreen: () => void;
 };
 
 export default function Tabs(props: TabsProps): React.ReactElement {

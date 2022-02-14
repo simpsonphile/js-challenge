@@ -18,8 +18,6 @@ export default function ExerciseLayout(
   const { id } = props;
 
   const [isModalShown, isModalShownSet] = useState(false);
-  const [isFullScreen, isFullScreenSet] = useState(false);
-  const toggleFullScreen = () => isFullScreenSet(!isFullScreen);
 
   const { getExerciseById, exercises } = useContext(ExerciseContext);
 
@@ -43,11 +41,7 @@ export default function ExerciseLayout(
       <>
         {title && <Header isPassed={isPassed} title={title} />}
 
-        <Tabs
-          {...exercise}
-          toggleFullScreen={toggleFullScreen}
-          onSuccess={onSuccess}
-        />
+        <Tabs {...exercise} onSuccess={onSuccess} />
 
         {fullSlug && isModalShown && (
           <ModalExerciseCompleted
