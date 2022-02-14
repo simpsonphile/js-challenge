@@ -3,7 +3,6 @@ import { useCallback, useContext, useState } from 'react';
 import FullScreen from 'components/FullScreen';
 import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
 import { ExerciseContext } from 'contexts/exercises';
-import updateExercisesStatus from 'lib/ExercisesLS/status';
 
 import Header from './components/Header';
 import Tabs from './components/Tabs';
@@ -19,7 +18,8 @@ export default function ExerciseLayout(
 
   const [isModalShown, isModalShownSet] = useState(false);
 
-  const { getExerciseById, exercises } = useContext(ExerciseContext);
+  const { getExerciseById, exercises, setExerciseStatus } =
+    useContext(ExerciseContext);
 
   const exercise = getExerciseById(id);
 
@@ -27,9 +27,9 @@ export default function ExerciseLayout(
 
   const makeExerciseCompleted = useCallback(() => {
     if (id) {
-      updateExercisesStatus(id, true);
+      setExerciseStatus(id, true);
     }
-  }, [id]);
+  }, [setExerciseStatus, id]);
 
   const onSuccess = () => {
     makeExerciseCompleted();
