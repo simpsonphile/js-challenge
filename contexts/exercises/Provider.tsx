@@ -22,7 +22,7 @@ export default function Provider(props: ProviderProps): React.ReactElement {
   }));
 
   const getExerciseById = (id: string) =>
-    exercises.find((exercise) => exercise.id === id);
+    exercisesWithLSData.find((exercise) => exercise.id === id);
 
   const getCompletedExercisesCount = () => Object.keys(statuses).length;
 
