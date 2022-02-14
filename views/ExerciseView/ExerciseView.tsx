@@ -3,7 +3,7 @@ import { useCallback, useContext, useState } from 'react';
 import FullScreen from 'components/FullScreen';
 import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
 import { ExerciseContext } from 'contexts/exercises';
-import updateLocalStorageExercisesData from 'lib/ExercisesLS/status';
+import updateExercisesStatus from 'lib/ExercisesLS/status';
 
 import Header from './components/Header';
 import Tabs from './components/Tabs';
@@ -27,7 +27,7 @@ export default function ExerciseLayout(
 
   const makeExerciseCompleted = useCallback(() => {
     if (id) {
-      updateLocalStorageExercisesData(id, true);
+      updateExercisesStatus(id, true);
     }
   }, [id]);
 

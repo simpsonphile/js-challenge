@@ -4,7 +4,7 @@ type ExerciseStatuses = Record<string, boolean>;
 
 const KEY = 'EXERCISES_STATUS';
 
-const updateLocalStorageExercisesData = (slug: string, status: boolean) => {
+const updateExercisesStatus = (slug: string, status: boolean) => {
   const exercisesStatusDatabase = getLSData(KEY) || {};
 
   exercisesStatusDatabase[slug] = status;
@@ -18,5 +18,5 @@ const getExerciseStatuses = (): ExerciseStatuses => {
   return exercisesStatusDatabase ? JSON.parse(exercisesStatusDatabase) : {};
 };
 
-export default updateLocalStorageExercisesData;
+export default updateExercisesStatus;
 export { getExerciseStatuses };
