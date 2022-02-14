@@ -1,24 +1,26 @@
-import { MutableRefObject, useRef } from 'react';
+import { MutableRefObject, useContext, useRef } from 'react';
 
 import { useFullscreen } from 'react-use';
+
+import { FullScreenContext } from 'contexts/fullScreen';
 
 import { StyledFullScreen } from './FullScreen.styles';
 
 type FullScreenProps = {
   children: React.ReactElement;
-  toggle?: (state: boolean) => void;
-  isActive: boolean;
 };
 
 export default function FullScreen(props: FullScreenProps): React.ReactElement {
-  const { children, toggle, isActive } = props;
+  const { children } = props;
 
   const isBrowser = typeof window === 'object';
 
+  const { isFullScreen, toggleFullScreen } = useContext(FullScreenContext);
+
   const ref = useRef<HTMLDivElement>() as MutableRefObject<HTMLDivElement>;
 
-  useFullscreen(ref, isBrowser && isActive, {
-    onClose: () => toggle?.(false),
+  useFullscreen(ref, isBrowser && isFullScreen, {
+    onClose: () => toggleFullScreen?.(),
   });
 
   return <StyledFullScreen ref={ref}>{children}</StyledFullScreen>;

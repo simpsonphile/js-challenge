@@ -1,3 +1,4 @@
+import { FullScreensProvider } from 'contexts/fullScreen';
 import GlobalStyle from 'themes/GlobalStyle';
 import ThemeContextConsumer from 'themes/ThemeConsumer';
 import ThemeContextProvider from 'themes/ThemeProvider';
@@ -12,11 +13,13 @@ export default function AppWrapper(props: AppWrapperProps): React.ReactElement {
   return (
     <ThemeContextProvider>
       <ThemeContextConsumer>
-        <>
-          <GlobalStyle />
+        <FullScreensProvider>
+          <>
+            <GlobalStyle />
 
-          {children}
-        </>
+            {children}
+          </>
+        </FullScreensProvider>
       </ThemeContextConsumer>
     </ThemeContextProvider>
   );
