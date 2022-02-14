@@ -1,4 +1,4 @@
-import { getExerciseStatuses } from 'lib/updateData';
+import { getExerciseStatuses } from 'lib/ExercisesLS/status';
 
 import { ExerciseContext, Exercise, ExerciseContextType } from './context';
 
