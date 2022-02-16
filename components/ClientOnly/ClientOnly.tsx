@@ -11,13 +11,9 @@ export default function ClientOnly(
 
   const [isShown, isShownSet] = useState(false);
 
-  const isBrowser = typeof window !== 'undefined';
-
   useEffect(() => {
-    if (isBrowser) {
-      isShownSet(true);
-    }
-  }, [isBrowser, isShown, isShownSet]);
+    isShownSet(true);
+  }, []);
 
   if (!isShown || !children) return null;
 
