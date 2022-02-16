@@ -1,12 +1,7 @@
 ---
 id: adder-function
 title: Adder function
-hints: "hints"
-solution: "
-function createAdder(base) {\n
-\t(val) => base + val;\n
-}
-"
+hints: hints
 code: "
 // write function that create adder function\n\n
 function createAdder(base) {\n
