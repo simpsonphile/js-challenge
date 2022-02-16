@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { getFontScale } from 'themes/mixins/getFontScale';
 
 const StyledText = styled.div`
-  ${getFontScale({ scale: 'base' })}
+  ${getFontScale({ $scale: 'base' })}
 
   h1,
   h2,
@@ -21,7 +21,7 @@ const StyledText = styled.div`
       margin-top: ${({ theme }) => theme.spacing.lg};
     }
 
-    ${getFontScale({ scale: 'xl3' })}
+    ${getFontScale({ $scale: 'xl3' })}
   }
 
   h2 {
@@ -29,11 +29,11 @@ const StyledText = styled.div`
       margin-top: ${({ theme }) => theme.spacing.lg};
     }
 
-    ${getFontScale({ scale: 'xl2' })}
+    ${getFontScale({ $scale: 'xl2' })}
   }
 
   h3 {
-    ${getFontScale({ scale: 'xl' })}
+    ${getFontScale({ $scale: 'xl' })}
   }
 `;
 

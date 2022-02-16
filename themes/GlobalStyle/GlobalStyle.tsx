@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     min-width: 320px;
     max-width: 100%;
     
-    ${getFontScale({ scale: 'base' })};
+    ${getFontScale({ $scale: 'base' })};
     ${colorMixin({ color: 'text', bgColor: 'bg' })}
   }
 

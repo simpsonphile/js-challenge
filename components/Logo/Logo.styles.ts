@@ -6,7 +6,7 @@ const StyledLogo = styled.div`
   p {
     margin: 0;
 
-    ${getFontScale({ scale: 'xl' })};
+    ${getFontScale({ $scale: 'xl' })};
     font-weight: 700;
 
     color: ${({ theme }) => theme.color.text};

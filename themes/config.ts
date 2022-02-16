@@ -39,6 +39,7 @@ export type Radiss = typeof radiss;
 
 // Breakpoints
 /***********************************************************/
+const breakpointsOrder = ['sm', 'md', 'lg', 'xl', '2xl'];
 const breakpoints = {
   sm: '640px',
   md: '768px',
@@ -78,4 +79,11 @@ const defaultTheme: DefaultTheme = {
   color,
 };
 
-export { fontScales, spacing, radiss, breakpoints, defaultTheme };
+export {
+  fontScales,
+  spacing,
+  radiss,
+  breakpointsOrder,
+  breakpoints,
+  defaultTheme,
+};
