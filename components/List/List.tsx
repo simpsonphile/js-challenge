@@ -1,11 +1,16 @@
 import { StyledList, StyledListElement, StyledListProps } from './List.styles';
 
+type Item = {
+  id: string;
+  el: React.ReactNode | React.ReactElement;
+};
+
 type ListProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLUListElement>,
   HTMLUListElement
 > &
   StyledListProps & {
-    children: React.ReactNode[];
+    items: Item[];
   };
 
 const defaultProps: Partial<ListProps> = {
@@ -13,12 +18,12 @@ const defaultProps: Partial<ListProps> = {
 };
 
 export default function List(props: ListProps): React.ReactElement {
-  const { children, ref, ...rest } = { ...defaultProps, ...props };
+  const { items, ref, ...rest } = { ...defaultProps, ...props };
 
   return (
     <StyledList {...rest}>
-      {children.map((el) => {
-        return <StyledListElement key={el?.toString()}>{el}</StyledListElement>;
+      {items.map((item) => {
+        return <StyledListElement key={item.id}>{item.el}</StyledListElement>;
       })}
     </StyledList>
   );
