@@ -19,7 +19,7 @@ const StyledInline = styled.div<StyledInlineProps>`
     `};
 
   & > * {
-    ${({ theme, gap }) => spacingMixin({ theme, ml: gap, mt: gap })};
+    ${({ gap }) => spacingMixin({ ml: gap, mt: gap })};
   }
 `;
 

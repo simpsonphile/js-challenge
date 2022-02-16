@@ -4,7 +4,6 @@ import { css, DefaultTheme } from 'styled-components';
 import {
   SpaceString,
   DefaultThemeSpaceKeys,
-  ThemeAndSpacingProps,
   SpaceWithPrefixName,
   SpacingProps,
 } from './types';
@@ -68,29 +67,24 @@ const propsMap: {
   ),
 };
 
-const generateProps =
-  (mode: 'withDir' | 'full') => (props: ThemeAndSpacingProps) =>
-    propsMap[mode].map((prop) => {
-      const { propName, cssPropName } = prop;
+const generateProps = (mode: 'withDir' | 'full') => (props: SpacingProps) =>
+  propsMap[mode].map((prop) => {
+    const { propName, cssPropName } = prop;
+    const keyString = props?.[propName];
 
-      const { theme } = props;
-
-      const keyString = props?.[propName];
-      const value = theme && keyString && spaceKeysToValue(theme, keyString);
-
-      return (
-        value &&
-        propName &&
-        css`
-          ${cssPropName}: ${value};
-        `
-      );
-    });
+    return (
+      propName &&
+      keyString &&
+      css`
+        ${cssPropName}: ${({ theme }) => spaceKeysToValue(theme, keyString)};
+      `
+    );
+  });
 
 const fullProps = memo(generateProps('full'));
 const propsWithDir = memo(generateProps('withDir'));
 
-export const spacingMixin = (props: ThemeAndSpacingProps) => css`
+export const spacingMixin = (props: SpacingProps) => css`
   ${fullProps(props)}
   ${propsWithDir(props)}
 `;

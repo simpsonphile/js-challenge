@@ -12,7 +12,7 @@ const StyledList = styled.ul<StyledListProps>`
   padding: 0;
 
   & > *:not(:last-child) {
-    ${({ theme, gap }) => spacingMixin({ theme, mb: gap })};
+    ${({ gap }) => spacingMixin({ mb: gap })};
   }
 `;
 

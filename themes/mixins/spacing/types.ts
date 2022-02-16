@@ -1,7 +1,5 @@
 import { DefaultTheme } from 'styled-components';
 
-import { ExtendedPartialThemedStyledProps } from '../types';
-
 export type DefaultThemeSpaceKeys = keyof DefaultTheme['spacing'];
 
 type SpaceStringTemp<T extends string> =
@@ -30,6 +28,3 @@ type GapProps = {
 export type SpacingProps = Partial<
   SpaceWithPrefixProps & SpaceProps & GapProps
 >;
-
-export type ThemeAndSpacingProps =
-  ExtendedPartialThemedStyledProps<SpacingProps>;
