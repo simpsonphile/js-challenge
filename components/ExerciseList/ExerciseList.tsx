@@ -22,7 +22,7 @@ export default function ExerciseList(
         el: (
           <ClientOnly key={fullSlug}>
             <Link
-              color={isPassed ? 'valid' : undefined}
+              $color={isPassed ? 'valid' : undefined}
               href={fullSlug ? routes.exercise(fullSlug) : ''}
             >
               {isPassed && '✅ '}

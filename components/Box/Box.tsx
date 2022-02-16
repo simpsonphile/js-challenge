@@ -1,10 +1,13 @@
+import { DefaultTheme, StyledComponent } from 'styled-components';
+
 import { StyledBox, StyledBoxProps } from './Box.styles';
 
 type BoxProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
-> &
-  StyledBoxProps;
+> & {
+  as?: StyledComponent<any, DefaultTheme, object, never>; //todo make type
+} & StyledBoxProps;
 
 export default function Box(props: BoxProps): React.ReactElement {
   const { ref, ...rest } = props;

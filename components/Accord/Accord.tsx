@@ -21,13 +21,13 @@ export default function Accord(props: AccordProps): React.ReactElement {
 
   return (
     <div>
-      <StyledAccordHead as={Box} bgColor="main" p="xs base" onClick={toggle}>
+      <Box as={StyledAccordHead} $bgColor="main" p="xs base" onClick={toggle}>
         <Headline $scale="lg">{title}</Headline>
 
         <StyledAccordIcon isActive={isActive}>
           <FaChevronDown />
         </StyledAccordIcon>
-      </StyledAccordHead>
+      </Box>
 
       <StyledAccordContent isActive={isActive}>{content}</StyledAccordContent>
     </div>

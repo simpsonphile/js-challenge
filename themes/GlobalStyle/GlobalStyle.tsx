@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { colorMixin } from 'themes/mixins/color';
+import { getColor } from 'themes/mixins/getColor';
 import { getFontScale } from 'themes/mixins/getFontScale';
 
 const GlobalStyle = createGlobalStyle`
@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     
     ${getFontScale({ $scale: 'base' })};
-    ${colorMixin({ color: 'text', bgColor: 'bg' })}
+    ${getColor({ $color: 'text', $bgColor: 'bg' })}
   }
 
   ::-webkit-scrollbar {
@@ -24,17 +24,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    ${colorMixin({ bgColor: 'bgAccent' })}
+    ${getColor({ $bgColor: 'bgAccent' })}
   }
 
   ::-webkit-scrollbar-thumb {
-    ${colorMixin({ bgColor: 'main' })}
+    ${getColor({ $bgColor: 'main' })}
 
     border-radius: 3.2rem;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    ${colorMixin({ bgColor: 'mainHover' })}
+    ${getColor({ $bgColor: 'mainHover' })}
   }
 `;
 

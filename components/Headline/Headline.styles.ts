@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
-import { colorMixin, ColorProps } from 'themes/mixins/color';
+import { getColor, ColorProps } from 'themes/mixins/getColor';
 import { getFontScale, FontScaleProps } from 'themes/mixins/getFontScale';
 
-export type StyledHeadlineProps = FontScaleProps & {
-  color?: ColorProps['color'];
-};
+export type StyledHeadlineProps = FontScaleProps & Pick<ColorProps, '$color'>;
 
 const StyledHeadline = styled.h1<StyledHeadlineProps>`
   ${getFontScale};
-  ${colorMixin};
+  ${getColor};
 
   margin: 0;
 

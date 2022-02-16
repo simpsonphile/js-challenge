@@ -25,7 +25,11 @@ export default function Results(props: ResultsProps): React.ReactElement {
       return {
         id: index.toString(),
         el: (
-          <Headline key={text} $scale="base" color={result ? 'valid' : 'error'}>
+          <Headline
+            key={text}
+            $scale="base"
+            $color={result ? 'valid' : 'error'}
+          >
             {text}
           </Headline>
         ),
@@ -34,7 +38,7 @@ export default function Results(props: ResultsProps): React.ReactElement {
   );
 
   return (
-    <Box p="base" bgColor="bgAccent">
+    <Box p="base" $bgColor="bgAccent">
       <List items={resultNodes}>{}</List>
     </Box>
   );

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { colorMixin } from 'themes/mixins/color';
+import { getColor } from 'themes/mixins/getColor';
 import { mediaHover } from 'themes/mixins/mediaQueries';
 
 export type StyledButtonProps = {
@@ -18,14 +18,14 @@ const buttonResetCss = css`
 
 const ButtonSecondaryCss = css`
   border: 2px solid;
-  ${colorMixin({ color: 'main', borderColor: 'main' })}
+  ${getColor({ $color: 'main', $borderColor: 'main' })}
 `;
 
 const ButtonPrimaryCss = css`
-  ${colorMixin({ bgColor: 'main' })}
+  ${getColor({ $bgColor: 'main' })}
 
   ${mediaHover(css`
-    ${colorMixin({ bgColor: 'mainHover' })}
+    ${getColor({ $bgColor: 'mainHover' })}
   `)}
 `;
 

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { colorMixin, ColorProps } from 'themes/mixins/color';
+import { getColor, ColorProps } from 'themes/mixins/getColor';
 
 import { Arrow } from './Arrow.styles';
 import { Position } from './types';
@@ -46,7 +46,7 @@ const StyledTooltipMessage = styled.div.attrs<StyledTooltipProps>(
     },
   })
 )<StyledTooltipProps>`
-  ${colorMixin};
+  ${getColor};
 
   position: fixed;
   z-index: 999999;
@@ -60,10 +60,10 @@ const StyledTooltipMessage = styled.div.attrs<StyledTooltipProps>(
   ${setMessagePosition};
 
   &:after {
-    ${({ theme, bgColor, position }) =>
+    ${({ position }) =>
       Arrow({
         size: '0.6rem',
-        color: bgColor ? theme.color[bgColor] : 'black',
+        color: 'black',
         position: position || 'top',
       })}
   }
