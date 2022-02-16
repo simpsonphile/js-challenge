@@ -52,7 +52,7 @@ const useExerciseEditor = (onSuccess: () => void, id: string) => {
       resultsSet([]);
       valueSet(startingCode);
     }
-  }, [id]);
+  }, [id, startingCode]);
 
   return {
     onSubmit,
