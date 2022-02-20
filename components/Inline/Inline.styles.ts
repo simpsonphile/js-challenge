@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { getSpacing, SpacingProps } from 'themes/mixins/spacing';
+import { getSpacing, SpacingProps } from 'themes/mixins/getSpacing';
 
 export type StyledInlineProps = {
   wrap?: boolean;

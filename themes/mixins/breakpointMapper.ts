@@ -1,5 +1,4 @@
 import {
-  css,
   DefaultTheme,
   FlattenInterpolation,
   ThemeProps,
@@ -26,9 +25,7 @@ export function breakpointMapper<T>(
 
     if (propKey) {
       if (hasBreakpoint) {
-        return css`
-          ${mediaMinWidth[breakpoint](callback(propKey))}
-        `;
+        return mediaMinWidth[breakpoint](callback(propKey));
       }
 
       return callback(propKey);
