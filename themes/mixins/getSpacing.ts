@@ -6,11 +6,15 @@ const cssPropMap = {
   $pr: 'padding-right',
   $pb: 'padding-bottom',
   $pl: 'padding-left',
+  $py: ['padding-top', 'padding-bottom'],
+  $px: ['padding-right', 'padding-left'],
   $m: 'margin',
   $mt: 'margin-top',
   $mr: 'margin-right',
   $mb: 'margin-bottom',
   $ml: 'margin-left',
+  $my: ['margin-top', 'margin-bottom'],
+  $mx: ['margin-right', 'margin-left'],
 } as const;
 
 const getSpacing = generateGetMixin(cssPropMap, 'spacing');

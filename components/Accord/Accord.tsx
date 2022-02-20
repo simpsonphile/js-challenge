@@ -24,10 +24,8 @@ export default function Accord(props: AccordProps): React.ReactElement {
       <Box
         as={StyledAccordHead}
         $bgColor="main"
-        $pt="xs"
-        $pb="xs"
-        $pr="base"
-        $pl="base"
+        $py="xs"
+        $px="base"
         onClick={toggle}
       >
         <Headline $scale="lg">{title}</Headline>

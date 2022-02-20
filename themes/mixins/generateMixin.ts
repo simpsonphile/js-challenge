@@ -9,20 +9,25 @@ type DefaultThemeKey = keyof DefaultTheme;
 type DefaultThemeKeyValue<K extends DefaultThemeKey & string> =
   keyof DefaultTheme[K];
 
-type CssPropMap = Record<string, keyof CSS.PropertiesHyphen>;
+type CssProp = keyof CSS.PropertiesHyphen | keyof CSS.PropertiesHyphen[];
 
-function mixin<
+type CssPropMap = Record<string, CssProp>;
+
+function createCssSetter<
   TK extends keyof DefaultTheme,
   TKV extends DefaultThemeKeyValue<TK>
->(cssProp: keyof CSS.PropertiesHyphen, themeKey: TK) {
+>(cssProp: CssProp, themeKey: TK) {
+  const cssProps = Array.isArray(cssProp) ? cssProp : [cssProp];
   return (themeKeyValue: TKV) =>
     css`
       ${({ theme }) =>
         themeKeyValue &&
         typeof theme[themeKey][themeKeyValue] === 'string' &&
-        css`
-          ${cssProp}: ${theme[themeKey][themeKeyValue] as unknown as string};
-        `}
+        cssProps.map(
+          (prop) => css`
+            ${prop}: ${theme[themeKey][themeKeyValue] as unknown as string};
+          `
+        )}
     `;
 }
 
@@ -46,17 +51,17 @@ export function generateGetMixin<
 
       const cssProp = cssPropMap[key];
 
-      const mixinFunc = mixin(cssProp, themeKey);
+      const setCss = createCssSetter(cssProp, themeKey);
 
       const value = props[key];
 
       if (typeof value === 'string') {
-        return mixinFunc(value as DefaultThemeKeyValue<typeof themeKey>);
+        return setCss(value as DefaultThemeKeyValue<typeof themeKey>);
       } else if (Array.isArray(value)) {
         //todo name
         return breakpointArrMapper(
           value as DefaultThemeKeyValue<typeof themeKey>[],
-          mixinFunc
+          setCss
         );
       }
 
@@ -64,7 +69,7 @@ export function generateGetMixin<
       return breakpointMapper(
         (value as BreakpointRecord<DefaultThemeKeyValue<typeof themeKey>>) ||
           {},
-        mixinFunc
+        setCss
       );
     });
   };
