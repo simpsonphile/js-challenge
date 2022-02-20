@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { getColor, ColorProps } from 'themes/mixins/getColor';
 import { getFontScale, FontScaleProps } from 'themes/mixins/getFontScale';
-import { spacingMixin, SpacingProps } from 'themes/mixins/spacing';
+import { getSpacing, SpacingProps } from 'themes/mixins/spacing';
 
 export type StyledBoxProps = {
   padding?: number;
@@ -13,7 +13,7 @@ export type StyledBoxProps = {
 const StyledBox = styled.div<StyledBoxProps>`
   ${getColor}
   ${getFontScale}
-  ${spacingMixin}
+  ${getSpacing}
   border-radius: ${({ theme }) => theme.radiss[2]};
 `;
 

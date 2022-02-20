@@ -38,7 +38,7 @@ export default function Results(props: ResultsProps): React.ReactElement {
   );
 
   return (
-    <Box p="base" $bgColor="bgAccent">
+    <Box $p="base" $bgColor="bgAccent">
       <List items={resultNodes}>{}</List>
     </Box>
   );

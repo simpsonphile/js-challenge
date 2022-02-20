@@ -24,8 +24,8 @@ export default function ModalExerciseCompleted(
 
   return (
     <Modal onClose={onClose}>
-      <Box $bgColor="bg" p="base">
-        <Box mb="base">
+      <Box $bgColor="bg" $p="base">
+        <Box $mb="base">
           <Headline tag="h2" $scale="xl">
             Congratulations!
           </Headline>

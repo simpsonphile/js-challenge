@@ -40,7 +40,7 @@ export default function ExerciseListWithCats(
           {
             title: cat,
             content: (
-              <Box pl="base">
+              <Box $pl="base">
                 <ExerciseList exercises={items} />
               </Box>
             ),

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { spacingMixin, SpacingProps } from 'themes/mixins/spacing';
+import { getSpacing, SpacingProps } from 'themes/mixins/spacing';
 
 export type StyledListProps = {
-  gap?: SpacingProps['ml'];
+  gap?: SpacingProps['$ml'];
 };
 
 const StyledList = styled.ul<StyledListProps>`
@@ -12,7 +12,7 @@ const StyledList = styled.ul<StyledListProps>`
   padding: 0;
 
   & > *:not(:last-child) {
-    ${({ gap }) => spacingMixin({ mb: gap })};
+    ${({ gap }) => getSpacing({ $mb: gap })};
   }
 `;
 
