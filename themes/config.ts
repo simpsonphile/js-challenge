@@ -15,6 +15,16 @@ const fontScales = {
 
 export type FontScales = typeof fontScales;
 
+// Sizing
+/***********************************************************/
+const sizing = {
+  100: '100%',
+  50: '50%',
+  33: '33.3%',
+} as const;
+
+export type Sizing = typeof sizing;
+
 // Spacing
 /***********************************************************/
 const spacing = {
@@ -24,9 +34,6 @@ const spacing = {
   base: '1.6rem',
   lg: '3.2rem',
   xl: '6.4rem',
-  xl2: '12.8rem',
-  xl3: '25.6rem',
-  xl4: '51.2rem',
 } as const;
 
 export type Spacing = typeof spacing;
@@ -73,6 +80,7 @@ export type Color = typeof color;
 /***********************************************************/
 const defaultTheme: DefaultTheme = {
   fontScales,
+  sizing,
   spacing,
   radiss,
   breakpoints,
@@ -81,6 +89,7 @@ const defaultTheme: DefaultTheme = {
 
 export {
   fontScales,
+  sizing,
   spacing,
   radiss,
   breakpointsOrder,

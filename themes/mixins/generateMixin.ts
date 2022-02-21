@@ -1,4 +1,3 @@
-import * as CSS from 'csstype';
 import { css, DefaultTheme } from 'styled-components';
 
 import { breakpointArrMapper } from './breakpointArrMapper';
@@ -9,7 +8,7 @@ type DefaultThemeKey = keyof DefaultTheme;
 type DefaultThemeKeyValue<K extends DefaultThemeKey & string> =
   keyof DefaultTheme[K];
 
-type CssProp = keyof CSS.PropertiesHyphen | keyof CSS.PropertiesHyphen[];
+type CssProp = string | string[];
 
 type CssPropMap = Record<string, CssProp>;
 
@@ -17,7 +16,8 @@ function createCssSetter<
   TK extends keyof DefaultTheme,
   TKV extends DefaultThemeKeyValue<TK>
 >(cssProp: CssProp, themeKey: TK) {
-  const cssProps = Array.isArray(cssProp) ? cssProp : [cssProp];
+  const cssProps = (Array.isArray(cssProp) ? cssProp : [cssProp]) as string[];
+
   return (themeKeyValue: TKV) =>
     css`
       ${({ theme }) =>
@@ -55,7 +55,7 @@ export function generateGetMixin<
 
       const value = props[key];
 
-      if (typeof value === 'string') {
+      if (typeof value === 'string' || typeof value === 'number') {
         return setCss(value as DefaultThemeKeyValue<typeof themeKey>);
       } else if (Array.isArray(value)) {
         //todo name
