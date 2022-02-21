@@ -28,7 +28,7 @@ export default function Accord(props: AccordProps): React.ReactElement {
         $px="base"
         onClick={toggle}
       >
-        <Headline $scale="lg">{title}</Headline>
+        <Headline $fs="lg">{title}</Headline>
 
         <StyledAccordIcon isActive={isActive}>
           <FaChevronDown />

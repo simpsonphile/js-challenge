@@ -22,7 +22,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const hasIcon = !!iconRight;
 
   return (
-    <StyledInputWrap {...rest}>
+    <StyledInputWrap>
       <StyledInput ref={ref} hasIcon={hasIcon} {...rest} />
 
       {hasIcon && <StyledInputIconWrap>{iconRight}</StyledInputIconWrap>}

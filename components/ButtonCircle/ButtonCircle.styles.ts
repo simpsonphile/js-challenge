@@ -32,7 +32,7 @@ const StyledButtonCircle = styled.div<StyledButtonCircleProps>`
     ${({ size }) => getSize(size)}
 
     ${mediaHover(css`
-      background-color: ${({ theme }) => theme.color.mainHover};
+      background-color: ${({ theme }) => theme.color.main2};
     `)}
   }
 `;

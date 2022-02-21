@@ -83,7 +83,8 @@ const color = {
   bg: 'white',
   bgAccent: '#cccccc',
   main: '#FF7B9C',
-  mainHover: '#e66f8c',
+  main2: '#e66f8c',
+  main3: '#cc627d',
   supplementary: '#FFC759',
   shadow: 'rgba(10,10,10,.9)',
 };

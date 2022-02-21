@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react';
 
 import ExerciseListWithCats from 'components/ExerciseListWithCats';
+import Inline from 'components/Inline';
 import InputSearch from 'components/InputSearch';
 import { ExerciseContext } from 'contexts/exercises';
-
-import { StyledExerciseListSearch } from './ExerciseListWithSearch.styles';
 
 export default function ExerciseListWithSearch(): React.ReactElement {
   const [value, valueSet] = useState('');
@@ -20,11 +19,9 @@ export default function ExerciseListWithSearch(): React.ReactElement {
   );
 
   return (
-    <div>
-      <StyledExerciseListSearch>
-        <InputSearch value={value} onChange={(e) => valueSet(e.target.value)} />
-      </StyledExerciseListSearch>
+    <Inline $g="base" $direction="column">
+      <InputSearch value={value} onChange={(e) => valueSet(e.target.value)} />
       <ExerciseListWithCats exercises={exercisesFiltered} />
-    </div>
+    </Inline>
   );
 }
