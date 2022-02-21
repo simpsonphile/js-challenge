@@ -32,14 +32,7 @@ export default function ExercisePage({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const exercises = getAllExercises([
-    'title',
-    'code',
-    'solution',
-    'hints',
-    'tests',
-    'cat',
-  ]);
+  const exercises = getAllExercises(['title', 'code', 'hints', 'tests', 'cat']);
 
   const fullSlug = (
     Array.isArray(params?.slug) ? params?.slug.join('/') : params?.slug

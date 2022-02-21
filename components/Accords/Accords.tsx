@@ -20,13 +20,14 @@ const Accords = forwardRef<AccordsHandle, AccordsProps>((props, ref) => {
 
   const { accords, turnOn } = useAccords(items, defaultActive);
 
-  const accordElements = accords.map((accord) => (
-    <Accord key={accord.title} {...accord} />
-  ));
+  const accordElements = accords.map((accord, id) => ({
+    id: id.toString(),
+    el: <Accord key={accord.title} {...accord} />,
+  }));
 
   useImperativeHandle(ref, () => ({ turnOn }));
 
-  return <List gap="base">{accordElements}</List>;
+  return <List gap="base" items={accordElements} />;
 });
 
 Accords.displayName = 'Accords';

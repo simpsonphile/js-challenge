@@ -1,23 +1,15 @@
 import { css, DefaultTheme } from 'styled-components';
 
-import { ExtendedPartialThemedStyledProps } from './types';
-
-export type FontScaleName = keyof DefaultTheme['fontScales'];
+import { getFontSize } from './getFontSize';
+import { getLineHeight } from './getLineHeight';
 
 export type FontScaleProps = {
-  scale?: FontScaleName;
+  $scale?: keyof DefaultTheme['fontSizes'];
 };
 
-export type ThemeAndFontScaleProps =
-  ExtendedPartialThemedStyledProps<FontScaleProps>;
-
-const FontScale = ({ theme, scale }: ThemeAndFontScaleProps) => css`
-  ${scale &&
-  theme?.fontScales[scale] &&
-  css`
-    font-size: ${theme.fontScales[scale][0]};
-    line-height: ${theme.fontScales[scale][1]};
-  `}
+const getFontScale = ({ $scale }: FontScaleProps) => css`
+  ${getFontSize({ $fs: $scale })}
+  ${getLineHeight({ $lh: $scale })}
 `;
 
-export default FontScale;
+export { getFontScale };

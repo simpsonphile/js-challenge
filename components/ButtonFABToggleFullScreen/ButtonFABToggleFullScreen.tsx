@@ -10,7 +10,7 @@ export default function ButtonFABToggleFullScreen(): React.ReactElement {
 
   return (
     <ButtonFAB size="s" onClick={toggleFullScreen}>
-      {<AiOutlineFullscreen size="3.2rem" />}
+      {<AiOutlineFullscreen size="2.4rem" />}
     </ButtonFAB>
   );
 }

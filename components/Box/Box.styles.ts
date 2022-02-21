@@ -1,19 +1,20 @@
 import styled from 'styled-components';
 
-import { colorMixin, ColorProps } from 'themes/mixins/color';
-import getFontScale, { FontScaleProps } from 'themes/mixins/getFontScale';
-import { spacingMixin, SpacingProps } from 'themes/mixins/spacing';
+import { getColor, ColorProps } from 'themes/mixins/getColor';
+import { getFontScale, FontScaleProps } from 'themes/mixins/getFontScale';
+import { getSize, SizeProps } from 'themes/mixins/getSize';
+import { getSpacing, SpacingProps } from 'themes/mixins/getSpacing';
 
-export type StyledBoxProps = {
-  padding?: number;
-} & ColorProps &
+export type StyledBoxProps = ColorProps &
   FontScaleProps &
-  SpacingProps;
+  SpacingProps &
+  SizeProps;
 
 const StyledBox = styled.div<StyledBoxProps>`
-  ${colorMixin}
+  ${getColor}
   ${getFontScale}
-  ${spacingMixin}
+  ${getSpacing}
+  ${getSize}
   border-radius: ${({ theme }) => theme.radiss[2]};
 `;
 

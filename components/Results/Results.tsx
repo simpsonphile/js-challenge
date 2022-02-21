@@ -22,17 +22,24 @@ export default function Results(props: ResultsProps): React.ReactElement {
         text = successMessage || `test ${index + 1} passed`;
       }
 
-      return (
-        <Headline key={text} scale="base" color={result ? 'valid' : 'error'}>
-          {text}
-        </Headline>
-      );
+      return {
+        id: index.toString(),
+        el: (
+          <Headline
+            key={text}
+            $scale="base"
+            $color={result ? 'valid' : 'error'}
+          >
+            {text}
+          </Headline>
+        ),
+      };
     }
   );
 
   return (
-    <Box p="base" bgColor="bgAccent">
-      <List>{resultNodes}</List>
+    <Box $p="base" $bgColor="bgAccent">
+      <List items={resultNodes}>{}</List>
     </Box>
   );
 }

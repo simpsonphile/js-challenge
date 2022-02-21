@@ -26,7 +26,7 @@ export default function Tabs(props: TabsProps): React.ReactElement {
           <StyledTabsNavItem
             key={title}
             as={Button}
-            genre="plain"
+            variant={undefined}
             active={active}
             onClick={asLink ? goToLink : changeTab}
           >

@@ -10,7 +10,7 @@ export type HeadlineProps = {
 
 const defaultProps: Partial<HeadlineProps> = {
   tag: 'p',
-  scale: 'xl',
+  $scale: 'xl',
 };
 
 export default function Headline(props: HeadlineProps): React.ReactElement {

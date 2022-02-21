@@ -24,9 +24,9 @@ export default function ModalExerciseCompleted(
 
   return (
     <Modal onClose={onClose}>
-      <Box bgColor="bg" p="base">
-        <Box mb="base">
-          <Headline tag="h2" scale="xl">
+      <Box $bgColor="bg" $p="base">
+        <Box $mb="base">
+          <Headline tag="h2" $scale="xl">
             Congratulations!
           </Headline>
         </Box>
@@ -42,7 +42,7 @@ export default function ModalExerciseCompleted(
           </Button>
 
           <Button
-            genre="secondary"
+            variant="secondary"
             onClick={() => {
               goToRandomExercise?.();
               onClose();

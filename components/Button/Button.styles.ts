@@ -1,43 +1,41 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { getColor } from 'themes/mixins/getColor';
 import { mediaHover } from 'themes/mixins/mediaQueries';
 
+type Variant = 'primary' | 'secondary';
+
 export type StyledButtonProps = {
-  genre?: 'primary' | 'secondary' | 'plain';
+  variant?: Variant;
 };
 
-const buttonResetCss = css`
+const variants = {
+  secondary: css`
+    border: 2px solid;
+    ${getColor({ $color: 'main', $borderColor: 'main' })}
+  `,
+
+  primary: css`
+    ${getColor({ $bgColor: 'main' })}
+
+    ${mediaHover(css`
+      ${getColor({ $bgColor: 'mainHover' })}
+    `)}
+  `,
+};
+
+const getVariant = (variant: Variant = 'primary') => variants[variant];
+
+const Button = styled.button<StyledButtonProps>`
   padding: 0;
 
   cursor: pointer;
   color: inherit;
   background-color: transparent;
   border: none;
-`;
 
-const mainColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main;
-const hoverColor = ({ theme }: { theme: DefaultTheme }) =>
-  theme.color.mainHover;
-
-const ButtonSecondaryCss = css`
-  border: 2px solid;
-  border-color: ${mainColor};
-  color: ${mainColor};
-`;
-
-const ButtonPrimaryCss = css`
-  background-color: ${mainColor};
-
-  ${mediaHover(css`
-    background-color: ${hoverColor};
-  `)}
-`;
-
-const StyledButton = styled.button<StyledButtonProps>`
-  ${buttonResetCss}
-
-  ${({ genre }) =>
-    genre !== 'plain' &&
+  ${({ variant }) =>
+    variant &&
     css`
       display: flex;
       align-items: center;
@@ -47,19 +45,18 @@ const StyledButton = styled.button<StyledButtonProps>`
       min-width: 8rem;
       padding: 0 ${({ theme }) => theme.spacing.s};
 
-      font-size: ${({ theme }) => theme.fontScales.base[0]};
+      font-size: ${({ theme }) => theme.fontSizes.base};
       line-height: 1;
 
       border-radius: ${({ theme }) => theme.radiss[2]};
 
       transition: background-color 0.2s;
 
-      ${genre === 'primary' && ButtonPrimaryCss}
-      ${genre === 'secondary' && ButtonSecondaryCss}
+      ${getVariant(variant)}
     `}
 `;
 
-const StyledButtonLabel = styled.span`
+const ButtonLabel = styled.span`
   display: inline-flex;
 
   white-space: nowrap;
@@ -67,7 +64,7 @@ const StyledButtonLabel = styled.span`
   text-overflow: ellipsis;
 `;
 
-const StyledButtonIcon = styled.span`
+const ButtonIcon = styled.span`
   display: inline-flex;
 
   &:not(:last-child) {
@@ -79,4 +76,4 @@ const StyledButtonIcon = styled.span`
   }
 `;
 
-export { StyledButton, StyledButtonLabel, StyledButtonIcon };
+export { Button, ButtonLabel, ButtonIcon };

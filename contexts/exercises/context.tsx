@@ -7,7 +7,6 @@ export type Exercise = {
   cat?: string | null;
   title?: string;
   hints?: string;
-  solution?: string;
   code?: string;
   tests?: string;
   isPassed?: boolean;

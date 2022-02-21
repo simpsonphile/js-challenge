@@ -14,7 +14,7 @@ export default function ButtonCircle(
   const { children, ref, ...rest } = props;
 
   return (
-    <StyledButtonCircle genre="plain" as={Button} {...rest}>
+    <StyledButtonCircle variant={undefined} as={Button} {...rest}>
       {children}
     </StyledButtonCircle>
   );

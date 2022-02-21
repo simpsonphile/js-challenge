@@ -17,19 +17,22 @@ export default function ExerciseList(
 
   const links = React.useMemo(
     () =>
-      exercises.map(({ fullSlug, title, isPassed }) => (
-        <ClientOnly key={fullSlug}>
-          <Link
-            color={isPassed ? 'valid' : undefined}
-            href={fullSlug ? routes.exercise(fullSlug) : ''}
-          >
-            {isPassed && '✅ '}
-            {title}
-          </Link>
-        </ClientOnly>
-      )),
+      exercises.map(({ fullSlug, title, isPassed }, id) => ({
+        id: id.toString(),
+        el: (
+          <ClientOnly key={fullSlug}>
+            <Link
+              $color={isPassed ? 'valid' : undefined}
+              href={fullSlug ? routes.exercise(fullSlug) : ''}
+            >
+              {isPassed && '✅ '}
+              {title}
+            </Link>
+          </ClientOnly>
+        ),
+      })),
     [exercises]
   );
 
-  return <List gap="xs">{links}</List>;
+  return <List gap="xs" items={links} />;
 }

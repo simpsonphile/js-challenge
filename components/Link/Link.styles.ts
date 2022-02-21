@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components';
 
-import { colorMixin, ColorProps } from 'themes/mixins/color';
+import { getColor, ColorProps } from 'themes/mixins/getColor';
 
 export type StyledLinkProps = {
   isActive?: boolean;
-  color?: ColorProps['color'];
-};
+} & Pick<ColorProps, '$color'>;
 
 const StyledLink = styled.a<StyledLinkProps>`
+  ${getColor}
+
   text-decoration: none;
 
   cursor: pointer;
-  color: inherit;
 
   &:hover {
     text-decoration: underline;
@@ -23,8 +23,6 @@ const StyledLink = styled.a<StyledLinkProps>`
       color: ${theme.color.main};
       text-decoration: underline;
     `}
-
-  ${colorMixin}
 `;
 
 export { StyledLink };

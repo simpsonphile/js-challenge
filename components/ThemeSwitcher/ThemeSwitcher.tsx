@@ -16,7 +16,7 @@ export default function ThemeSwitcher(): React.ReactElement {
 
   return (
     <div>
-      <Button genre="plain" onClick={() => setTheme?.(nextTheme)}>
+      <Button variant={undefined} onClick={() => setTheme?.(nextTheme)}>
         <Icon size="3.2rem" strokeWidth="1" color={color.main} />
       </Button>
     </div>

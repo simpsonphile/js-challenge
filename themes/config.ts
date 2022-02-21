@@ -2,18 +2,41 @@ import { DefaultTheme } from 'styled-components';
 
 // FontScales
 /***********************************************************/
-const fontScales = {
-  xs: ['1rem', '1.6rem'],
-  s: ['1.2rem', '1.8rem'],
-  base: ['1.6rem', '2.4rem'],
-  lg: ['2rem', '3rem'],
-  xl: ['2.4rem', '3.6rem'],
-  xl2: ['3.2rem', '4.8rem'],
-  xl3: ['4rem', '6rem'],
-  xl4: ['4.8rem', '7.2rem'],
+const fontSizes = {
+  xs: '1rem',
+  s: '1.2rem',
+  base: '1.6rem',
+  lg: '2rem',
+  xl: '2.4rem',
+  xl2: '3.2rem',
+  xl3: '4rem',
+  xl4: '4.8rem',
 } as const;
 
-export type FontScales = typeof fontScales;
+export type FontSizes = typeof fontSizes;
+
+const lineHeights = {
+  xs: '1.6rem',
+  s: '1.8rem',
+  base: '2.4rem',
+  lg: '3rem',
+  xl: '3.6rem',
+  xl2: '4.8rem',
+  xl3: '6rem',
+  xl4: '7.2rem',
+} as const;
+
+export type LineHeights = typeof lineHeights;
+
+// Sizing
+/***********************************************************/
+const sizing = {
+  100: '100%',
+  50: '50%',
+  33: '33.3%',
+} as const;
+
+export type Sizing = typeof sizing;
 
 // Spacing
 /***********************************************************/
@@ -24,9 +47,6 @@ const spacing = {
   base: '1.6rem',
   lg: '3.2rem',
   xl: '6.4rem',
-  xl2: '12.8rem',
-  xl3: '25.6rem',
-  xl4: '51.2rem',
 } as const;
 
 export type Spacing = typeof spacing;
@@ -39,6 +59,8 @@ export type Radiss = typeof radiss;
 
 // Breakpoints
 /***********************************************************/
+const breakpointsOrder = ['sm', 'md', 'lg', 'xl', '2xl'];
+// todo only array notation
 const breakpoints = {
   sm: '640px',
   md: '768px',
@@ -71,11 +93,22 @@ export type Color = typeof color;
 // defaultTheme
 /***********************************************************/
 const defaultTheme: DefaultTheme = {
-  fontScales,
+  fontSizes,
+  lineHeights,
+  sizing,
   spacing,
   radiss,
   breakpoints,
   color,
 };
 
-export { fontScales, spacing, radiss, breakpoints, defaultTheme };
+export {
+  fontSizes,
+  lineHeights,
+  sizing,
+  spacing,
+  radiss,
+  breakpointsOrder,
+  breakpoints,
+  defaultTheme,
+};
