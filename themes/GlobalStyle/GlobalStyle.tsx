@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    ${getColor({ $bgColor: 'mainHover' })}
+    ${getColor({ $bgColor: 'main2' })}
   }
 `;
 

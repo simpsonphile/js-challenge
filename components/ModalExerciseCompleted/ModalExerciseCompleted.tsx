@@ -26,12 +26,12 @@ export default function ModalExerciseCompleted(
     <Modal onClose={onClose}>
       <Box $bgColor="bg" $p="base">
         <Box $mb="base">
-          <Headline tag="h2" $scale="xl">
+          <Headline tag="h2" $fs="xl">
             Congratulations!
           </Headline>
         </Box>
 
-        <Inline gap="s">
+        <Inline $g="s">
           <Button
             onClick={() => {
               goToNextExercise?.();

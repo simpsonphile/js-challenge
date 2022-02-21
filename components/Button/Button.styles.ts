@@ -19,7 +19,7 @@ const variants = {
     ${getColor({ $bgColor: 'main' })}
 
     ${mediaHover(css`
-      ${getColor({ $bgColor: 'mainHover' })}
+      ${getColor({ $bgColor: 'main2' })}
     `)}
   `,
 };

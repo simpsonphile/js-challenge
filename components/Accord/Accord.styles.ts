@@ -14,7 +14,7 @@ const StyledAccordHead = styled.div`
   cursor: pointer;
 
   ${mediaHover(css`
-    background-color: ${({ theme }) => theme.color.mainHover};
+    background-color: ${({ theme }) => theme.color.main2};
   `)}
 `;
 

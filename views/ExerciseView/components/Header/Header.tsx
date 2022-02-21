@@ -12,7 +12,7 @@ export default function Header(props: HeaderProps): React.ReactElement {
 
   return (
     <Box $mb="lg">
-      <Headline tag="h1" $scale="xl2">
+      <Headline tag="h1" $fs="xl2">
         <ClientOnly>
           <span>{isPassed && '✅ '}</span>
         </ClientOnly>

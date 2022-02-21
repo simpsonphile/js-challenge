@@ -1,26 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { getSpacing, SpacingProps } from 'themes/mixins/getSpacing';
 
 export type StyledInlineProps = {
-  wrap?: boolean;
-  gap?: SpacingProps['$ml'];
+  $wrap?: boolean;
+  $g?: SpacingProps['$ml'];
+  $direction?: 'column' | 'row';
 };
 
 const StyledInline = styled.div<StyledInlineProps>`
   display: flex;
-  flex-direction: row;
-  flex-wrap: ${({ wrap }) => (wrap ? 'wrap' : 'nowrap')};
-  ${({ theme, gap }) =>
-    typeof gap === 'string' &&
-    css`
-      margin-top: -${theme.spacing[gap]};
-      margin-left: -${theme.spacing[gap]};
-    `};
+  flex-direction: ${({ $direction }) => $direction || 'row'};
+  flex-wrap: ${({ $wrap }) => ($wrap ? 'wrap' : 'nowrap')};
 
-  & > * {
-    ${({ gap }) => getSpacing({ $ml: gap, $mt: gap })};
-  }
+  ${({ $g }) => getSpacing({ $g })};
 `;
 
 export { StyledInline };
