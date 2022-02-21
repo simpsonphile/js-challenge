@@ -42,7 +42,7 @@ export default function ModalExerciseCompleted(
           </Button>
 
           <Button
-            genre="secondary"
+            variant="secondary"
             onClick={() => {
               goToRandomExercise?.();
               onClose();

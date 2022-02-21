@@ -1,9 +1,5 @@
-import {
-  StyledButton,
-  StyledButtonLabel,
-  StyledButtonIcon,
-  StyledButtonProps,
-} from './Button.styles';
+import * as S from './Button.styles';
+import type { StyledButtonProps } from './Button.styles';
 
 export type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -13,20 +9,20 @@ export type ButtonProps = React.DetailedHTMLProps<
 } & StyledButtonProps;
 
 const defaultProps: Partial<ButtonProps> = {
-  genre: 'primary',
+  variant: 'primary',
 };
 
 export default function Button(props: ButtonProps): React.ReactElement {
-  const { genre, iconRight, ref, children, ...rest } = {
+  const { iconRight, ref, children, ...rest } = {
     ...defaultProps,
     ...props,
   };
 
   return (
-    <StyledButton genre={genre} {...rest}>
-      {children && <StyledButtonLabel>{children}</StyledButtonLabel>}
+    <S.Button {...rest}>
+      {children && <S.ButtonLabel>{children}</S.ButtonLabel>}
 
-      {iconRight && <StyledButtonIcon>{iconRight}</StyledButtonIcon>}
-    </StyledButton>
+      {iconRight && <S.ButtonIcon>{iconRight}</S.ButtonIcon>}
+    </S.Button>
   );
 }

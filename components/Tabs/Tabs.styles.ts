@@ -32,24 +32,26 @@ const StyledTabsNav = styled.div`
 `;
 
 const StyledTabsNavItem = styled.button<StyledTabsNavItemProps>`
-  height: 4.8rem;
-  padding: 0 ${({ theme }) => theme.spacing.base};
-  margin: -1px 0;
+  &&& {
+    height: 4.8rem;
+    padding: 0 ${({ theme }) => theme.spacing.base};
+    margin: -1px 0;
 
-  border-bottom: 1px solid ${getGrayColor};
-  color: ${getTextColor};
+    border-bottom: 1px solid ${getGrayColor};
+    color: ${getTextColor};
 
-  ${({ active }) =>
-    active &&
-    css`
-      color: ${getMainColor};
-      border-color: ${getMainColor};
-    `}
+    ${({ active }) =>
+      active &&
+      css`
+        color: ${getMainColor};
+        border-color: ${getMainColor};
+      `}
 
-  ${mediaHover(css`
-    background-color: ${getMainColor};
-    color: white;
-  `)}
+    ${mediaHover(css`
+      background-color: ${getMainColor};
+      color: white;
+    `)}
+  }
 `;
 
 const StyledTabsItem = styled.div<StyledTabsItemProps>`

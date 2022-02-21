@@ -16,23 +16,25 @@ const getSize = (size?: StyledButtonCircleProps['size']) => {
 };
 
 const StyledButtonCircle = styled.div<StyledButtonCircleProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &&& {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  height: 2.4rem;
-  width: 2.4rem;
+    height: 2.4rem;
+    width: 2.4rem;
 
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.color.main};
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.color.main};
 
-  transition: background-color 0.2s;
+    transition: background-color 0.2s;
 
-  ${({ size }) => getSize(size)}
+    ${({ size }) => getSize(size)}
 
-  ${mediaHover(css`
-    background-color: ${({ theme }) => theme.color.mainHover};
-  `)}
+    ${mediaHover(css`
+      background-color: ${({ theme }) => theme.color.mainHover};
+    `)}
+  }
 `;
 
 export { StyledButtonCircle };
