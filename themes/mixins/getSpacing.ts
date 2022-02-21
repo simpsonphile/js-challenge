@@ -15,6 +15,9 @@ const cssPropMap = {
   $ml: 'margin-left',
   $my: ['margin-top', 'margin-bottom'],
   $mx: ['margin-right', 'margin-left'],
+  $g: 'gap',
+  $gr: 'gap-row',
+  $gc: 'gap-column',
 };
 
 const getSpacing = generateGetMixin(cssPropMap, 'spacing');
