@@ -4,14 +4,15 @@ import { AiOutlineFullscreen } from 'react-icons/ai';
 
 import ButtonFAB from 'components/ButtonFAB';
 import { FullScreenContext } from 'contexts/fullScreen';
-import { useHotkeys } from 'hooks/useHotkeys';
+import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 
 export default function ButtonFABToggleFullScreen(): React.ReactElement {
   const { toggleFullScreen } = useContext(FullScreenContext);
 
-  useHotkeys('command + option + f, ctrl + alt + f', () =>
-    toggleFullScreen?.()
-  );
+  usePredefinedHotkeys({
+    keys: 'fullScreen',
+    callback: () => toggleFullScreen?.(),
+  });
 
   return (
     <ButtonFAB size="s" onClick={toggleFullScreen}>

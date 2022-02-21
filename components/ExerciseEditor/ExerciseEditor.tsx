@@ -1,7 +1,7 @@
 import Button from 'components/Button';
 import Editor from 'components/Editor';
 import Results from 'components/Results';
-import { useHotkeys } from 'hooks/useHotkeys';
+import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 
 import { StyledExerciseEditor } from './ExerciseEditor.styles';
 import useExerciseEditor from './useExerciseEditor';
@@ -21,7 +21,10 @@ export default function ExerciseEditor(
     id
   );
 
-  useHotkeys('command + option + t, ctrl + alt + t', onSubmit);
+  usePredefinedHotkeys({
+    keys: 'testExercise',
+    callback: onSubmit,
+  });
 
   return (
     <StyledExerciseEditor>

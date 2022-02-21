@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 import Input, { InputProps } from 'components/Input';
-import { useHotkeys } from 'hooks/useHotkeys';
+import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 
 type InputSearchProps = Omit<InputProps, 'type' | 'iconRight'>;
 
@@ -12,9 +12,10 @@ export default function InputSearch(
 ): React.ReactElement {
   const ref = useRef<HTMLInputElement | null>(null);
 
-  useHotkeys('command + option + s, ctrl + alt + s', () =>
-    ref.current?.focus()
-  );
+  usePredefinedHotkeys({
+    keys: 'search',
+    callback: () => ref.current?.focus(),
+  });
 
   return (
     <Input
@@ -22,7 +23,7 @@ export default function InputSearch(
       type="text"
       iconRight={<AiOutlineSearch />}
       {...props}
-      placeholder="⌘ + ⌥ + s"
+      placeholder="⌘ + k"
     />
   );
 }

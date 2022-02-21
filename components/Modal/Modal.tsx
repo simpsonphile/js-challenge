@@ -5,6 +5,7 @@ import { useClickAway, useLockBodyScroll } from 'react-use';
 
 import ButtonCircle from 'components/ButtonCircle/ButtonCircle';
 import Portal from 'components/Portal';
+import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 
 import {
   StyledModal,
@@ -29,6 +30,11 @@ export default function Modal(props: ModalProps): React.ReactElement {
   useClickAway(ref, onClose);
 
   useLockBodyScroll(isLocked);
+
+  usePredefinedHotkeys({
+    keys: 'closeCurrent',
+    callback: onClose,
+  });
 
   useEffect(() => {
     setIsLocked(true);
