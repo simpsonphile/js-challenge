@@ -16,6 +16,7 @@ const StyledKbd = styled.kbd`
   background-color: #e6e6e6;
   background-color: rgba(210, 210, 210, 0.9);
   border-color: #e6e6e6 #bebebe #bebebe #e6e6e6;
+  box-shadow: ${({ theme }) => theme.shadow.default};
   border-style: solid;
   border-width: 1px 3px 4px;
   border-radius: 0.4rem;
