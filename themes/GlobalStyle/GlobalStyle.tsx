@@ -6,6 +6,7 @@ import { getFontScale } from 'themes/mixins/getFontScale';
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   body {
@@ -35,6 +36,11 @@ const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:hover {
     ${getColor({ $bgColor: 'main2' })}
+  }
+
+  *:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.8rem rgba(21, 156, 228, 0.4);
   }
 `;
 
