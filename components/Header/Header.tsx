@@ -11,7 +11,7 @@ export default function Header(): React.ReactElement {
     <StyledHeader>
       <Logo />
 
-      <Inline $g="base">
+      <Inline $g="s" $align="center">
         <ClientOnly>
           <ThemeSwitcher />
         </ClientOnly>
