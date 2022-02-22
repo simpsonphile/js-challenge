@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
-import { getFontScale } from 'themes/mixins/getFontScale';
+import { getFontSize } from 'themes/mixins/getFontSize';
 
 const StyledLogo = styled.div`
   p {
     margin: 0;
 
-    ${getFontScale({ $scale: 'xl' })};
+    ${getFontSize({ $fs: ['lg', 'xl'] })};
+    line-height: 1;
     font-weight: 700;
 
     color: ${({ theme }) => theme.color.text};
