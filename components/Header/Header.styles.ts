@@ -11,6 +11,7 @@ const StyledHeader = styled.header`
   padding: 0 ${padding};
 
   background-color: ${({ theme }) => theme.color.bgAccent};
+  box-shadow: ${({ theme }) => theme.shadow.default};
 `;
 
 export { StyledHeader };

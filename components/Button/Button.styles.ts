@@ -52,6 +52,7 @@ const Button = styled.button<StyledButtonProps>`
       line-height: 1;
 
       border-radius: ${({ theme }) => theme.radiss[2]};
+      box-shadow: ${({ theme }) => theme.shadow.default};
 
       transition: background-color 0.2s;
 

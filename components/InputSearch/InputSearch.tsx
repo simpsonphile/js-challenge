@@ -1,7 +1,9 @@
 import { useRef } from 'react';
 
 import { Icon } from 'components/Icon';
+import Inline from 'components/Inline';
 import Input, { InputProps } from 'components/Input';
+import { Kbd } from 'components/Kbd';
 import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 
 type InputSearchProps = Omit<InputProps, 'type' | 'iconRight' | 'placeholder'>;
@@ -20,8 +22,13 @@ export default function InputSearch(
     <Input
       ref={ref}
       type="text"
-      iconRight={<Icon name="AiOutlineSearch" />}
-      placeholder="⌘ + K"
+      iconLeft={<Icon name="AiOutlineSearch" />}
+      iconRight={
+        <Inline $g="xs">
+          <Kbd>⌘</Kbd>
+          <Kbd>K</Kbd>
+        </Inline>
+      }
       {...props}
     />
   );

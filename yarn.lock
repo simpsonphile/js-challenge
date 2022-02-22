@@ -1375,6 +1375,11 @@ css-in-js-utils@^2.0.0:
     hyphenate-style-name "^1.0.2"
     isobject "^3.0.1"
 
+css-properties-props@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/css-properties-props/-/css-properties-props-1.2.0.tgz#9768dbd263272bb71cc3b5f57bf83b17af690974"
+  integrity sha512-vO9BLmnNLbQue6Ay802WmNef5XbmHeeB2jZ1vhxPlElD4398Ibpa/MXmgzYr8tHg/kjo9RVUh0PxRStLXe8kGg==
+
 css-to-react-native@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/css-to-react-native/-/css-to-react-native-3.0.0.tgz#62dbe678072a824a689bcfee011fc96e02a7d756"

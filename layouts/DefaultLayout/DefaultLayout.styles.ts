@@ -4,7 +4,7 @@ type StyledDefaultLayoutProps = {
   hasSidebar?: boolean;
 };
 
-const SIDEBAR_WIDTH = '20rem';
+const SIDEBAR_WIDTH = '25rem';
 const padding = ({ theme }: { theme: DefaultTheme }) => theme.spacing.lg;
 
 const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`

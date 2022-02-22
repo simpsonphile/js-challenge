@@ -25,6 +25,7 @@ export default function Accord(props: AccordProps): React.ReactElement {
         $bgColor="main"
         $py="xs"
         $px="base"
+        $hasShadow
         onClick={toggle}
       >
         <Headline $fs="lg">{title}</Headline>

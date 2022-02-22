@@ -22,12 +22,13 @@ const StyledTabsNav = styled.div`
   display: flex;
 
   background-color: ${getBgAccentColor};
+  box-shadow: ${({ theme }) => theme.shadow.default};
 
   &:not(:last-child) {
     margin-bottom: ${({ theme }) => theme.spacing.s};
 
     border-radius: ${({ theme }) => theme.radiss[1]};
-    border: 1px solid ${getGrayColor};
+    border: 1px solid ${getMainColor};
   }
 `;
 

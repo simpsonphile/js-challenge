@@ -1,45 +1,53 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export type StyledInputProps = {
-  hasIcon?: boolean;
+  hasIconLeft?: boolean;
+  hasIconRight?: boolean;
+};
+
+export type StyledInputIconWrapProps = {
+  $position: 'left' | 'right';
 };
 
 const StyledInputWrap = styled.div`
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 
-  width: 100%;
-`;
-
-const StyledInput = styled.input<StyledInputProps>`
   padding: ${({ theme }) => theme.spacing.s};
 
-  ${({ theme, hasIcon }) =>
-    hasIcon &&
-    css`
-      padding-right: calc(${theme.spacing.s} + ${theme.spacing.s} + 1em);
-    `}
-
-  color: ${({ theme }) => theme.color.text};
   border: 2px solid;
   border-color: ${({ theme }) => theme.color.main};
   border-radius: ${({ theme }) => theme.radiss[2]};
-  background-color: transparent;
+  box-shadow: ${({ theme }) => theme.shadow.default};
 
-  &:hover,
-  &:focus {
-    outline: none;
-    border-color: ${({ theme }) => theme.color.mainHover};
+  &:hover {
+    border-color: ${({ theme }) => theme.color.main2};
+  }
+
+  &:focus-within {
+    box-shadow: ${({ theme }) => theme.shadow.focus};
   }
 `;
 
-const StyledInputIconWrap = styled.span`
-  position: absolute;
-  top: 50%;
-  right: ${({ theme }) => theme.spacing.s};
+const StyledInput = styled.input<StyledInputProps>`
+  flex-basis: 100%;
 
+  min-width: 0;
+
+  color: ${({ theme }) => theme.color.text};
+  background-color: transparent;
+  border: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+`;
+
+const StyledInputIconWrap = styled.span<StyledInputIconWrapProps>`
   display: flex;
-
-  transform: translateY(-50%);
+  pointer-events: none;
 `;
 
 export { StyledInputWrap, StyledInput, StyledInputIconWrap };

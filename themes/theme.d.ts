@@ -5,6 +5,7 @@ import {
   Breakpoints,
   Radiss,
   Color,
+  Shadow,
   Sizing,
   FontSizes,
   LineHeights,
@@ -15,6 +16,7 @@ declare module 'styled-components' {
     fontSizes: FontSizes;
     lineHeights: LineHeights;
     radiss: Radiss;
+    shadow: Shadow;
     sizing: Sizing;
     spacing: Spacing;
     breakpoints: Breakpoints;

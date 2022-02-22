@@ -26,6 +26,7 @@ const StyledButtonCircle = styled.div<StyledButtonCircleProps>`
 
     border-radius: 50%;
     background-color: ${({ theme }) => theme.color.main};
+    box-shadow: ${({ theme }) => theme.shadow.default};
 
     transition: background-color 0.2s;
 
