@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 
-import { AiOutlineSearch } from 'react-icons/ai';
-
+import { Icon } from 'components/Icon';
 import Input, { InputProps } from 'components/Input';
 import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 
@@ -21,7 +20,7 @@ export default function InputSearch(
     <Input
       ref={ref}
       type="text"
-      iconRight={<AiOutlineSearch />}
+      iconRight={<Icon name="AiOutlineSearch" />}
       placeholder="⌘ + K"
       {...props}
     />

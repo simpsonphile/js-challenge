@@ -1,9 +1,9 @@
 import { ReactElement, useEffect, useRef, useState } from 'react';
 
-import { AiOutlineClose } from 'react-icons/ai';
 import { useClickAway, useLockBodyScroll } from 'react-use';
 
 import ButtonCircle from 'components/ButtonCircle/ButtonCircle';
+import { Icon } from 'components/Icon';
 import Portal from 'components/Portal';
 import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 
@@ -48,7 +48,7 @@ export default function Modal(props: ModalProps): React.ReactElement {
         <StyledModalWrap>
           <StyledModalCloseBtn>
             <ButtonCircle onClick={onClose}>
-              <AiOutlineClose />
+              <Icon name="AiOutlineClose" />
             </ButtonCircle>
           </StyledModalCloseBtn>
           <StyledModalCenter ref={ref}>{children}</StyledModalCenter>
