@@ -2,7 +2,7 @@ import { DefaultTheme, StyledComponent } from 'styled-components';
 
 import { StyledBox, StyledBoxProps } from './Box.styles';
 
-type BoxProps = React.DetailedHTMLProps<
+export type BoxProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 > & {

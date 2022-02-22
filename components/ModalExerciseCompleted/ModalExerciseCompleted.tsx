@@ -1,4 +1,4 @@
-import Box from 'components/Box';
+import Box, { BoxDefault } from 'components/Box';
 import Button from 'components/Button';
 import Headline from 'components/Headline';
 import Inline from 'components/Inline';
@@ -24,7 +24,7 @@ export default function ModalExerciseCompleted(
 
   return (
     <Modal onClose={onClose}>
-      <Box $bgColor="bg" $p="base">
+      <BoxDefault>
         <Box $mb="base">
           <Headline tag="h2" $fs="xl">
             Congratulations!
@@ -51,7 +51,7 @@ export default function ModalExerciseCompleted(
             Go to random exercise
           </Button>
         </Inline>
-      </Box>
+      </BoxDefault>
     </Modal>
   );
 }

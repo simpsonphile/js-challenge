@@ -1,4 +1,4 @@
-import Box from 'components/Box';
+import { BoxDefault } from 'components/Box';
 import Headline from 'components/Headline';
 import List from 'components/List';
 
@@ -34,8 +34,8 @@ export default function Results(props: ResultsProps): React.ReactElement {
   );
 
   return (
-    <Box $p="base" $bgColor="bgAccent" $hasShadow>
+    <BoxDefault>
       <List items={resultNodes}>{}</List>
-    </Box>
+    </BoxDefault>
   );
 }
