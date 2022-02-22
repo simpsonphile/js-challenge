@@ -30,7 +30,7 @@ export default function ExerciseEditor(
     <StyledExerciseEditor>
       <Editor value={value} setValue={(val) => onEditorValueChange(val)} />
       <Results results={results || []} />
-      <Button onClick={onSubmit}>test</Button>
+      <Button onClick={onSubmit}>Test</Button>
     </StyledExerciseEditor>
   );
 }
