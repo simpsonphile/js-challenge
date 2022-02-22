@@ -1,0 +1,11 @@
+export type {{pascalCase name}}Props = {};
+
+const defaultProps: Partial<{{pascalCase name}}Props> = {};
+
+function {{pascalCase name}}(props: {{pascalCase name}}Props): React.ReactElement {
+  const {} = { ...defaultProps, ...props };
+
+  return <div />;
+}
+
+export { {{pascalCase name}} };

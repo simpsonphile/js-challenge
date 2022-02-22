@@ -1,0 +1,30 @@
+import { GetStaticProps } from 'next';
+
+import Sidebar from 'components/Sidebar';
+import DefaultLayout from 'layouts/DefaultLayout';
+
+type {{pascalCase name}}PageProps = {};
+
+export default function {{pascalCase name}}Page({
+}: {{pascalCase name}}PageProps) {
+  return (
+    <DefaultLayout
+      sidebar={<Sidebar />}
+    >
+
+    </DefaultLayout>
+  );
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  return {
+    props: {},
+  };
+};
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: false,
+  };
+}
