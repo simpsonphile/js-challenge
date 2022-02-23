@@ -28,7 +28,6 @@ const useExerciseEditor = (onSuccess: () => void, id: string) => {
         try {
           return { result: !!eval(value + body), failMessage, successMessage };
         } catch (error) {
-          console.log(error);
           return { result: false, failMessage };
         }
       }
