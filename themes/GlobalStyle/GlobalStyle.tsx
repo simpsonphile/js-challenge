@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 62.5%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-    --header-height: 4rem;
+    --header-height: 4.8rem;
 
     ${mediaMinWidth.md(css`
       --header-height: 6rem;

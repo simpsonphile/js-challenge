@@ -41,7 +41,7 @@ const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
   `)}
 `;
 
-const StyledDefaultLayoutSidebar = styled.aside`
+const StyledDefaultLayoutSidebar = styled.nav`
   grid-area: sidebar;
 
   width: var(--sidebar-width);
