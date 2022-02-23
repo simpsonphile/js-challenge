@@ -20,8 +20,6 @@ const dark = {
   },
 };
 
-console.log(dark);
-
 const themes = {
   light,
   dark,
