@@ -24,6 +24,7 @@ export default function Modal(props: ModalProps): React.ReactElement {
   const { children, onClose } = props;
 
   const [isLocked, setIsLocked] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const ref =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
@@ -40,12 +41,14 @@ export default function Modal(props: ModalProps): React.ReactElement {
   useEffect(() => {
     setIsLocked(true);
 
+    setTimeout(() => setIsVisible(true), 100);
+
     return () => setIsLocked(false);
   }, [setIsLocked]);
 
   return (
     <Portal>
-      <StyledModal as={StyledShadow}>
+      <StyledModal as={StyledShadow} $isVisible={isVisible}>
         <StyledModalWrap>
           <StyledModalCloseBtn>
             <ButtonCircle onClick={onClose}>
