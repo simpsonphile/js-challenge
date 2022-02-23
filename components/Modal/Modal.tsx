@@ -5,6 +5,7 @@ import { useClickAway, useLockBodyScroll } from 'react-use';
 import ButtonCircle from 'components/ButtonCircle/ButtonCircle';
 import { Icon } from 'components/Icon';
 import Portal from 'components/Portal';
+import { StyledShadow } from 'components/Shadow/Shadow.styles';
 import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 
 import {
@@ -44,7 +45,7 @@ export default function Modal(props: ModalProps): React.ReactElement {
 
   return (
     <Portal>
-      <StyledModal>
+      <StyledModal as={StyledShadow}>
         <StyledModalWrap>
           <StyledModalCloseBtn>
             <ButtonCircle onClick={onClose}>
