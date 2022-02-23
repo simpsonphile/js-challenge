@@ -1,13 +1,16 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
+import { mediaMinWidth } from 'themes/mixins/mediaQueries';
+
 type StyledDefaultLayoutProps = {
   hasSidebar?: boolean;
 };
 
-const SIDEBAR_WIDTH = '25rem';
 const padding = ({ theme }: { theme: DefaultTheme }) => theme.spacing.lg;
 
 const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
+  --sidebar-width: 20rem;
+
   display: grid;
   grid-template-rows: min-content 1fr;
   gap: ${padding};
@@ -17,7 +20,7 @@ const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
   ${({ hasSidebar }) =>
     hasSidebar
       ? css`
-          grid-template-columns: ${SIDEBAR_WIDTH} auto;
+          grid-template-columns: var(--sidebar-width) auto;
           grid-template-areas:
             'header  header'
             'sidebar content';
@@ -28,6 +31,10 @@ const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
             'header'
             'content';
         `};
+
+  ${mediaMinWidth.xl(css`
+    --sidebar-width: 28rem;
+  `)}
 `;
 
 const StyledDefaultLayoutHeader = styled.div`
@@ -39,7 +46,7 @@ const StyledDefaultLayoutHeader = styled.div`
 const StyledDefaultLayoutSidebar = styled.aside`
   grid-area: sidebar;
 
-  width: ${SIDEBAR_WIDTH};
+  width: var(--sidebar-width);
 `;
 
 const StyledDefaultLayoutContent = styled.main`
