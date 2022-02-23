@@ -59,7 +59,7 @@ export type Radiss = typeof radiss;
 
 // Breakpoints
 /***********************************************************/
-const breakpointsOrder = ['sm', 'md', 'lg', 'xl'];
+const breakpointsOrder = ['s', 'sm', 'md', 'lg', 'xl'];
 // todo only array notation
 const breakpoints = {
   s: '480px',

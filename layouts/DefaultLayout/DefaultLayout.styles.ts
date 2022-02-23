@@ -1,21 +1,21 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { getSpacing } from 'themes/mixins';
 import { mediaMinWidth } from 'themes/mixins/mediaQueries';
 
 type StyledDefaultLayoutProps = {
   hasSidebar?: boolean;
 };
 
-const padding = ({ theme }: { theme: DefaultTheme }) => theme.spacing.lg;
-
 const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
   --sidebar-width: 20rem;
 
   display: grid;
   grid-template-rows: min-content 1fr;
-  gap: ${padding};
 
-  padding: 0 ${padding} ${padding} ${padding};
+  margin-top: var(--header-height);
+
+  ${getSpacing({ $pb: 'lg', $px: ['base', 'lg'], $g: ['base', 'lg'] })}
 
   ${({ hasSidebar }) =>
     hasSidebar
@@ -35,12 +35,10 @@ const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
   ${mediaMinWidth.xl(css`
     --sidebar-width: 28rem;
   `)}
-`;
 
-const StyledDefaultLayoutHeader = styled.div`
-  grid-area: header;
-
-  margin: 0 -${padding};
+  ${mediaMinWidth.xl(css`
+    --sidebar-width: 28rem;
+  `)}
 `;
 
 const StyledDefaultLayoutSidebar = styled.aside`
@@ -57,7 +55,6 @@ const StyledDefaultLayoutContent = styled.main`
 
 export {
   StyledDefaultLayout,
-  StyledDefaultLayoutHeader,
   StyledDefaultLayoutSidebar,
   StyledDefaultLayoutContent,
 };
