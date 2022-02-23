@@ -1,6 +1,7 @@
 ---
 id: curry-function
 title: Curry function
+description:  Write function that generates curry function.
 hints: hints
 code: "
 // write curry function\n\n

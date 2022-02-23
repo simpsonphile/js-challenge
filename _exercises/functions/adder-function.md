@@ -1,6 +1,7 @@
 ---
 id: adder-function
 title: Adder function
+description: Write function that generates adder function.
 hints: hints
 code: "
 // write function that create adder function\n\n

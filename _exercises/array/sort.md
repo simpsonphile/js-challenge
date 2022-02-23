@@ -1,6 +1,7 @@
 ---
 id: sort
 title: Sort
+description: Write function that generates sorted array but you can't use array.sort method.
 code: "
 // function that return sorted array\n
 // can't use array sort method\n
