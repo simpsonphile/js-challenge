@@ -15,7 +15,7 @@ const StyledDefaultLayout = styled.div<StyledDefaultLayoutProps>`
 
   margin-top: var(--header-height);
 
-  ${getSpacing({ $pb: 'lg', $px: ['base', 'lg'], $g: ['base', 'lg'] })}
+  ${getSpacing({ $pb: 'lg', $g: ['base', 'lg'] })}
 
   ${({ hasSidebar }) =>
     hasSidebar

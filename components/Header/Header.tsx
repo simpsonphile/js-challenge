@@ -5,12 +5,13 @@ import dynamic from 'next/dynamic';
 import ClientOnly from 'components/ClientOnly';
 import { IconHamburger } from 'components/IconHamburger';
 import Inline from 'components/Inline';
+import { LayoutInner } from 'components/LayoutInner';
 import Logo from 'components/Logo';
 import ModalInfoWithTrigger from 'components/ModalInfoWithTrigger';
 import ThemeSwitcher from 'components/ThemeSwitcher';
 import { useAppMedia } from 'hooks/useAppMedia';
 
-import { StyledHeader } from './Header.styles';
+import { StyledHeader, StyledHeaderInner } from './Header.styles';
 
 const MenuMobile = dynamic(
   () =>
@@ -35,28 +36,30 @@ export default function Header(): React.ReactElement {
 
   return (
     <StyledHeader>
-      <Logo />
+      <StyledHeaderInner as={LayoutInner}>
+        <Logo />
 
-      <Inline $g="s" $align="center">
-        <ClientOnly>
-          <ThemeSwitcher />
-        </ClientOnly>
+        <Inline $g="s" $align="center">
+          <ClientOnly>
+            <ThemeSwitcher />
+          </ClientOnly>
 
-        <ModalInfoWithTrigger />
+          <ModalInfoWithTrigger />
 
-        <div>
-          {isBellowMobile && (
-            <IconHamburger isActive={isMenuVisible} onClick={toggleMenu} />
-          )}
-        </div>
-      </Inline>
+          <div>
+            {isBellowMobile && (
+              <IconHamburger isActive={isMenuVisible} onClick={toggleMenu} />
+            )}
+          </div>
+        </Inline>
 
-      {isMenuRendered && isBellowMobile && (
-        <MenuMobile
-          $isActive={isMenuVisible}
-          onClose={() => isMenuVisibleSet(false)}
-        />
-      )}
+        {isMenuRendered && isBellowMobile && (
+          <MenuMobile
+            $isActive={isMenuVisible}
+            onClose={() => isMenuVisibleSet(false)}
+          />
+        )}
+      </StyledHeaderInner>
     </StyledHeader>
   );
 }

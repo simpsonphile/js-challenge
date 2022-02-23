@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { getSpacing } from 'themes/mixins';
-
 const StyledHeader = styled.header`
   position: fixed;
   top: 0;
@@ -9,15 +7,16 @@ const StyledHeader = styled.header`
   left: 0;
   z-index: 999;
 
+  background-color: ${({ theme }) => theme.color.bgAccent};
+  box-shadow: ${({ theme }) => theme.shadow.default};
+`;
+
+const StyledHeaderInner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   height: var(--header-height);
-  ${getSpacing({ $px: ['base', 'lg'] })}
-
-  background-color: ${({ theme }) => theme.color.bgAccent};
-  box-shadow: ${({ theme }) => theme.shadow.default};
 `;
 
-export { StyledHeader };
+export { StyledHeader, StyledHeaderInner };

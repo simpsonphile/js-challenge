@@ -1,4 +1,5 @@
 import Header from 'components/Header';
+import { LayoutInner } from 'components/LayoutInner';
 import { useAppMedia } from 'hooks/useAppMedia';
 
 import {
@@ -21,7 +22,10 @@ export default function DefaultLayout(
   const isAboveMobile = useAppMedia('lg', false);
 
   return (
-    <StyledDefaultLayout hasSidebar={!!sidebar && isAboveMobile}>
+    <StyledDefaultLayout
+      as={LayoutInner}
+      hasSidebar={!!sidebar && isAboveMobile}
+    >
       <Header />
 
       {sidebar && isAboveMobile && (
