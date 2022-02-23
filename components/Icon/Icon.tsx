@@ -1,7 +1,22 @@
 import { IconBaseProps } from 'react-icons';
-import * as AI from 'react-icons/ai';
+import {
+  AiOutlineFullscreen,
+  AiOutlineSearch,
+  AiOutlineClose,
+  AiOutlineQuestion,
+} from 'react-icons/ai';
+import { WiDaySunny, WiNightClear } from 'react-icons/wi';
 
-type IconName = keyof typeof AI;
+const iconMap = {
+  AiOutlineFullscreen,
+  AiOutlineSearch,
+  AiOutlineClose,
+  AiOutlineQuestion,
+  WiDaySunny,
+  WiNightClear,
+};
+
+type IconName = keyof typeof iconMap;
 
 export type IconProps = {
   name: IconName;
@@ -10,7 +25,7 @@ export type IconProps = {
 function Icon(props: IconProps): React.ReactElement {
   const { name, ...rest } = props;
 
-  const Tag = AI[name];
+  const Tag = iconMap[name];
 
   return <Tag {...rest} />;
 }
