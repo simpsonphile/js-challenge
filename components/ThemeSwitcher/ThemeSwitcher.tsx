@@ -24,7 +24,11 @@ export default function ThemeSwitcher(): React.ReactElement {
 
   return (
     <div>
-      <Button variant={undefined} onClick={setNextTheme}>
+      <Button
+        variant={undefined}
+        aria-label="switch theme"
+        onClick={setNextTheme}
+      >
         <IconWi
           name={themeName === 'dark' ? 'WiDaySunny' : 'WiNightClear'}
           size="3.2rem"

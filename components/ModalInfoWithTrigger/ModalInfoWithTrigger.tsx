@@ -9,7 +9,11 @@ export default function ModalInfoWithTrigger(): React.ReactElement {
   return (
     <>
       <div>
-        <ButtonCircle size="xs" onClick={() => isOpenSet(true)}>
+        <ButtonCircle
+          size="xs"
+          aria-label="see app info"
+          onClick={() => isOpenSet(true)}
+        >
           <Icon name="AiOutlineQuestion" stroke="2" />
         </ButtonCircle>
       </div>
