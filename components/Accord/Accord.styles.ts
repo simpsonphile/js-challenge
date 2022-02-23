@@ -19,18 +19,9 @@ const StyledAccordHead = styled.div`
 `;
 
 const StyledAccordIcon = styled.div<StyledAccordSharedProps>`
-  transform: rotate(0);
-  transform-origin: center;
-
-  height: 1em;
-
-  transition: transform 0.2s;
-
-  ${({ isActive }) =>
-    isActive &&
-    css`
-      transform: rotate(180deg);
-    `}
+  &:after {
+    content: attr(data-icon);
+  }
 `;
 
 const StyledAccordContent = styled.div<StyledAccordSharedProps>`
