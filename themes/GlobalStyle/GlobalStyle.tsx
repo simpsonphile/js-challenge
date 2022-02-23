@@ -1,11 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
+import { css } from 'styled-components';
 
 import { getColor } from 'themes/mixins/getColor';
 import { getFontScale } from 'themes/mixins/getFontScale';
+import { mediaMinWidth } from 'themes/mixins/mediaQueries';
 
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --header-height: 4.8rem;
+
+    ${mediaMinWidth.md(css`
+      --header-height: 6rem;
+    `)}
+
   }
 
   body {
@@ -35,6 +45,11 @@ const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:hover {
     ${getColor({ $bgColor: 'main2' })}
+  }
+
+  *:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.8rem rgba(21, 156, 228, 0.4);
   }
 `;
 

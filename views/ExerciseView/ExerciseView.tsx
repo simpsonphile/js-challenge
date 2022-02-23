@@ -3,6 +3,7 @@ import { useCallback, useContext, useState } from 'react';
 import FullScreen from 'components/FullScreen';
 import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
 import { ExerciseContext } from 'contexts/exercises';
+import { FullScreenContext } from 'contexts/fullScreen';
 
 import Header from './components/Header';
 import Tabs from './components/Tabs';
@@ -17,6 +18,8 @@ export default function ExerciseLayout(
   const { id } = props;
 
   const [isModalShown, isModalShownSet] = useState(false);
+
+  const { toggleFullScreen } = useContext(FullScreenContext);
 
   const { getExerciseById, exercises, setExerciseStatus } =
     useContext(ExerciseContext);
@@ -34,6 +37,7 @@ export default function ExerciseLayout(
   const onSuccess = () => {
     makeExerciseCompleted();
     isModalShownSet(true);
+    toggleFullScreen?.(false);
   };
 
   return (

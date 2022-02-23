@@ -2,7 +2,7 @@ import React from 'react';
 
 export type FullScreenContextType = {
   isFullScreen: boolean;
-  toggleFullScreen?: () => void;
+  toggleFullScreen?: (state?: boolean) => void;
 };
 
 const defaultContext: FullScreenContextType = {

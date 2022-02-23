@@ -20,7 +20,11 @@ export default function ExerciseListWithSearch(): React.ReactElement {
 
   return (
     <Inline $g="base" $direction="column">
-      <InputSearch value={value} onChange={(e) => valueSet(e.target.value)} />
+      <InputSearch
+        value={value}
+        placeholder="Adder function"
+        onChange={(e) => valueSet(e.target.value)}
+      />
       <ExerciseListWithCats exercises={exercisesFiltered} />
     </Inline>
   );

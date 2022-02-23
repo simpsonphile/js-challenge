@@ -1,16 +1,22 @@
-import styled, { DefaultTheme } from 'styled-components';
-
-const padding = ({ theme }: { theme: DefaultTheme }) => theme.spacing.lg;
+import styled from 'styled-components';
 
 const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+
+  background-color: ${({ theme }) => theme.color.bgAccent};
+  box-shadow: ${({ theme }) => theme.shadow.default};
+`;
+
+const StyledHeaderInner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  height: 6rem;
-  padding: 0 ${padding};
-
-  background-color: ${({ theme }) => theme.color.bgAccent};
+  height: var(--header-height);
 `;
 
-export { StyledHeader };
+export { StyledHeader, StyledHeaderInner };

@@ -1,7 +1,6 @@
-import { FaChevronDown } from 'react-icons/fa';
-
 import Box from 'components/Box';
 import Headline from 'components/Headline';
+import { Icon } from 'components/Icon';
 
 import {
   StyledAccordHead,
@@ -26,12 +25,13 @@ export default function Accord(props: AccordProps): React.ReactElement {
         $bgColor="main"
         $py="xs"
         $px="base"
+        $hasShadow
         onClick={toggle}
       >
         <Headline $fs="lg">{title}</Headline>
 
         <StyledAccordIcon isActive={isActive}>
-          <FaChevronDown />
+          <Icon name="AiOutlineArrowDown" />
         </StyledAccordIcon>
       </Box>
 

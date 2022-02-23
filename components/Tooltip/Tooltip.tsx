@@ -16,8 +16,8 @@ type TooltipProps = {
 
 const defaultProps: Partial<TooltipProps> = {
   position: 'bottom',
-  bgColor: 'main',
-  color: 'text',
+  $bgColor: 'main',
+  $color: 'text',
 };
 
 export default function Tooltip(props: TooltipProps): React.ReactElement {

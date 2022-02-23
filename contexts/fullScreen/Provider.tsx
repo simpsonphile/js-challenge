@@ -11,8 +11,8 @@ export default function Provider(props: ProviderProps): React.ReactElement {
 
   const [isFullScreen, isFullScreenSet] = useState(false);
 
-  const toggleFullScreen = () => {
-    isFullScreenSet(!isFullScreen);
+  const toggleFullScreen = (state?: boolean) => {
+    isFullScreenSet(state !== undefined ? state : !isFullScreen);
   };
 
   const value = {

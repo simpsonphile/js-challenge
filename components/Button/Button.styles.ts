@@ -27,6 +27,9 @@ const variants = {
 const getVariant = (variant: Variant = 'primary') => variants[variant];
 
 const Button = styled.button<StyledButtonProps>`
+  display: flex;
+  align-items: center;
+
   padding: 0;
 
   cursor: pointer;
@@ -49,6 +52,7 @@ const Button = styled.button<StyledButtonProps>`
       line-height: 1;
 
       border-radius: ${({ theme }) => theme.radiss[2]};
+      box-shadow: ${({ theme }) => theme.shadow.default};
 
       transition: background-color 0.2s;
 

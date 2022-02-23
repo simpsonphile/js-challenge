@@ -1,10 +1,10 @@
-import ClientOnly from 'components/ClientOnly';
 import Header from 'components/Header';
+import { LayoutInner } from 'components/LayoutInner';
+import { useAppMedia } from 'hooks/useAppMedia';
 
 import {
   StyledDefaultLayout,
   StyledDefaultLayoutContent,
-  StyledDefaultLayoutHeader,
   StyledDefaultLayoutSidebar,
 } from './DefaultLayout.styles';
 
@@ -19,15 +19,16 @@ export default function DefaultLayout(
 ): React.ReactElement {
   const { children, sidebar, FAB } = props;
 
-  return (
-    <StyledDefaultLayout hasSidebar={!!sidebar}>
-      <ClientOnly>
-        <StyledDefaultLayoutHeader>
-          <Header />
-        </StyledDefaultLayoutHeader>
-      </ClientOnly>
+  const isAboveMobile = useAppMedia('lg', false);
 
-      {sidebar && (
+  return (
+    <StyledDefaultLayout
+      as={LayoutInner}
+      hasSidebar={!!sidebar && isAboveMobile}
+    >
+      <Header />
+
+      {sidebar && isAboveMobile && (
         <StyledDefaultLayoutSidebar>{sidebar}</StyledDefaultLayoutSidebar>
       )}
 
@@ -35,7 +36,7 @@ export default function DefaultLayout(
         <StyledDefaultLayoutContent>{children}</StyledDefaultLayoutContent>
       )}
 
-      {FAB}
+      {isAboveMobile && FAB}
 
       <div id="footer" />
     </StyledDefaultLayout>

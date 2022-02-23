@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { getColor, ColorProps } from 'themes/mixins/getColor';
+import { getColor, ColorProps } from 'themes/mixins';
 
 import { Arrow } from './Arrow.styles';
 import { Position } from './types';
@@ -56,6 +56,7 @@ const StyledTooltipMessage = styled.div.attrs<StyledTooltipProps>(
   padding: ${({ theme }) => theme.spacing.s};
 
   border-radius: ${({ theme }) => theme.radiss[1]};
+  box-shadow: ${({ theme }) => theme.shadow.default};
 
   ${setMessagePosition};
 

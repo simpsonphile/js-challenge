@@ -59,14 +59,14 @@ export type Radiss = typeof radiss;
 
 // Breakpoints
 /***********************************************************/
-const breakpointsOrder = ['sm', 'md', 'lg', 'xl', '2xl'];
+const breakpointsOrder = ['s', 'sm', 'md', 'lg', 'xl'];
 // todo only array notation
 const breakpoints = {
+  s: '480px',
   sm: '640px',
   md: '768px',
   lg: '1024px',
   xl: '1280px',
-  '2xl': '1536px',
 };
 
 export type Breakpoints = typeof breakpoints;
@@ -80,8 +80,8 @@ const color = {
   white: 'white',
   gray: '#798086',
   text: 'black',
-  bg: 'white',
-  bgAccent: '#cccccc',
+  bg: '#c5d4ce',
+  bgAccent: '#b2c6bd',
   main: '#FF7B9C',
   main2: '#e66f8c',
   main3: '#cc627d',
@@ -91,6 +91,15 @@ const color = {
 
 export type Color = typeof color;
 
+// Shadows
+/***********************************************************/
+const shadow = {
+  focus: '0 0 0 0.8rem rgba(21, 156, 228, 0.4)',
+  default: '0.2rem 0.2rem 0.3rem 0px rgba(0, 0, 0, 0.4)',
+};
+
+export type Shadow = typeof shadow;
+
 // defaultTheme
 /***********************************************************/
 const defaultTheme: DefaultTheme = {
@@ -98,6 +107,7 @@ const defaultTheme: DefaultTheme = {
   lineHeights,
   sizing,
   spacing,
+  shadow,
   radiss,
   breakpoints,
   color,
@@ -111,5 +121,6 @@ export {
   radiss,
   breakpointsOrder,
   breakpoints,
+  shadow,
   defaultTheme,
 };

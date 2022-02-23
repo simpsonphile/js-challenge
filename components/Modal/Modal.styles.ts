@@ -1,20 +1,19 @@
 import styled from 'styled-components';
 
-const StyledModal = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
+type StyledModalProps = {
+  $isVisible?: boolean;
+};
 
+const StyledModal = styled.div<StyledModalProps>`
   display: flex;
   align-items: center;
   justify-content: center;
 
   padding: ${({ theme }) => theme.spacing.base};
 
-  background-color: ${({ theme }) => theme.color.shadow};
+  opacity: ${({ $isVisible }) => ($isVisible ? '1' : '0')};
+
+  transition: opacity 0.2s;
 `;
 
 const StyledModalWrap = styled.div`
