@@ -22,12 +22,12 @@ export default function Tabs(props: TabsProps): React.ReactElement {
   return (
     <StyledTabs>
       <StyledTabsNav>
-        {navItems.map(({ active, title, changeTab, goToLink, asLink }) => (
+        {navItems.map(({ isActive, title, changeTab, goToLink, asLink }) => (
           <StyledTabsNavItem
             key={title}
             as={Button}
             variant={undefined}
-            active={active}
+            active={isActive}
             onClick={asLink ? goToLink : changeTab}
           >
             {title}
@@ -36,8 +36,8 @@ export default function Tabs(props: TabsProps): React.ReactElement {
       </StyledTabsNav>
 
       <div>
-        {contentItems.map(({ id, active, content }) => (
-          <StyledTabsItem key={id} active={active}>
+        {contentItems.map(({ id, isActive, content }) => (
+          <StyledTabsItem key={id} isActive={isActive}>
             {content}
           </StyledTabsItem>
         ))}

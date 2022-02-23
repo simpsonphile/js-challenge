@@ -23,6 +23,7 @@ export default function Accord(props: AccordProps): React.ReactElement {
       <Box
         as={StyledAccordHead}
         $bgColor="main"
+        $color="textOnBg"
         $py="xs"
         $px="base"
         $hasShadow

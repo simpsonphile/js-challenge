@@ -24,6 +24,7 @@ const StyledButtonCircle = styled.div<StyledButtonCircleProps>`
     height: 2.4rem;
     width: 2.4rem;
 
+    color: ${({ theme }) => theme.color.textOnBg};
     border-radius: 50%;
     background-color: ${({ theme }) => theme.color.main};
     box-shadow: ${({ theme }) => theme.shadow.default};

@@ -15,7 +15,7 @@ const useTabs = (items: Items, defaultActive?: string) => {
     title: key,
     changeTab: !val.asLink ? () => activeTabSet(key) : undefined,
     goToLink: val.asLink ? () => router.push(val.href) : undefined,
-    active: activeTab === key,
+    isActive: activeTab === key,
     asLink: val.asLink,
   }));
 
@@ -24,7 +24,7 @@ const useTabs = (items: Items, defaultActive?: string) => {
     .map(([key, val]) => ({
       id: key,
       content: val?.content,
-      active: activeTab === key,
+      isActive: activeTab === key,
     }));
 
   return {

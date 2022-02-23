@@ -46,7 +46,7 @@ const StyledMenuMobileTop = styled.div`
   ${getSpacing({ $px: ['base', 'lg'] })}
   height: var(--header-height);
 
-  background-color: ${({ theme }) => theme.color.bgAccent};
+  background-color: ${({ theme }) => theme.color.bg2};
 `;
 
 const StyledMenuMobileContent = styled.div`
