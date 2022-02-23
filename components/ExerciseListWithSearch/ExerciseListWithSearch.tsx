@@ -19,7 +19,7 @@ export default function ExerciseListWithSearch(): React.ReactElement {
   );
 
   return (
-    <Inline $g="base" $direction="column">
+    <Inline $g="lg" $direction="column">
       <InputSearch
         value={value}
         placeholder="Adder function"

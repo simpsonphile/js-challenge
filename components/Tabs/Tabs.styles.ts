@@ -1,64 +1,53 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
-import { mediaHover } from 'themes/mixins/mediaQueries';
+import { getSpacing } from 'themes/mixins';
 
 type StyledTabsNavItemProps = {
   active?: boolean;
 };
 
 type StyledTabsItemProps = {
-  active?: boolean;
+  isActive?: boolean;
 };
 
-const getMainColor = ({ theme }: { theme: DefaultTheme }) => theme.color.main;
-const getGrayColor = ({ theme }: { theme: DefaultTheme }) => theme.color.gray;
-const getTextColor = ({ theme }: { theme: DefaultTheme }) => theme.color.text;
-const getBgAccentColor = ({ theme }: { theme: DefaultTheme }) =>
-  theme.color.bgAccent;
+const StyledTabs = styled.div`
+  overflow: hidden;
 
-const StyledTabs = styled.div``;
+  box-shadow: ${({ theme }) => theme.shadow.default};
+  border-radius: ${({ theme }) => theme.radiss[2]};
+`;
 
 const StyledTabsNav = styled.div`
   display: flex;
 
-  background-color: ${getBgAccentColor};
   box-shadow: ${({ theme }) => theme.shadow.default};
-
-  &:not(:last-child) {
-    margin-bottom: ${({ theme }) => theme.spacing.s};
-
-    border-radius: ${({ theme }) => theme.radiss[1]};
-    border: 1px solid ${getMainColor};
-  }
+  background-color: ${({ theme }) => theme.color.bg2};
 `;
 
 const StyledTabsNavItem = styled.button<StyledTabsNavItemProps>`
   &&& {
     height: 4.8rem;
     padding: 0 ${({ theme }) => theme.spacing.base};
-    margin: -1px 0;
 
-    border-bottom: 1px solid ${getGrayColor};
-    color: ${getTextColor};
+    border-bottom: 2px solid transparent;
 
     ${({ active }) =>
       active &&
       css`
-        color: ${getMainColor};
-        border-color: ${getMainColor};
+        color: ${({ theme }) => theme.color.main};
+        border-bottom: 2px solid ${({ theme }) => theme.color.main};
       `}
-
-    ${mediaHover(css`
-      background-color: ${getMainColor};
-      color: white;
-    `)}
   }
 `;
 
 const StyledTabsItem = styled.div<StyledTabsItemProps>`
-  ${({ active }) =>
+  ${getSpacing({ $p: 'base' })}
+
+  background-color: ${({ theme }) => theme.color.bg0};
+
+  ${({ isActive }) =>
     css`
-      display: ${active ? 'block' : 'none'};
+      display: ${isActive ? 'block' : 'none'};
     `}
 `;
 

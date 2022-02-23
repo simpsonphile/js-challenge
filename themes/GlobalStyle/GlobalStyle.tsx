@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    ${getColor({ $bgColor: 'bgAccent' })}
+    ${getColor({ $bgColor: 'bg2' })}
   }
 
   ::-webkit-scrollbar-thumb {

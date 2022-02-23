@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   left: 0;
   z-index: 999;
 
-  background-color: ${({ theme }) => theme.color.bgAccent};
+  background-color: ${({ theme }) => theme.color.bg2};
   box-shadow: ${({ theme }) => theme.shadow.default};
 `;
 
