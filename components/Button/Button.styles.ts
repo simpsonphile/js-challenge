@@ -51,6 +51,7 @@ const Button = styled.button<StyledButtonProps>`
       font-size: ${({ theme }) => theme.fontSizes.base};
       line-height: 1;
 
+      color: ${({ theme }) => theme.color.textOnBg};
       border-radius: ${({ theme }) => theme.radiss[2]};
       box-shadow: ${({ theme }) => theme.shadow.default};
 
