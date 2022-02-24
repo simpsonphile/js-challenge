@@ -4,8 +4,9 @@ export type Exercise = {
   id: string;
   fullSlug: string;
   slug: string;
+  title: string;
+  description: string;
   cat?: string | null;
-  title?: string;
   hints?: string;
   code?: string;
   tests?: string;

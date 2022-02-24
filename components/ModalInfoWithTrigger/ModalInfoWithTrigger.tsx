@@ -1,8 +1,12 @@
 import { useState } from 'react';
 
+import dynamic from 'next/dynamic';
+
 import ButtonCircle from 'components/ButtonCircle';
 import { Icon } from 'components/Icon';
-import ModalInfo from 'components/ModalInfo';
+import { ModalInfoProps } from 'components/ModalInfo';
+
+const ModalInfo = dynamic<ModalInfoProps>(import('components/ModalInfo'));
 
 export default function ModalInfoWithTrigger(): React.ReactElement {
   const [isOpen, isOpenSet] = useState(false);
