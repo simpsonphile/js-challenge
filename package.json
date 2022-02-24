@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
+    "serve": "serve out",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "generate": "plop"
