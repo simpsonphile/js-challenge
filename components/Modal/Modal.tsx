@@ -51,7 +51,7 @@ export default function Modal(props: ModalProps): React.ReactElement {
       <StyledModal as={StyledShadow} $isVisible={isVisible}>
         <StyledModalWrap>
           <StyledModalCloseBtn>
-            <ButtonCircle onClick={onClose}>
+            <ButtonCircle aria-label="close modal" onClick={onClose}>
               <Icon name="AiOutlineClose" />
             </ButtonCircle>
           </StyledModalCloseBtn>
