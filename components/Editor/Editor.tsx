@@ -2,9 +2,11 @@ import { FormEvent } from 'react';
 
 import { javascript } from '@codemirror/lang-javascript';
 import { oneDark } from '@codemirror/theme-one-dark';
-import CodeMirror from '@uiw/react-codemirror';
+import dynamic from 'next/dynamic';
 
 import { StyledEditor } from './Editor.styles';
+
+const CodeMirror = dynamic(import('@uiw/react-codemirror'));
 
 type EditorProps = {
   value?: string;
