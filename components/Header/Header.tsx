@@ -38,9 +38,7 @@ export default function Header(): React.ReactElement {
         <Logo />
 
         <Inline $g="s" $align="center">
-          <ClientOnly>
-            <ThemeSwitcher />
-          </ClientOnly>
+          <ThemeSwitcher />
 
           <ModalInfoWithTrigger />
 
