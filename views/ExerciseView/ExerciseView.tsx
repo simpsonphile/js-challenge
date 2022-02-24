@@ -1,12 +1,18 @@
 import { useCallback, useContext, useState } from 'react';
 
+import dynamic from 'next/dynamic';
+
 import FullScreen from 'components/FullScreen';
-import ModalExerciseCompleted from 'components/ModalExerciseCompleted';
+import { ModalExerciseCompletedProps } from 'components/ModalExerciseCompleted';
 import { ExerciseContext } from 'contexts/exercises';
 import { FullScreenContext } from 'contexts/fullScreen';
 
 import Header from './components/Header';
 import Tabs from './components/Tabs';
+
+const ModalExerciseCompleted = dynamic<ModalExerciseCompletedProps>(
+  import('components/ModalExerciseCompleted')
+);
 
 type ExerciseViewProps = {
   id: string;

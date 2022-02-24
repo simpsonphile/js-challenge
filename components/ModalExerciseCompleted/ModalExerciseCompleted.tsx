@@ -7,7 +7,7 @@ import useGoToNextExercise from 'hooks/useGoToNextExercise';
 import useGoToRandomExercise from 'hooks/useGoToRandomExercise';
 import { Exercise } from 'lib/getExercises';
 
-type ModalExerciseCompletedProps = {
+export type ModalExerciseCompletedProps = {
   exercises: Exercise[];
   slug: string;
   onClose: () => void;
