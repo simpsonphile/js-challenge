@@ -14,19 +14,19 @@ import {
   StyledMenuMobileProps,
 } from './MenuMobile.styles';
 
-type MenuMobileProps = {
+export type MenuMobileProps = {
   onClose: () => void;
 } & StyledMenuMobileProps;
 
 function MenuMobile(props: MenuMobileProps): React.ReactElement {
-  const { $isActive, onClose } = props;
+  const { isActive, onClose } = props;
 
   const ref =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
 
   useClickAway(ref, onClose);
 
-  useLockBodyScroll($isActive);
+  useLockBodyScroll(isActive);
 
   usePredefinedHotkeys({
     keys: 'closeCurrent',
@@ -35,10 +35,10 @@ function MenuMobile(props: MenuMobileProps): React.ReactElement {
 
   return (
     <>
-      {$isActive && <Shadow />}
-      <StyledMenuMobile ref={ref} $isActive={$isActive}>
+      {isActive && <Shadow />}
+      <StyledMenuMobile ref={ref} isActive={isActive}>
         <StyledMenuMobileTop>
-          <IconHamburger isActive={$isActive} onClick={onClose} />
+          <IconHamburger isActive={isActive} onClick={onClose} />
         </StyledMenuMobileTop>
         <StyledMenuMobileContent>
           <ExerciseListWithSearch />

@@ -6,7 +6,7 @@ import Inline from 'components/Inline';
 import { Kbd } from 'components/Kbd';
 import Modal from 'components/Modal';
 
-type ModalInfoProps = {
+export type ModalInfoProps = {
   onClose: () => void;
 };
 

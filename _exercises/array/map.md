@@ -1,6 +1,7 @@
 ---
 id: map
 title: Map
+description: Write function that generates mapped array but you can't use array.map method.
 code: "
 // function that return mapped array\n
 // can't use array map method\n

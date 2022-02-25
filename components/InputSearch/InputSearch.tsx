@@ -6,7 +6,7 @@ import Input, { InputProps } from 'components/Input';
 import { Kbd } from 'components/Kbd';
 import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 
-type InputSearchProps = Omit<InputProps, 'type' | 'iconRight' | 'placeholder'>;
+type InputSearchProps = Omit<InputProps, 'type' | 'iconRight'>;
 
 export default function InputSearch(
   props: InputSearchProps

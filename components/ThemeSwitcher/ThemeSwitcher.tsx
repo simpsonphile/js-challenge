@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { useTheme } from 'styled-components';
 
 import Button from 'components/Button';
-import { IconWi } from 'components/Icon';
+import { Icon } from 'components/Icon';
 import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
 import ThemeContext from 'themes/ThemeContext';
 
@@ -24,8 +24,12 @@ export default function ThemeSwitcher(): React.ReactElement {
 
   return (
     <div>
-      <Button variant={undefined} onClick={setNextTheme}>
-        <IconWi
+      <Button
+        variant={undefined}
+        aria-label="switch theme"
+        onClick={setNextTheme}
+      >
+        <Icon
           name={themeName === 'dark' ? 'WiDaySunny' : 'WiNightClear'}
           size="3.2rem"
           strokeWidth="1"

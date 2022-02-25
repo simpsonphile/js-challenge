@@ -1,6 +1,5 @@
 import Box from 'components/Box';
 import Headline from 'components/Headline';
-import { Icon } from 'components/Icon';
 
 import {
   StyledAccordHead,
@@ -31,9 +30,7 @@ export default function Accord(props: AccordProps): React.ReactElement {
       >
         <Headline $fs="lg">{title}</Headline>
 
-        <StyledAccordIcon isActive={isActive}>
-          <Icon name="AiOutlineArrowDown" />
-        </StyledAccordIcon>
+        <StyledAccordIcon data-icon={isActive ? '-' : '+'} />
       </Box>
 
       <StyledAccordContent isActive={isActive}>{content}</StyledAccordContent>

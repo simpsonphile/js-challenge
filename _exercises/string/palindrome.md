@@ -1,6 +1,7 @@
 ---
 id: palindrome
 title: Check if palindrome
+description:  Write function that checks if string is palindrome.
 code: "
 // write function that checks if string is palindrome\n\n
 function checkIfPalindrome(str) {\n

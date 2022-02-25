@@ -4,7 +4,7 @@ import { getSpacing } from 'themes/mixins';
 import { mediaMinWidth } from 'themes/mixins/mediaQueries';
 
 export type StyledMenuMobileProps = {
-  $isActive?: boolean;
+  isActive?: boolean;
 };
 
 const StyledMenuMobile = styled.div<StyledMenuMobileProps>`
@@ -23,8 +23,8 @@ const StyledMenuMobile = styled.div<StyledMenuMobileProps>`
   transition: transform 0.2s;
   will-change: contents;
 
-  ${({ $isActive }) =>
-    $isActive &&
+  ${({ isActive }) =>
+    isActive &&
     css`
       transform: translateX(0);
     `}

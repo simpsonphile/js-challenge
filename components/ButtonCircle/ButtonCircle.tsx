@@ -6,7 +6,9 @@ import {
 } from './ButtonCircle.styles';
 
 export type ButtonCircleProps = Omit<ButtonProps, 'iconRight' | 'genre'> &
-  StyledButtonCircleProps;
+  StyledButtonCircleProps & {
+    'aria-label': string;
+  };
 
 export default function ButtonCircle(
   props: ButtonCircleProps

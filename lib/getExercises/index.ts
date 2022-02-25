@@ -8,7 +8,8 @@ export type Exercise = {
   fullSlug: string;
   slug: string;
   cat?: string | null;
-  title?: string;
+  title: string;
+  description: string;
   hints?: string;
   code?: string;
   tests?: string;
@@ -38,9 +39,13 @@ export function getExerciseBySlug(
   const fileContents = fs.readFileSync(slug, 'utf8');
 
   const { data, content } = matter(fileContents);
+  const title = data.title;
+  const description = data.description;
 
   const items: Exercise = {
     id: data?.id,
+    title,
+    description,
     fullSlug: shortSlug,
     slug: slugPart2 || slugPart1,
     cat: fields.includes('cat') ? (slugPart2 ? slugPart1 : null) : undefined,

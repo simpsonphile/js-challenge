@@ -7,17 +7,15 @@ import { IconHamburger } from 'components/IconHamburger';
 import Inline from 'components/Inline';
 import { LayoutInner } from 'components/LayoutInner';
 import Logo from 'components/Logo';
+import { MenuMobileProps } from 'components/MenuMobile';
 import ModalInfoWithTrigger from 'components/ModalInfoWithTrigger';
 import ThemeSwitcher from 'components/ThemeSwitcher';
 import { useAppMedia } from 'hooks/useAppMedia';
 
 import { StyledHeader, StyledHeaderInner } from './Header.styles';
 
-const MenuMobile = dynamic(
-  () =>
-    import('components/MenuMobile').then(
-      (mod) => mod.MenuMobile as any
-    ) as Promise<any>
+const MenuMobile = dynamic<MenuMobileProps>(() =>
+  import('components/MenuMobile').then((mod) => mod.MenuMobile)
 );
 
 export default function Header(): React.ReactElement {
@@ -40,9 +38,7 @@ export default function Header(): React.ReactElement {
         <Logo />
 
         <Inline $g="s" $align="center">
-          <ClientOnly>
-            <ThemeSwitcher />
-          </ClientOnly>
+          <ThemeSwitcher />
 
           <ModalInfoWithTrigger />
 
@@ -55,7 +51,7 @@ export default function Header(): React.ReactElement {
 
         {isMenuRendered && isBellowMobile && (
           <MenuMobile
-            $isActive={isMenuVisible}
+            isActive={isMenuVisible}
             onClose={() => isMenuVisibleSet(false)}
           />
         )}

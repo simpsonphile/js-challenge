@@ -1,3 +1,5 @@
+import dynamic from 'next/dynamic';
+
 import Header from 'components/Header';
 import { LayoutInner } from 'components/LayoutInner';
 import { useAppMedia } from 'hooks/useAppMedia';
@@ -8,6 +10,11 @@ import {
   StyledDefaultLayoutSidebar,
 } from './DefaultLayout.styles';
 
+const Sidebar = dynamic(import('components/Sidebar'));
+const ButtonFABToggleFullScreen = dynamic(
+  import('components/ButtonFABToggleFullScreen')
+);
+
 type DefaultLayoutProps = {
   children?: React.ReactChild;
   sidebar?: React.ReactChild;
@@ -17,26 +24,25 @@ type DefaultLayoutProps = {
 export default function DefaultLayout(
   props: DefaultLayoutProps
 ): React.ReactElement {
-  const { children, sidebar, FAB } = props;
+  const { children } = props;
 
   const isAboveMobile = useAppMedia('lg', false);
 
   return (
-    <StyledDefaultLayout
-      as={LayoutInner}
-      hasSidebar={!!sidebar && isAboveMobile}
-    >
+    <StyledDefaultLayout as={LayoutInner} hasSidebar={isAboveMobile}>
       <Header />
 
-      {sidebar && isAboveMobile && (
-        <StyledDefaultLayoutSidebar>{sidebar}</StyledDefaultLayoutSidebar>
+      {isAboveMobile && (
+        <StyledDefaultLayoutSidebar>
+          <Sidebar />
+        </StyledDefaultLayoutSidebar>
       )}
 
       {children && (
         <StyledDefaultLayoutContent>{children}</StyledDefaultLayoutContent>
       )}
 
-      {isAboveMobile && FAB}
+      {isAboveMobile && <ButtonFABToggleFullScreen />}
 
       <div id="footer" />
     </StyledDefaultLayout>

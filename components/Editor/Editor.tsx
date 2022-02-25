@@ -1,34 +1,49 @@
-import { FormEvent } from 'react';
+import { useEffect, useState } from 'react';
 
-import { javascript } from '@codemirror/lang-javascript';
-import { oneDark } from '@codemirror/theme-one-dark';
-import CodeMirror from '@uiw/react-codemirror';
+import dynamic from 'next/dynamic';
 
 import { StyledEditor } from './Editor.styles';
 
+import 'codemirror/theme/material.css';
+import 'codemirror/lib/codemirror.css';
+
+const CodeMirror = dynamic<any>(
+  import('react-codemirror2').then((mod) => mod.Controlled)
+);
+
 type EditorProps = {
   value?: string;
-  setValue?: (value: string) => void;
+  setValue: (value: string) => void;
 };
 
 export default function Editor(props: EditorProps): React.ReactElement {
   const { value, setValue } = props;
 
-  const onBeforeInput = setValue
-    ? undefined
-    : (e: FormEvent<HTMLDivElement>) => e.preventDefault();
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const onChange = setValue ? (val: string) => setValue(val) : undefined;
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    import('codemirror/mode/javascript/javascript').then(() =>
+      setIsLoaded(true)
+    );
+  }, []);
 
   return (
     <StyledEditor>
-      <CodeMirror
-        value={value}
-        extensions={[javascript()]}
-        theme={oneDark}
-        onBeforeInput={onBeforeInput}
-        onChange={onChange}
-      />
+      {isLoaded && (
+        <CodeMirror
+          value={value}
+          options={{
+            mode: 'javascript',
+            theme: 'material',
+            lineWrapping: true,
+            lineNumbers: true,
+            flattenSpans: true,
+          }}
+          onBeforeChange={({}, {}, value: string) => setValue(value)}
+        />
+      )}
     </StyledEditor>
   );
 }
