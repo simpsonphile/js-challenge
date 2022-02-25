@@ -1,16 +1,9 @@
 import styled from 'styled-components';
 
-import { getFontScale } from 'themes/mixins/getFontScale';
+import { getFontSize } from 'themes/mixins';
 
 const StyledEditor = styled.div`
-  max-height: 100vh;
-
-  ${getFontScale({ $scale: 'lg' })};
-
-  .cm-line {
-    word-break: break-all;
-    white-space: normal;
-  }
+  ${getFontSize({ $fs: ['base', 'lg'] })};
 `;
 
 export { StyledEditor };
