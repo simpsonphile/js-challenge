@@ -1,0 +1,8 @@
+/out/
+/plopfile.js/
+jest.setup.ts
+jest.config.ts
+/node_modules/
+/coverage/
+global.d.ts
+babel.config.js
