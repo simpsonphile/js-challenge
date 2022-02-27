@@ -2,7 +2,7 @@ import GlobalStyle from 'themes/GlobalStyle';
 import ThemeContextConsumer from 'themes/ThemeConsumer';
 import ThemeContextProvider from 'themes/ThemeProvider';
 
-type AppWrapperProps = {
+export type AppWrapperProps = {
   children: React.ReactElement;
 };
 
