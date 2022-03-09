@@ -1,11 +1,17 @@
 import React, { useContext, useState } from 'react';
 
-import ExerciseListWithCats from 'components/ExerciseListWithCats';
+import ExerciseListWithCats, {
+  ExerciseListWithCatsProps,
+} from 'components/ExerciseListWithCats';
 import Inline from 'components/Inline';
 import InputSearch from 'components/InputSearch';
 import { ExerciseContext } from 'contexts/exercises';
 
-export default function ExerciseListWithSearch(): React.ReactElement {
+type ExerciseListWithSearch = Omit<ExerciseListWithCatsProps, 'exercises'>;
+
+export default function ExerciseListWithSearch(
+  props: ExerciseListWithSearch
+): React.ReactElement {
   const [value, valueSet] = useState('');
 
   const { exercises } = useContext(ExerciseContext);
@@ -25,7 +31,7 @@ export default function ExerciseListWithSearch(): React.ReactElement {
         placeholder="Adder function"
         onChange={(e) => valueSet(e.target.value)}
       />
-      <ExerciseListWithCats exercises={exercisesFiltered} />
+      <ExerciseListWithCats exercises={exercisesFiltered} {...props} />
     </Inline>
   );
 }

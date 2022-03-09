@@ -14,7 +14,7 @@ export type ExerciseListWithCatsProps = ExerciseListProps;
 export default function ExerciseListWithCats(
   props: ExerciseListWithCatsProps
 ): React.ReactElement {
-  const { exercises } = props;
+  const { exercises, onLinkClick } = props;
 
   const { asPath } = useRouter();
 
@@ -41,7 +41,7 @@ export default function ExerciseListWithCats(
             title: cat,
             content: (
               <Box $pl="base">
-                <ExerciseList exercises={items} />
+                <ExerciseList exercises={items} onLinkClick={onLinkClick} />
               </Box>
             ),
           },
