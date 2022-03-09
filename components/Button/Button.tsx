@@ -10,6 +10,7 @@ export type ButtonProps = React.DetailedHTMLProps<
 
 const defaultProps: Partial<ButtonProps> = {
   variant: 'primary',
+  type: 'button',
 };
 
 export default function Button(props: ButtonProps): React.ReactElement {
@@ -19,7 +20,7 @@ export default function Button(props: ButtonProps): React.ReactElement {
   };
 
   return (
-    <S.Button {...rest}>
+    <S.Button {...rest} data-testid="button">
       {children && <S.ButtonLabel>{children}</S.ButtonLabel>}
 
       {iconRight && <S.ButtonIcon>{iconRight}</S.ButtonIcon>}

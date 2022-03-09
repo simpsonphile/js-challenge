@@ -8,12 +8,13 @@ import routes from 'lib/routes';
 
 export type ExerciseListProps = {
   exercises: Exercise[];
+  onLinkClick?: () => void;
 };
 
 export default function ExerciseList(
   props: ExerciseListProps
 ): React.ReactElement {
-  const { exercises } = props;
+  const { exercises, onLinkClick } = props;
 
   const links = React.useMemo(
     () =>
@@ -24,6 +25,7 @@ export default function ExerciseList(
             <Link
               $color={isPassed ? 'valid' : undefined}
               href={fullSlug ? routes.exercise(fullSlug) : ''}
+              onClick={onLinkClick}
             >
               {isPassed && '✅ '}
               {title}
@@ -31,7 +33,7 @@ export default function ExerciseList(
           </ClientOnly>
         ),
       })),
-    [exercises]
+    [exercises, onLinkClick]
   );
 
   return <List gap="xs" items={links} />;
