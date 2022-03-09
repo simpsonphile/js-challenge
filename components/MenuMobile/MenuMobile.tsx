@@ -41,7 +41,7 @@ function MenuMobile(props: MenuMobileProps): React.ReactElement {
           <IconHamburger isActive={isActive} onClick={onClose} />
         </StyledMenuMobileTop>
         <StyledMenuMobileContent>
-          <ExerciseListWithSearch />
+          <ExerciseListWithSearch onLinkClick={onClose} />
         </StyledMenuMobileContent>
       </StyledMenuMobile>
     </>
