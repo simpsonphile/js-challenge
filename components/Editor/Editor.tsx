@@ -30,7 +30,7 @@ export default function Editor(props: EditorProps): React.ReactElement {
   }, []);
 
   return (
-    <StyledEditor>
+    <StyledEditor data-testid="code-editor">
       {isLoaded && (
         <CodeMirror
           value={value}
