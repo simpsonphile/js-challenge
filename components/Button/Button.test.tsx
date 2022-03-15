@@ -17,7 +17,7 @@ test('Button has set type="button" by default', () => {
 
   render(component);
 
-  const buttonElement = document.querySelector('[data-testid="button"]');
+  const buttonElement = document.querySelector('button');
 
   expect(buttonElement).toHaveAttribute('type', 'button');
 });

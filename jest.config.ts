@@ -26,7 +26,11 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/.next/',
+    '<rootDir>/cypress/'
+  ],
 
 }
 
