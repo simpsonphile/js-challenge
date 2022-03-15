@@ -12,7 +12,11 @@ function IconHamburger(props: IconHamburgerProps): React.ReactElement {
   const { isActive, onClick } = props;
 
   return (
-    <StyledIconHamburger $isActive={isActive} onClick={onClick}>
+    <StyledIconHamburger
+      data-testid="hamburger"
+      $isActive={isActive}
+      onClick={onClick}
+    >
       <StyledIconHamburgerLine />
       <StyledIconHamburgerLine />
       <StyledIconHamburgerLine />

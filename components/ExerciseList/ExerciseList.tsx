@@ -23,6 +23,7 @@ export default function ExerciseList(
         el: (
           <ClientOnly key={fullSlug}>
             <Link
+              data-testid="exercise-link"
               $color={isPassed ? 'valid' : undefined}
               href={fullSlug ? routes.exercise(fullSlug) : ''}
               onClick={onLinkClick}

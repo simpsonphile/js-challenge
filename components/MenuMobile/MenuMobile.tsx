@@ -36,7 +36,7 @@ function MenuMobile(props: MenuMobileProps): React.ReactElement {
   return (
     <>
       {isActive && <Shadow />}
-      <StyledMenuMobile ref={ref} isActive={isActive}>
+      <StyledMenuMobile ref={ref} data-testid="menuMobile" isActive={isActive}>
         <StyledMenuMobileTop>
           <IconHamburger isActive={isActive} onClick={onClose} />
         </StyledMenuMobileTop>
