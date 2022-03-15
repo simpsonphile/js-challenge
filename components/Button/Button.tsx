@@ -20,7 +20,7 @@ export default function Button(props: ButtonProps): React.ReactElement {
   };
 
   return (
-    <S.Button {...rest} data-testid="button">
+    <S.Button {...rest}>
       {children && <S.ButtonLabel>{children}</S.ButtonLabel>}
 
       {iconRight && <S.ButtonIcon>{iconRight}</S.ButtonIcon>}
