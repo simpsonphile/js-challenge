@@ -25,6 +25,7 @@ export default function ThemeSwitcher(): React.ReactElement {
   return (
     <div>
       <Button
+        data-testid="theme-switcher"
         variant={undefined}
         aria-label="switch theme"
         onClick={setNextTheme}
