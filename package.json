@@ -26,6 +26,7 @@
     "@types/lodash": "^4.14.178",
     "@types/react-dom": "^17.0.11",
     "@types/styled-components": "^5.1.21",
+    "chai": "^4.3.6",
     "chroma-js": "^2.4.2",
     "codemirror": "^5.65.2",
     "css-properties-props": "^1.2.0",
