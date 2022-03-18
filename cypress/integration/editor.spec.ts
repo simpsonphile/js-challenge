@@ -1,7 +1,8 @@
+import { faker } from '@faker-js/faker';
 import { expect } from 'chai';
 
 describe('Editor', () => {
-  it('it saves editor text that stays even after route change', () => {
+  it('saves editor text that stays even after route change', () => {
     cy.viewport(1200, 800);
 
     cy.visit('/');
@@ -11,9 +12,11 @@ describe('Editor', () => {
     cy.findByTestId('code-editor').within((editor) => {
       const textarea = cy.get('textarea');
 
-      textarea.type('heheeheh', { force: true });
-
-      text = editor.text();
+      textarea
+        .type(faker.random.alphaNumeric(100), { force: true })
+        .then(() => {
+          text = editor.text();
+        });
     });
 
     let hasFoundExpandedAccord = false;
