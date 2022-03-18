@@ -20,13 +20,11 @@
     "@codemirror/theme-one-dark": "^0.19.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@types/chroma-js": "^2.1.3",
     "@types/globule": "^1.1.4",
     "@types/jest": "^27.4.1",
     "@types/lodash": "^4.14.178",
     "@types/react-dom": "^17.0.11",
     "@types/styled-components": "^5.1.21",
-    "chroma-js": "^2.4.2",
     "codemirror": "^5.65.2",
     "css-properties-props": "^1.2.0",
     "globule": "^1.3.3",
@@ -45,6 +43,8 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
+    "@faker-js/faker": "^6.0.0",
     "@testing-library/cypress": "^8.0.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",

@@ -10,6 +10,17 @@ function map(arr, callback) {\n
 \n
 }
 "
+answer: "
+function map(arr, callback) {
+  const nArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    nArr[i] = callback(arr[i]);
+  }
+
+  return nArr;
+}
+"
 ---
 ```js
 const arr = [2, 3, 4];

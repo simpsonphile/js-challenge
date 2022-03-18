@@ -18,7 +18,7 @@ export default function Accord(props: AccordProps): React.ReactElement {
   const { title, content, isActive, toggle } = props;
 
   return (
-    <div data-testid="accord">
+    <div data-testid="accord" aria-expanded={isActive}>
       <Box
         data-testid="accord-head"
         as={StyledAccordHead}

@@ -16,7 +16,21 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
+import { getAllExercises } from 'lib/getExercises';
+
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+
+  on('task', {
+    async getExercises() {
+      return getAllExercises([
+        'title',
+        'code',
+        'hints',
+        'cat',
+        'answer'
+      ]);
+    }
+  })
 };
