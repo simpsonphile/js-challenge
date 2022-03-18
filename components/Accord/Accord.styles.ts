@@ -18,7 +18,7 @@ const StyledAccordHead = styled.div`
   `)}
 `;
 
-const StyledAccordIcon = styled.button<StyledAccordSharedProps>`
+const StyledAccordIcon = styled.span<StyledAccordSharedProps>`
   &:after {
     content: attr(data-icon);
   }
