@@ -96,11 +96,18 @@ export type Color = typeof color;
 // Shadows
 /***********************************************************/
 const shadow = {
-  focus: '0 0 0 0.8rem rgba(21, 156, 228, 0.4)',
   default: '0.2rem 0.2rem 0.3rem 0px rgba(0, 0, 0, 0.4)',
 };
 
 export type Shadow = typeof shadow;
+
+// Outlines
+/***********************************************************/
+const outline = {
+  focus: '4px dotted rgba(21, 156, 228, 0.4)',
+};
+
+export type Outline = typeof outline;
 
 // defaultTheme
 /***********************************************************/
@@ -113,6 +120,7 @@ const defaultTheme: DefaultTheme = {
   radiss,
   breakpoints,
   color,
+  outline,
 };
 
 export {
@@ -125,4 +133,5 @@ export {
   breakpoints,
   shadow,
   defaultTheme,
+  outline,
 };
