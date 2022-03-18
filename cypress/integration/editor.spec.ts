@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
 describe('Editor', () => {
-  it('it saves editor text', () => {
+  it('it saves editor text that stays even after route change', () => {
     cy.viewport(1200, 800);
 
     cy.visit('/');
