@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>Adder function - JSChallenge</title><meta name="description" content="Write function that generates adder function."/><meta property="og:title" content="Adder function - JSChallenge"/><meta property="og:description" content="Write function that generates adder function."/><meta property="og:type" content="website"/><meta property="og:locale" content="en_GB"/><meta name="next-head-count" content="8"/><link rel="preload" href="/_next/static/css/0bc0cde260d08b97.css" as="style"/><link rel="stylesheet" href="/_next/static/css/0bc0cde260d08b97.css" data-n-g=""/><link rel="preload" href="/_next/static/css/37b7042c3fe03938.css" as="style"/><link rel="stylesheet" href="/_next/static/css/37b7042c3fe03938.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-a1e41bf94c25a04d.js" defer=""></script><script src="/_next/static/chunks/framework-8957c350a55da097.js" defer=""></script><script src="/_next/static/chunks/main-95512896ca949b2d.js" defer=""></script><script src="/_next/static/chunks/pages/_app-dc3fdd4f3bf6868c.js" defer=""></script><script src="/_next/static/chunks/9a1974b2-fbc29aba285884a8.js" defer=""></script><script src="/_next/static/chunks/d7eeaac4-19650bb49f9c8fc0.js" defer=""></script><script src="/_next/static/chunks/671-2c4b589f9f0fc1de.js" defer=""></script><script src="/_next/static/chunks/pages/exercises/%5B%5B...slug%5D%5D-ea46b056fb9374d2.js" defer=""></script><script src="/_next/static/tzHWFhsSGHlAzXqKgKq5a/_buildManifest.js" defer=""></script><script src="/_next/static/tzHWFhsSGHlAzXqKgKq5a/_ssgManifest.js" defer=""></script><script src="/_next/static/tzHWFhsSGHlAzXqKgKq5a/_middlewareManifest.js" defer=""></script><style data-styled="" data-styled-version="5.3.3">html{--header-height:4.8rem;font-size:62.5%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;}/*!sc*/
+@media (min-width:768px){html{--header-height:6rem;}}/*!sc*/
+body{margin:0;width:100%;min-width:320px;max-width:100%;font-size:1.6rem;line-height:2.4rem;color:white;background-color:#241E4E;}/*!sc*/
+::-webkit-scrollbar{width:0.8rem;height:0.8rem;}/*!sc*/
+::-webkit-scrollbar-track{background-color:#1d183e;}/*!sc*/
+::-webkit-scrollbar-thumb{background-color:#FF7B9C;border-radius:3.2rem;}/*!sc*/
+::-webkit-scrollbar-thumb:hover{background-color:#e66f8c;}/*!sc*/
+*:focus{outline:4px dotted rgba(21,156,228,0.4);}/*!sc*/
+data-styled.g1[id="sc-global-eIXqVg1"]{content:"sc-global-eIXqVg1,"}/*!sc*/
+.goIptw{cursor:pointer;}/*!sc*/
+data-styled.g2[id="sc-bdvvtL"]{content:"goIptw,"}/*!sc*/
+.eFkPdp{display:block;width:2.8rem;height:0.3rem;background-color:#FF7B9C;}/*!sc*/
+.eFkPdp:not(:last-child){margin:0 0 0.5rem 0;}/*!sc*/
+data-styled.g3[id="sc-gsDKAQ"]{content:"eFkPdp,"}/*!sc*/
+.lkubuL{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:0.8rem;}/*!sc*/
+data-styled.g4[id="sc-dkPtRN"]{content:"lkubuL,"}/*!sc*/
+.jUXbAZ{max-width:144rem;margin-right:auto;margin-left:auto;padding-right:1.6rem;padding-left:1.6rem;}/*!sc*/
+@media (min-width:480px){.jUXbAZ{padding-right:3.2rem;padding-left:3.2rem;}}/*!sc*/
+data-styled.g5[id="sc-hKwDye"]{content:"jUXbAZ,"}/*!sc*/
+.cShLDv p{margin:0;font-size:2rem;line-height:1;font-weight:700;color:white;}/*!sc*/
+@media (min-width:480px){.cShLDv p{font-size:2.4rem;}}/*!sc*/
+data-styled.g6[id="sc-eCImPb"]{content:"cShLDv,"}/*!sc*/
+.fFxOzt{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0;cursor:pointer;color:inherit;background-color:transparent;border:none;}/*!sc*/
+.holrrr{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0;cursor:pointer;color:inherit;background-color:transparent;border:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;height:4rem;min-width:8rem;padding:0 0.8rem;font-size:1.6rem;line-height:1;color:white;border-radius:0.8rem;box-shadow:0.2rem 0.2rem 0.3rem 0px rgba(0,0,0,0.4);-webkit-transition:background-color 0.2s;transition:background-color 0.2s;background-color:#FF7B9C;}/*!sc*/
+@media (hover:hover){.holrrr:hover{background-color:#e66f8c;}}/*!sc*/
+data-styled.g7[id="sc-jRQBWg"]{content:"fFxOzt,holrrr,"}/*!sc*/
+.eoOXiP{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}/*!sc*/
+data-styled.g8[id="sc-gKclnd"]{content:"eoOXiP,"}/*!sc*/
+.WFQMp.WFQMp.WFQMp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;height:2.4rem;width:2.4rem;color:white;border-radius:50%;background-color:#FF7B9C;box-shadow:0.2rem 0.2rem 0.3rem 0px rgba(0,0,0,0.4);-webkit-transition:background-color 0.2s;transition:background-color 0.2s;height:2.4rem;width:2.4rem;}/*!sc*/
+@media (hover:hover){.WFQMp.WFQMp.WFQMp:hover{background-color:#e66f8c;}}/*!sc*/
+data-styled.g10[id="sc-furwcr"]{content:"WFQMp,"}/*!sc*/
+.jbXPlK{position:fixed;top:0;right:0;left:0;z-index:999;background-color:#1d183e;box-shadow:0.2rem 0.2rem 0.3rem 0px rgba(0,0,0,0.4);}/*!sc*/
+data-styled.g11[id="sc-pVTFL"]{content:"jbXPlK,"}/*!sc*/
+.cYZNPR{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:var(--header-height);}/*!sc*/
+data-styled.g12[id="sc-jrQzAO"]{content:"cYZNPR,"}/*!sc*/
+.lhfdFs{--sidebar-width:20rem;display:grid;grid-template-rows:min-content 1fr;margin-top:var(--header-height);padding-bottom:3.2rem;gap:1.6rem;grid-template-columns:minmax(0,1fr);grid-template-areas: 'header' 'content';}/*!sc*/
+@media (min-width:480px){.lhfdFs{gap:3.2rem;}}/*!sc*/
+@media (min-width:1280px){.lhfdFs{--sidebar-width:28rem;}}/*!sc*/
+@media (min-width:1280px){.lhfdFs{--sidebar-width:28rem;}}/*!sc*/
+data-styled.g13[id="sc-kDTinF"]{content:"lhfdFs,"}/*!sc*/
+.ehGbza{grid-area:content;min-width:0;}/*!sc*/
+data-styled.g15[id="sc-crHmcD"]{content:"ehGbza,"}/*!sc*/
+.iWXLat:fullscreen{padding:3.2rem;background-color:#241E4E;}/*!sc*/
+data-styled.g16[id="sc-egiyK"]{content:"iWXLat,"}/*!sc*/
+.bdCMYM{margin-bottom:1.6rem;border-radius:0.8rem;}/*!sc*/
+@media (min-width:480px){.bdCMYM{margin-bottom:3.2rem;}}/*!sc*/
+.bULEZe{background-color:#1d183e;padding:1.6rem;border-radius:0.8rem;box-shadow:0.2rem 0.2rem 0.3rem 0px rgba(0,0,0,0.4);}/*!sc*/
+data-styled.g17[id="sc-bqiRlB"]{content:"bdCMYM,bULEZe,"}/*!sc*/
+.eCMrdw{font-size:2.4rem;margin:0;line-height:1;}/*!sc*/
+@media (min-width:480px){.eCMrdw{font-size:3.2rem;}}/*!sc*/
+.eCMrdw::first-letter{text-transform:capitalize;}/*!sc*/
+data-styled.g18[id="sc-ksdxgE"]{content:"eCMrdw,"}/*!sc*/
+.cmjWCT{font-size:1.6rem;max-height:calc(100vh - undefinedpx - 15.2rem);overflow:auto;}/*!sc*/
+@media (min-width:480px){.cmjWCT{font-size:2rem;}}/*!sc*/
+.cmjWCT .CodeMirror{min-height:30rem;height:auto;}/*!sc*/
+data-styled.g19[id="sc-hBUSln"]{content:"cmjWCT,"}/*!sc*/
+.keDLQL{list-style-type:none;margin:0;padding:0;}/*!sc*/
+.keDLQL > *:not(:last-child){margin-bottom:1.6rem;}/*!sc*/
+data-styled.g20[id="sc-fotOHu"]{content:"keDLQL,"}/*!sc*/
+.jeHHQb{display:grid;grid-template-columns:1fr;gap:1.6rem;}/*!sc*/
+@media (min-width:768px){.jeHHQb{grid-template-columns:2fr 1fr;}}/*!sc*/
+.jeHHQb > *{min-width:0;}/*!sc*/
+data-styled.g22[id="sc-bkkeKt"]{content:"jeHHQb,"}/*!sc*/
+.eJxBLC{-webkit-order:2;-ms-flex-order:2;order:2;}/*!sc*/
+@media (min-width:768px){.eJxBLC{-webkit-order:initial;-ms-flex-order:initial;order:initial;}}/*!sc*/
+data-styled.g23[id="sc-ieecCq"]{content:"eJxBLC,"}/*!sc*/
+.eTTofQ{overflow:hidden;box-shadow:0.2rem 0.2rem 0.3rem 0px rgba(0,0,0,0.4);border-radius:0.8rem;}/*!sc*/
+data-styled.g24[id="sc-dJjYzT"]{content:"eTTofQ,"}/*!sc*/
+.goZHRk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;box-shadow:0.2rem 0.2rem 0.3rem 0px rgba(0,0,0,0.4);background-color:#1d183e;}/*!sc*/
+data-styled.g25[id="sc-hGPBjI"]{content:"goZHRk,"}/*!sc*/
+.lhQbfm.lhQbfm.lhQbfm{height:4.8rem;padding:0 1.6rem;border-bottom:2px solid transparent;color:#FF7B9C;border-bottom:2px solid #FF7B9C;}/*!sc*/
+.iKbCZc.iKbCZc.iKbCZc{height:4.8rem;padding:0 1.6rem;border-bottom:2px solid transparent;}/*!sc*/
+data-styled.g26[id="sc-dlVxhl"]{content:"lhQbfm,iKbCZc,"}/*!sc*/
+.hSksxA{padding:1.6rem;background-color:#3a3560;display:block;}/*!sc*/
+.gpwAVz{padding:1.6rem;background-color:#3a3560;display:none;}/*!sc*/
+data-styled.g27[id="sc-kfPuZi"]{content:"hSksxA,gpwAVz,"}/*!sc*/
+</style></head><body><div id="__next" data-reactroot=""><div style="visibility:hidden"><div class="sc-hKwDye jUXbAZ sc-kDTinF lhfdFs"><header class="sc-pVTFL jbXPlK"><div class="sc-hKwDye jUXbAZ sc-jrQzAO cYZNPR"><div class="sc-eCImPb cShLDv"><p>JSChallenge</p></div><div class="sc-dkPtRN lkubuL"><div><button type="button" data-testid="theme-switcher" aria-label="switch theme" class="sc-jRQBWg fFxOzt"><span class="sc-gKclnd eoOXiP"><svg stroke="currentColor" fill="currentColor" stroke-width="1" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 30 30" style="color:#FF7B9C" color="#FF7B9C" height="3.2rem" width="3.2rem" xmlns="http://www.w3.org/2000/svg"><path d="M4.37,14.62c0-0.24,0.08-0.45,0.25-0.62c0.17-0.16,0.38-0.24,0.6-0.24h2.04c0.23,0,0.42,0.08,0.58,0.25
+	c0.15,0.17,0.23,0.37,0.23,0.61S8,15.06,7.85,15.23c-0.15,0.17-0.35,0.25-0.58,0.25H5.23c-0.23,0-0.43-0.08-0.6-0.25
+	C4.46,15.06,4.37,14.86,4.37,14.62z M7.23,21.55c0-0.23,0.08-0.43,0.23-0.61l1.47-1.43c0.15-0.16,0.35-0.23,0.59-0.23
+	c0.24,0,0.44,0.08,0.6,0.23s0.24,0.34,0.24,0.57c0,0.24-0.08,0.46-0.24,0.64L8.7,22.14c-0.41,0.32-0.82,0.32-1.23,0
+	C7.31,21.98,7.23,21.78,7.23,21.55z M7.23,7.71c0-0.23,0.08-0.43,0.23-0.61C7.66,6.93,7.87,6.85,8.1,6.85
+	c0.22,0,0.42,0.08,0.59,0.24l1.43,1.47c0.16,0.15,0.24,0.35,0.24,0.59c0,0.24-0.08,0.44-0.24,0.6s-0.36,0.24-0.6,0.24
+	c-0.24,0-0.44-0.08-0.59-0.24L7.47,8.32C7.31,8.16,7.23,7.95,7.23,7.71z M9.78,14.62c0-0.93,0.23-1.8,0.7-2.6s1.1-1.44,1.91-1.91
+	s1.67-0.7,2.6-0.7c0.7,0,1.37,0.14,2.02,0.42c0.64,0.28,1.2,0.65,1.66,1.12c0.47,0.47,0.84,1.02,1.11,1.66
+	c0.27,0.64,0.41,1.32,0.41,2.02c0,0.94-0.23,1.81-0.7,2.61c-0.47,0.8-1.1,1.43-1.9,1.9c-0.8,0.47-1.67,0.7-2.61,0.7
+	s-1.81-0.23-2.61-0.7c-0.8-0.47-1.43-1.1-1.9-1.9C10.02,16.43,9.78,15.56,9.78,14.62z M11.48,14.62c0,0.98,0.34,1.81,1.03,2.5
+	c0.68,0.69,1.51,1.04,2.49,1.04s1.81-0.35,2.5-1.04s1.04-1.52,1.04-2.5c0-0.96-0.35-1.78-1.04-2.47c-0.69-0.68-1.52-1.02-2.5-1.02
+	c-0.97,0-1.8,0.34-2.48,1.02C11.82,12.84,11.48,13.66,11.48,14.62z M14.14,22.4c0-0.24,0.08-0.44,0.25-0.6s0.37-0.24,0.6-0.24
+	c0.24,0,0.45,0.08,0.61,0.24s0.24,0.36,0.24,0.6v1.99c0,0.24-0.08,0.45-0.25,0.62c-0.17,0.17-0.37,0.25-0.6,0.25
+	s-0.44-0.08-0.6-0.25c-0.17-0.17-0.25-0.38-0.25-0.62V22.4z M14.14,6.9V4.86c0-0.23,0.08-0.43,0.25-0.6C14.56,4.09,14.76,4,15,4
+	s0.43,0.08,0.6,0.25c0.17,0.17,0.25,0.37,0.25,0.6V6.9c0,0.23-0.08,0.42-0.25,0.58S15.23,7.71,15,7.71s-0.44-0.08-0.6-0.23
+	S14.14,7.13,14.14,6.9z M19.66,20.08c0-0.23,0.08-0.42,0.23-0.56c0.15-0.16,0.34-0.23,0.56-0.23c0.24,0,0.44,0.08,0.6,0.23
+	l1.46,1.43c0.16,0.17,0.24,0.38,0.24,0.61c0,0.23-0.08,0.43-0.24,0.59c-0.4,0.31-0.8,0.31-1.2,0l-1.42-1.42
+	C19.74,20.55,19.66,20.34,19.66,20.08z M19.66,9.16c0-0.25,0.08-0.45,0.23-0.59l1.42-1.47c0.17-0.16,0.37-0.24,0.59-0.24
+	c0.24,0,0.44,0.08,0.6,0.25c0.17,0.17,0.25,0.37,0.25,0.6c0,0.25-0.08,0.46-0.24,0.62l-1.46,1.43c-0.18,0.16-0.38,0.24-0.6,0.24
+	c-0.23,0-0.41-0.08-0.56-0.24S19.66,9.4,19.66,9.16z M21.92,14.62c0-0.24,0.08-0.44,0.24-0.62c0.16-0.16,0.35-0.24,0.57-0.24h2.02
+	c0.23,0,0.43,0.09,0.6,0.26c0.17,0.17,0.26,0.37,0.26,0.6s-0.09,0.43-0.26,0.6c-0.17,0.17-0.37,0.25-0.6,0.25h-2.02
+	c-0.23,0-0.43-0.08-0.58-0.25S21.92,14.86,21.92,14.62z"></path></svg></span></button></div><div><button type="button" aria-label="see app info" class="sc-jRQBWg fFxOzt sc-furwcr WFQMp"><span class="sc-gKclnd eoOXiP"><svg stroke="2" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M764 280.9c-14-30.6-33.9-58.1-59.3-81.6C653.1 151.4 584.6 125 512 125s-141.1 26.4-192.7 74.2c-25.4 23.6-45.3 51-59.3 81.7-14.6 32-22 65.9-22 100.9v27c0 6.2 5 11.2 11.2 11.2h54c6.2 0 11.2-5 11.2-11.2v-27c0-99.5 88.6-180.4 197.6-180.4s197.6 80.9 197.6 180.4c0 40.8-14.5 79.2-42 111.2-27.2 31.7-65.6 54.4-108.1 64-24.3 5.5-46.2 19.2-61.7 38.8a110.85 110.85 0 0 0-23.9 68.6v31.4c0 6.2 5 11.2 11.2 11.2h54c6.2 0 11.2-5 11.2-11.2v-31.4c0-15.7 10.9-29.5 26-32.9 58.4-13.2 111.4-44.7 149.3-88.7 19.1-22.3 34-47.1 44.3-74 10.7-27.9 16.1-57.2 16.1-87 0-35-7.4-69-22-100.9zM512 787c-30.9 0-56 25.1-56 56s25.1 56 56 56 56-25.1 56-56-25.1-56-56-56z"></path></svg></span></button></div><div><div data-testid="hamburger" class="sc-bdvvtL goIptw"><span class="sc-gsDKAQ eFkPdp"></span><span class="sc-gsDKAQ eFkPdp"></span><span class="sc-gsDKAQ eFkPdp"></span></div></div></div></div></header><main class="sc-crHmcD ehGbza"><div class="sc-egiyK iWXLat"><div class="sc-bqiRlB bdCMYM"><h1 data-testid="exercise-title" class="sc-ksdxgE eCMrdw">Adder function</h1></div><div class="sc-dJjYzT eTTofQ"><div class="sc-hGPBjI goZHRk"><button type="button" class="sc-jRQBWg fFxOzt sc-dlVxhl lhQbfm"><span class="sc-gKclnd eoOXiP">code</span></button><button type="button" class="sc-jRQBWg fFxOzt sc-dlVxhl iKbCZc"><span class="sc-gKclnd eoOXiP">hints</span></button><button type="button" class="sc-jRQBWg fFxOzt sc-dlVxhl iKbCZc"><span class="sc-gKclnd eoOXiP">edit</span></button></div><div><div class="sc-kfPuZi hSksxA"><div><div><div class="sc-bkkeKt jeHHQb"><div data-testid="code-editor" class="sc-hBUSln cmjWCT"></div><div class="sc-ieecCq eJxBLC"><div class="sc-bqiRlB bULEZe"><ul class="sc-fotOHu keDLQL"></ul></div></div><button type="button" class="sc-jRQBWg holrrr"><span class="sc-gKclnd eoOXiP">Test</span></button></div></div></div></div><div class="sc-kfPuZi gpwAVz"><div>hints</div></div></div></div></div></main><div id="footer"></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"exercises":[{"id":"fibonacci","title":"Fibonacci","description":"Write function that generates fibonacci sequence with given length.","fullSlug":"algorithms/fibonacci","slug":"fibonacci","cat":"algorithms","tests":"```js\ngenerateFibonacci(10) === [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]\n```\n```js\ngenerateFibonacci(20) === [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]\n```\n","code":" // generate fibonacci sequence with given length starting from 0 (0, 1, 1, 2, 3...)\n function generateFibonacci(length) {\n\n \n } "},{"id":"map","title":"Map","description":"Write function that generates mapped array but you can't use array.map method.","fullSlug":"array/map","slug":"map","cat":"array","tests":"```js\nconst arr = [2, 3, 4];\nconst callback = (val) =\u003e val * 2;\nconst result = map(arr, callback);\nresult[0] == 4 \u0026\u0026 result[1] == 6 \u0026\u0026 result[2] == 8\n```\n\n```js\n!map.toString().includes('.map');\n// messages\n{\n  \"fail\": \"you can't use array map method\",\n  \"success\": \"you have not used array map method\"\n}\n```","code":" // function that return mapped array\n // can't use array map method\n // callback has to accept in order: current element, index, full array\n\n function map(arr, callback) {\n \n } "},{"id":"sort","title":"Sort","description":"Write function that generates sorted array but you can't use array.sort method.","fullSlug":"array/sort","slug":"sort","cat":"array","tests":"```js\nsort([10, 20, 30, 40, 10, 1, 2, 4, 3, 2, 100, 1, -1, -2], (a, b) =\u003e a - b) === [-1, -2, 1, 1, 10, 10, 100, 2, 2, 20, 3, 30, 4, 40]\n```\n\n","code":" // function that return sorted array\n // can't use array sort method\n // callback has to accept in order: prev element, current element \n // callback should return \u003e= 1 when prev element is higher than current element \n function sort(arr, compare) {\n\n \n } "},{"id":"adder-function","title":"Adder function","description":"Write function that generates adder function.","fullSlug":"functions/adder-function","slug":"adder-function","cat":"functions","tests":"```js\ncreateAdder(2)(2) === 4\n```\n```js\ncreateAdder(10)(12) === 22\n```\n","code":" // write function that create adder function\n\n function createAdder(base) {\n \n } ","hints":"hints"},{"id":"curry-function","title":"Curry function","description":"Write function that generates curry function.","fullSlug":"functions/curry","slug":"curry","cat":"functions","tests":"```js\nconst adder(a, b, c, d) =\u003e a + b + c + d;\ncurry(adder)(2)(2)(2)(2) === 8\n```\n```js\ncurry(adder)(10, 11)(-2)(-2) === 17\n```\n","code":" // write curry function\n\n function curry(func) {\n \n } ","hints":"hints"},{"id":"palindrome","title":"Check if palindrome","description":"Write function that checks if string is palindrome.","fullSlug":"string/palindrome","slug":"palindrome","cat":"string","tests":"```js\ncheckIfPalindrome('zy') === false;\n```\n\n```js\ncheckIfPalindrome('abba') === true;\n```\n\n```js\ncheckIfPalindrome('1111') === true;\n```\n\n```js\ncheckIfPalindrome('cebula') === false;\n```","code":" // write function that checks if string is palindrome\n\n function checkIfPalindrome(str) {\n \n } "}],"exercise":{"id":"adder-function","title":"Adder function","description":"Write function that generates adder function.","fullSlug":"functions/adder-function","slug":"adder-function","cat":"functions","tests":"```js\ncreateAdder(2)(2) === 4\n```\n```js\ncreateAdder(10)(12) === 22\n```\n","code":" // write function that create adder function\n\n function createAdder(base) {\n \n } ","hints":"hints"}},"__N_SSG":true},"page":"/exercises/[[...slug]]","query":{"slug":["functions","adder-function"]},"buildId":"tzHWFhsSGHlAzXqKgKq5a","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
