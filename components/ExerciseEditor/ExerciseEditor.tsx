@@ -1,16 +1,16 @@
-import { MutableRefObject, useRef } from 'react';
+import { useRef } from 'react';
 
 import Button from 'components/Button';
 import Editor from 'components/Editor';
 import Results from 'components/Results';
 import { usePredefinedHotkeys } from 'hooks/usePredefinedHotkeys';
-import { useTopFromBody } from 'hooks/useTopFromBody';
 
 import {
   StyledExerciseEditor,
   StyledExerciseEditorResults,
 } from './ExerciseEditor.styles';
 import useExerciseEditor from './useExerciseEditor';
+import { useExerciseEditorMaxHeight } from './useExerciseEditorMaxHeight';
 
 type ExerciseEditorProps = {
   id: string;
@@ -24,17 +24,12 @@ export default function ExerciseEditor(
 
   const editorRef = useRef<HTMLDivElement>(null);
 
-  const top = useTopFromBody(
-    (editorRef as MutableRefObject<HTMLDivElement>).current
-  );
-
-  // todo: get rid of magic numbers
-  const maxHeight = `calc(100vh - ${top}px - 3.2rem - 1.6rem - 4rem)`;
-
   const { onEditorValueChange, onSubmit, results, value } = useExerciseEditor(
     onSuccess,
     id
   );
+
+  const maxHeight = useExerciseEditorMaxHeight(editorRef);
 
   usePredefinedHotkeys({
     keys: 'testExercise',
