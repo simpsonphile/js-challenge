@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 
@@ -13,9 +13,21 @@ export default function BaseTheme(
 ): React.ReactElement {
   const { children } = props;
 
+  const [isMounted, setMounted] = useState(false);
+
   const { themeName } = useContext(ThemeContext);
 
-  const currentTheme = themes[themeName] || themes.dark;
+  const currentTheme = themes[themeName];
 
-  return <SCThemeProvider theme={currentTheme}>{children}</SCThemeProvider>;
+  const body = (
+    <SCThemeProvider theme={currentTheme}>{children}</SCThemeProvider>
+  );
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!isMounted) return <div style={{ visibility: 'hidden' }}>{body}</div>;
+
+  return body;
 }

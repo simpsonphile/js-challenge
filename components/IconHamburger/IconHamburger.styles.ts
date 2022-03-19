@@ -33,9 +33,12 @@ const StyledIconHamburgerLine = styled.span`
 
   width: 2.8rem;
   height: 0.3rem;
-  margin: 0 0 0.5rem 0;
 
   background-color: ${({ theme }) => theme.color.main};
+
+  &:not(:last-child) {
+    margin: 0 0 0.5rem 0;
+  }
 `;
 
 export { StyledIconHamburger, StyledIconHamburgerLine };

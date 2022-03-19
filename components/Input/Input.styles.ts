@@ -26,7 +26,7 @@ const StyledInputWrap = styled.div`
   }
 
   &:focus-within {
-    box-shadow: ${({ theme }) => theme.shadow.focus};
+    outline: ${({ theme }) => theme.outline.focus};
   }
 `;
 
@@ -41,7 +41,6 @@ const StyledInput = styled.input<StyledInputProps>`
 
   &:focus {
     outline: none;
-    box-shadow: none;
   }
 `;
 

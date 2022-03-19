@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import dynamic from 'next/dynamic';
 
-import ClientOnly from 'components/ClientOnly';
 import { IconHamburger } from 'components/IconHamburger';
 import Inline from 'components/Inline';
 import { LayoutInner } from 'components/LayoutInner';

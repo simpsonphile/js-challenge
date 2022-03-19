@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 
-import { StyledEditor } from './Editor.styles';
+import { StyledEditor, StyledEditorProps } from './Editor.styles';
 
 import 'codemirror/theme/material.css';
 import 'codemirror/lib/codemirror.css';
@@ -11,13 +11,13 @@ const CodeMirror = dynamic<any>(
   import('react-codemirror2').then((mod) => mod.Controlled)
 );
 
-type EditorProps = {
+type EditorProps = StyledEditorProps & {
   value?: string;
   setValue: (value: string) => void;
 };
 
-export default function Editor(props: EditorProps): React.ReactElement {
-  const { value, setValue } = props;
+const Editor = forwardRef<HTMLDivElement, EditorProps>((props, ref) => {
+  const { value, setValue, $maxHeight } = props;
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -30,7 +30,8 @@ export default function Editor(props: EditorProps): React.ReactElement {
   }, []);
 
   return (
-    <StyledEditor data-testid="code-editor">
+
+    <StyledEditor ref={ref} $maxHeight={$maxHeight} data-testid="code-editor">
       {isLoaded && (
         <CodeMirror
           value={value}
@@ -46,4 +47,8 @@ export default function Editor(props: EditorProps): React.ReactElement {
       )}
     </StyledEditor>
   );
-}
+});
+
+Editor.displayName = 'Editor';
+
+export default Editor;

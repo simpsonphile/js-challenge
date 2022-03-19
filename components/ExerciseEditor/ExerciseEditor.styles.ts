@@ -16,4 +16,12 @@ const StyledExerciseEditor = styled.div`
   }
 `;
 
-export { StyledExerciseEditor };
+const StyledExerciseEditorResults = styled.div`
+  order: 2;
+
+  ${mediaMinWidth.md(css`
+    order: initial;
+  `)}
+`;
+
+export { StyledExerciseEditor, StyledExerciseEditorResults };

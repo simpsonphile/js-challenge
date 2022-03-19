@@ -9,6 +9,7 @@ import {
   Sizing,
   FontSizes,
   LineHeights,
+  Outline,
 } from './config';
 
 declare module 'styled-components' {
@@ -21,5 +22,6 @@ declare module 'styled-components' {
     spacing: Spacing;
     breakpoints: Breakpoints;
     color: Color;
+    outline: Outline;
   }
 }
