@@ -21,7 +21,5 @@ export const useExerciseEditorMaxHeight = (
     return `calc(100vh - ${top}px - 15.2rem)`;
   };
 
-  console.log('x');
-
   return getMaxHeight();
 };
