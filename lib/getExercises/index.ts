@@ -13,6 +13,7 @@ export type Exercise = {
   hints?: string;
   code?: string;
   tests?: string;
+  answer?: string;
 };
 
 type Fields = keyof Omit<Exercise, 'id' | 'fullSlug' | 'slug'>;

@@ -12,10 +12,12 @@ export default function Header(props: HeaderProps): React.ReactElement {
 
   return (
     <Box $mb={['base', 'lg']}>
-      <Headline tag="h1" $fs={['xl', 'xl2']}>
-        <ClientOnly>
-          <span>{isPassed && '✅ '}</span>
-        </ClientOnly>
+      <Headline data-testid="exercise-title" tag="h1" $fs={['xl', 'xl2']}>
+        {isPassed && (
+          <ClientOnly>
+            <span>{'✅ '}</span>
+          </ClientOnly>
+        )}
         {title}
       </Headline>
     </Box>

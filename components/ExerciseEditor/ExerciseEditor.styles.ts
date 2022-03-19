@@ -10,6 +10,10 @@ const StyledExerciseEditor = styled.div`
   ${mediaMinWidth.md(css`
     grid-template-columns: 2fr 1fr;
   `)}
+
+  & > * {
+    min-width: 0;
+  }
 `;
 
 const StyledExerciseEditorResults = styled.div`

@@ -30,7 +30,8 @@ const Editor = forwardRef<HTMLDivElement, EditorProps>((props, ref) => {
   }, []);
 
   return (
-    <StyledEditor ref={ref} $maxHeight={$maxHeight}>
+
+    <StyledEditor ref={ref} $maxHeight={$maxHeight} data-testid="code-editor">
       {isLoaded && (
         <CodeMirror
           value={value}

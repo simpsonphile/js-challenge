@@ -48,7 +48,12 @@ export default function Modal(props: ModalProps): React.ReactElement {
 
   return (
     <Portal>
-      <StyledModal as={StyledShadow} $isVisible={isVisible}>
+      <StyledModal
+        aria-modal="true"
+        role="dialog"
+        as={StyledShadow}
+        $isVisible={isVisible}
+      >
         <StyledModalWrap>
           <StyledModalCloseBtn>
             <ButtonCircle aria-label="close modal" onClick={onClose}>
