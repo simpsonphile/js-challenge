@@ -3,7 +3,10 @@ const prod = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
   // reactStrictMode: true,
-  assetPrefix: prod ? 'https://simpsonphile.github.io/js-challenge/' : '',
+  assetPrefix: prod ? '/js-challenge/' : '',
+  env: {
+    BACKEND_URL: prod ? '/js-challenge' : '',
+  },
   compiler: {
     styledComponents: true,
   },
