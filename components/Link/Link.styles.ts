@@ -12,6 +12,7 @@ const StyledLink = styled.a<StyledLinkProps>`
   text-decoration: none;
 
   cursor: pointer;
+  color: inherit;
 
   &:hover {
     text-decoration: underline;
