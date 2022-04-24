@@ -1,27 +1,27 @@
 import React from 'react';
 
-import NextLink from 'next/link';
+import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 
 import { StyledLink, StyledLinkProps } from './Link.styles';
 
-type LinkProps = {
+type LinkProps = NextLinkProps & {
   href: string;
 } & React.DetailedHTMLProps<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
-> &
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  > &
   Omit<StyledLinkProps, 'isActive'>;
 
 export default function Link(props: LinkProps): React.ReactElement {
-  const { href, ref, ...rest } = props;
+  const { href, as, ref, ...rest } = props;
 
   const router = useRouter();
 
   const isActive = router.asPath === href;
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} as={as} passHref>
       <StyledLink isActive={isActive} {...rest} />
     </NextLink>
   );

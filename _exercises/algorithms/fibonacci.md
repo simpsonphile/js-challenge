@@ -10,8 +10,8 @@ function generateFibonacci(length) {\n\n
 "
 ---
 ```js
-generateFibonacci(10) === [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+generateFibonacci(10).toString() === [0, 1, 1, 2, 3, 5, 8, 13, 21, 34].toString()
 ```
 ```js
-generateFibonacci(20) === [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
+generateFibonacci(20).toString() === [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181].toString()
 ```
