@@ -31,10 +31,19 @@ export default function Accord(props: AccordProps): React.ReactElement {
       >
         <Headline $fs="lg">{title}</Headline>
 
-        <StyledAccordIcon data-icon={isActive ? '-' : '+'} />
+        <StyledAccordIcon
+          data-testid="accord-icon"
+          data-icon={isActive ? '-' : '+'}
+        />
       </Box>
 
-      <StyledAccordContent isActive={isActive}>{content}</StyledAccordContent>
+      <StyledAccordContent
+        aria-hidden={!isActive}
+        data-testid="accord-content"
+        isActive={isActive}
+      >
+        {content}
+      </StyledAccordContent>
     </div>
   );
 }
