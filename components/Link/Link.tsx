@@ -21,7 +21,7 @@ export default function Link(props: LinkProps): React.ReactElement {
   const isActive = router.asPath === href;
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} as={as} passHref>
       <StyledLink isActive={isActive} {...rest} />
     </NextLink>
   );
