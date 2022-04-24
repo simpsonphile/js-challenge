@@ -27,7 +27,7 @@ const Accords = forwardRef<AccordsHandle, AccordsProps>((props, ref) => {
 
   useImperativeHandle(ref, () => ({ turnOn }));
 
-  return <List gap="base" items={accordElements} />;
+  return <List data-testid="accords" gap="base" items={accordElements} />;
 });
 
 Accords.displayName = 'Accords';
