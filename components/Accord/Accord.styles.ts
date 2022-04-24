@@ -25,6 +25,7 @@ const StyledAccordIcon = styled.span<StyledAccordSharedProps>`
 `;
 
 const StyledAccordContent = styled.div<StyledAccordSharedProps>`
+  visibility: hidden;
   overflow: hidden;
 
   max-height: 0;
@@ -35,6 +36,7 @@ const StyledAccordContent = styled.div<StyledAccordSharedProps>`
   ${({ isActive }) =>
     isActive &&
     css`
+      visibility: visible;
       padding-top: ${({ theme }) => theme.spacing.base};
       max-height: 1000px;
     `}
