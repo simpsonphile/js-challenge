@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { screen } from '@testing-library/react';
-
-import { render } from 'tests/test-utils';
+import { render, screen } from 'tests/test-utils';
 
 import Accord from './Accord';
 
