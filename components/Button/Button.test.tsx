@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { fireEvent } from '@testing-library/react';
-
-import { render } from 'tests/test-utils';
+import { render, screen, userEvent } from 'tests/test-utils';
 
 import Button from './Button';
 
@@ -20,7 +18,7 @@ test('has set type="button" by default', () => {
 
   render(component);
 
-  const buttonElement = document.querySelector('button');
+  const buttonElement = screen.getByRole('button');
 
   expect(buttonElement).toHaveAttribute('type', 'button');
 });
@@ -31,12 +29,13 @@ test('emit onClick when clicked', () => {
 
   render(component);
 
-  const buttonElement = document.querySelector('button');
+  const buttonElement = screen.getByRole('button');
 
   if (buttonElement) {
-    fireEvent.click(buttonElement);
+    userEvent.click(buttonElement);
+    userEvent.click(buttonElement);
 
-    expect(handleOnClick).toBeCalledTimes(1);
+    expect(handleOnClick).toBeCalledTimes(2);
   }
 
   expect(buttonElement).toBeTruthy();
@@ -52,10 +51,10 @@ test('do not emit onClick when clicked and disabled', () => {
 
   render(component);
 
-  const buttonElement = document.querySelector('button');
+  const buttonElement = screen.getByRole('button');
 
   if (buttonElement) {
-    fireEvent.click(buttonElement);
+    userEvent.click(buttonElement);
 
     expect(handleOnClick).toBeCalledTimes(0);
   }
