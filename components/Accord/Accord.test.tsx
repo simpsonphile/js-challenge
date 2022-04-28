@@ -5,9 +5,7 @@ import { render, screen } from 'tests/test-utils';
 import Accord from './Accord';
 
 test('by default renders with content hidden and aria-hidden true', () => {
-  const component = <Accord title="accord" content="hello" />;
-
-  render(component);
+  render(<Accord title="accord" content="hello" />);
 
   const accordElement = screen.getByTestId('accord');
   const accordContent = screen.getByTestId('accord-content');
@@ -19,9 +17,7 @@ test('by default renders with content hidden and aria-hidden true', () => {
 });
 
 test('when isActive set to true content is visible and aria-hidden set to false', () => {
-  const component = <Accord title="accord" content="hello" isActive />;
-
-  render(component);
+  render(<Accord title="accord" content="hello" isActive />);
 
   const accordElement = screen.getByTestId('accord');
   const accordContent = screen.getByTestId('accord-content');

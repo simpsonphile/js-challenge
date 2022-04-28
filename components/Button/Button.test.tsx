@@ -6,17 +6,14 @@ import Button from './Button';
 
 test('renders string children if set', () => {
   const text = 'hello';
-  const component = <Button>{text}</Button>;
 
-  const { getByText } = render(component);
+  const { getByText } = render(<Button>{text}</Button>);
 
   expect(getByText(text)).toBeTruthy();
 });
 
 test('has set type="button" by default', () => {
-  const component = <Button>hello</Button>;
-
-  render(component);
+  render(<Button>hello</Button>);
 
   const buttonElement = screen.getByRole('button');
 
@@ -25,9 +22,8 @@ test('has set type="button" by default', () => {
 
 test('emit onClick when clicked', () => {
   const handleOnClick = jest.fn();
-  const component = <Button onClick={handleOnClick}>hello</Button>;
 
-  render(component);
+  render(<Button onClick={handleOnClick}>hello</Button>);
 
   const buttonElement = screen.getByRole('button');
 
@@ -43,13 +39,12 @@ test('emit onClick when clicked', () => {
 
 test('do not emit onClick when clicked and disabled', () => {
   const handleOnClick = jest.fn();
-  const component = (
+
+  render(
     <Button disabled onClick={handleOnClick}>
       hello
     </Button>
   );
-
-  render(component);
 
   const buttonElement = screen.getByRole('button');
 
