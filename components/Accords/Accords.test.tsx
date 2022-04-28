@@ -20,9 +20,7 @@ test('renders accords component where only active accords are visible', () => {
     },
   };
 
-  const component = <Accords items={items} defaultActive={['1']} />;
-
-  render(component);
+  render(<Accords items={items} defaultActive={['1']} />);
 
   const accordsElement = screen.getByTestId('accords');
 

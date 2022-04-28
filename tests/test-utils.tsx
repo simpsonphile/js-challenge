@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 
 import { render, RenderOptions } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import AppWrapper, { AppWrapperProps } from 'components/AppWrapper';
 
@@ -16,3 +17,4 @@ export * from '@testing-library/react';
 
 // override render method
 export { customRender as render };
+export { userEvent };
